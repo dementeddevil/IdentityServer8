@@ -5,19 +5,19 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using IdentityServer4.EntityFramework.Interfaces;
-using IdentityServer4.EntityFramework.Mappers;
-using IdentityServer4.Models;
-using IdentityServer4.Stores;
+using IdentityServer8.EntityFramework.Interfaces;
+using IdentityServer8.EntityFramework.Mappers;
+using IdentityServer8.Models;
+using IdentityServer8.Stores;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace IdentityServer4.EntityFramework.Stores
+namespace IdentityServer8.EntityFramework.Stores
 {
     /// <summary>
     /// Implementation of IClientStore thats uses EF.
     /// </summary>
-    /// <seealso cref="IdentityServer4.Stores.IClientStore" />
+    /// <seealso cref="IdentityServer8.Stores.IClientStore" />
     public class ClientStore : IClientStore
     {
         /// <summary>

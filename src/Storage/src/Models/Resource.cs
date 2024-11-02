@@ -5,7 +5,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace IdentityServer4.Models
+namespace IdentityServer8.Models
 {
     /// <summary>
     /// Models the common data of API and identity resources.

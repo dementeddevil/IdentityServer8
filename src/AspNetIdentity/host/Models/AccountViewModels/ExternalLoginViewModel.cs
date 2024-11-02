@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace IdentityServer4.Models.AccountViewModels
+namespace IdentityServer8.Models.AccountViewModels
 {
     public class ExternalLoginViewModel
     {

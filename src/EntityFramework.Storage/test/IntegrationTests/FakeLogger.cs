@@ -5,7 +5,7 @@
 using Microsoft.Extensions.Logging;
 using System;
 
-namespace IdentityServer4.EntityFramework.IntegrationTests
+namespace IdentityServer8.EntityFramework.IntegrationTests
 {
     public class FakeLogger<T> : FakeLogger, ILogger<T>
     {

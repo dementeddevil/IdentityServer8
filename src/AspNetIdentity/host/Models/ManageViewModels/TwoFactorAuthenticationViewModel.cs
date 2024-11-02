@@ -1,4 +1,4 @@
-﻿namespace IdentityServer4.Models.ManageViewModels
+﻿namespace IdentityServer8.Models.ManageViewModels
 {
     public class TwoFactorAuthenticationViewModel
     {

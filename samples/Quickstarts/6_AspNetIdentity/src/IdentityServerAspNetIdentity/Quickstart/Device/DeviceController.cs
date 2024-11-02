@@ -6,12 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using IdentityServer4.Configuration;
-using IdentityServer4.Events;
-using IdentityServer4.Extensions;
-using IdentityServer4.Models;
-using IdentityServer4.Services;
-using IdentityServer4.Validation;
+using IdentityServer8.Configuration;
+using IdentityServer8.Events;
+using IdentityServer8.Extensions;
+using IdentityServer8.Models;
+using IdentityServer8.Services;
+using IdentityServer8.Validation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -102,7 +102,7 @@ namespace IdentityServerHost.Quickstart.UI
                     var scopes = model.ScopesConsented;
                     if (ConsentOptions.EnableOfflineAccess == false)
                     {
-                        scopes = scopes.Where(x => x != IdentityServer4.IdentityServerConstants.StandardScopes.OfflineAccess);
+                        scopes = scopes.Where(x => x != IdentityServer8.IdentityServerConstants.StandardScopes.OfflineAccess);
                     }
 
                     grantedConsent = new ConsentResponse
@@ -184,7 +184,7 @@ namespace IdentityServerHost.Quickstart.UI
             }
             if (ConsentOptions.EnableOfflineAccess && request.ValidatedResources.Resources.OfflineAccess)
             {
-                apiScopes.Add(GetOfflineAccessScope(vm.ScopesConsented.Contains(IdentityServer4.IdentityServerConstants.StandardScopes.OfflineAccess) || model == null));
+                apiScopes.Add(GetOfflineAccessScope(vm.ScopesConsented.Contains(IdentityServer8.IdentityServerConstants.StandardScopes.OfflineAccess) || model == null));
             }
             vm.ApiScopes = apiScopes;
 
@@ -221,7 +221,7 @@ namespace IdentityServerHost.Quickstart.UI
         {
             return new ScopeViewModel
             {
-                Value = IdentityServer4.IdentityServerConstants.StandardScopes.OfflineAccess,
+                Value = IdentityServer8.IdentityServerConstants.StandardScopes.OfflineAccess,
                 DisplayName = ConsentOptions.OfflineAccessDisplayName,
                 Description = ConsentOptions.OfflineAccessDescription,
                 Emphasize = true,

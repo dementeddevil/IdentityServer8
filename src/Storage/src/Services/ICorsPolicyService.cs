@@ -4,7 +4,7 @@
 
 using System.Threading.Tasks;
 
-namespace IdentityServer4.Services
+namespace IdentityServer8.Services
 {
     /// <summary>
     /// Service that determines if CORS is allowed.

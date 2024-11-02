@@ -4,7 +4,7 @@
 
 using System;
 
-namespace IdentityServer4.Models
+namespace IdentityServer8.Models
 {
     /// <summary>
     /// A model for a persisted grant

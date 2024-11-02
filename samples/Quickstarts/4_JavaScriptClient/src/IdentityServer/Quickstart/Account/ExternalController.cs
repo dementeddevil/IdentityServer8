@@ -1,9 +1,9 @@
 using IdentityModel;
-using IdentityServer4;
-using IdentityServer4.Events;
-using IdentityServer4.Services;
-using IdentityServer4.Stores;
-using IdentityServer4.Test;
+using IdentityServer8;
+using IdentityServer8.Events;
+using IdentityServer8.Services;
+using IdentityServer8.Stores;
+using IdentityServer8.Test;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;

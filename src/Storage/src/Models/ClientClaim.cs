@@ -5,7 +5,7 @@
 using System;
 using System.Security.Claims;
 
-namespace IdentityServer4.Models
+namespace IdentityServer8.Models
 {
     /// <summary>
     /// A client claim

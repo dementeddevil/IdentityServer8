@@ -1,7 +1,7 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,7 +16,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
     <PackageReference Include="System.Security.Principal.Windows" />
     
-    <ProjectReference Include="..\src\IdentityServer4.AspNetIdentity.csproj" />
+    <ProjectReference Include="..\src\IdentityServer8.AspNetIdentity.csproj" />
   </ItemGroup>
 
 </Project>

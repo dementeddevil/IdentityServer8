@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using IdentityModel;
 
-namespace IdentityServer4.AspNetIdentity
+namespace IdentityServer8.AspNetIdentity
 {
     internal class UserClaimsFactory<TUser> : IUserClaimsPrincipalFactory<TUser>
         where TUser : class

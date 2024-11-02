@@ -3,7 +3,7 @@
 
 #pragma warning disable 1591
 
-namespace IdentityServer4.Models
+namespace IdentityServer8.Models
 {
     public static class GrantType
     {

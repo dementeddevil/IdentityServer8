@@ -5,7 +5,7 @@
 using System;
 using System.Linq;
 using IdentityModel;
-using IdentityServer4.KeyManagement.EntityFramework;
+using IdentityServer8.KeyManagement.EntityFramework;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Hosting;
@@ -53,7 +53,7 @@ namespace sample
                     options => // configuring options is optional :)
                     {
                         options.DeleteRetiredKeys = true;
-                        options.KeyType = IdentityServer4.KeyManagement.KeyType.RSA;
+                        options.KeyType = IdentityServer8.KeyManagement.KeyType.RSA;
 
                         // all of these values in here are changed for local testing
                         options.InitializationDuration = TimeSpan.FromSeconds(5);

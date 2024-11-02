@@ -3,13 +3,13 @@
 
 
 using IdentityModel;
-using IdentityServer4.Extensions;
+using IdentityServer8.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 
-namespace IdentityServer4
+namespace IdentityServer8
 {
     /// <summary>
     /// Model properties of an IdentityServer user

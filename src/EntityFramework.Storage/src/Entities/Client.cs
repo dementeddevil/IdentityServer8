@@ -4,11 +4,11 @@
 
 #pragma warning disable 1591
 
-using IdentityServer4.Models;
+using IdentityServer8.Models;
 using System;
 using System.Collections.Generic;
 
-namespace IdentityServer4.EntityFramework.Entities
+namespace IdentityServer8.EntityFramework.Entities
 {
     public class Client
     {
