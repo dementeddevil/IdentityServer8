@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29230.61
@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqlServer", "migrations\Sql
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{19FEB622-0912-4F5E-840F-827B4B9EF026}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer8.EntityFramework.Tests", "test\IdentityServer8.EntityFramework.Tests\IdentityServer4.EntityFramework.Tests.csproj", "{E3685B06-F135-4318-B841-889C35479D5C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer8.EntityFramework.Tests", "test\IdentityServer8.EntityFramework.Tests\IdentityServer8.EntityFramework.Tests.csproj", "{E3685B06-F135-4318-B841-889C35479D5C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

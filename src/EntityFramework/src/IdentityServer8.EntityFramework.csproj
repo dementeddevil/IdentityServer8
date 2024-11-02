@@ -1,18 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <PackageId>IdentityServer8.AspNetIdentity</PackageId>
-    <TargetFrameworks>net8.0</TargetFrameworks>
-    
-    <Description>ASP.NET Core Identity Integration for IdentityServer8</Description>
-    <Authors>Brock Allen;Dominick Baier</Authors>
-    <AssemblyName>IdentityServer8.AspNetIdentity</AssemblyName>
-    <PackageTags>OAuth2;OAuth 2.0;OpenID Connect;Security;Identity;IdentityServer;ASP.NET Identity</PackageTags>
+    <PackageId>IdentityServer8.EntityFramework</PackageId>
+    <TargetFrameworks>netcoreapp3.1</TargetFrameworks>
+
+    <Description>EntityFramework persistence layer for IdentityServer8</Description>
+    <Authors>Brock Allen;Dominick Baier;Scott Brady</Authors>
+    <AssemblyName>IdentityServer8.EntityFramework</AssemblyName>
+    <PackageTags>OAuth2;OAuth 2.0;OpenID Connect;Security;Identity;IdentityServer;EntityFramework</PackageTags>
     <PackageIcon>icon.jpg</PackageIcon>
     <PackageProjectUrl>https://github.com/IdentityServer/IdentityServer8</PackageProjectUrl>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageReleaseNotes>https://github.com/IdentityServer/IdentityServer8/releases</PackageReleaseNotes>
-
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
@@ -20,8 +21,6 @@
     <AssemblyOriginatorKeyFile>../../../key.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>
     <PublicSign Condition="'$(OS)' != 'Windows_NT'">true</PublicSign>
-
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -29,19 +28,14 @@
     <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">True</ContinuousIntegrationBuild>
   </PropertyGroup>
 
-
   <ItemGroup>
     <None Include="../../../icon.jpg" Pack="true" Visible="false" PackagePath="" />
   </ItemGroup>
 
   <ItemGroup>
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
-  </ItemGroup>
-    
-  <ItemGroup>
     <PackageReference Include="IdentityServer8" />
+    <PackageReference Include="IdentityServer8.EntityFramework.Storage" />
     
     <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" />
   </ItemGroup>
-
 </Project>
