@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using Microsoft.EntityFrameworkCore;
@@ -50,7 +51,7 @@ namespace IdentityServer8.EntityFramework.IntegrationTests
 
         protected IntegrationTest(DatabaseProviderFixture<TDbContext> fixture)
         {
-            fixture.Options = TestDatabaseProviders.SelectMany(x => x.Select(y => (DbContextOptions<TDbContext>)y)).ToList();
+            fixture.Options = ((IEnumerable<DbContextOptions<TDbContext>>) TestDatabaseProviders).ToList();
             fixture.StoreOptions = StoreOptions;
         }
     }
