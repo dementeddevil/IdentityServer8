@@ -4,6 +4,9 @@
 
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Text.Json.Serialization.Metadata;
 using System.Threading.Tasks;
 using FluentAssertions;
 using IdentityModel.Client;
@@ -121,5 +124,18 @@ namespace IdentityServer.IntegrationTests.Clients
         {
             return response.Json.ToObject<Dictionary<string, object>>();
         }
+    }
+}
+
+public static class JsonElementExtensions
+{
+    public static TObject ToObject<TObject>(this JsonElement? element)
+    {
+        if (element == null)
+        {
+            return default(TObject);
+        }
+
+        return JsonSerializer.Deserialize<TObject>(element.ToString(), new JsonSerializerOptions());
     }
 }

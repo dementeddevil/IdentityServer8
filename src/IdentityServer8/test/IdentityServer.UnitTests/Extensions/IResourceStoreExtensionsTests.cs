@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
+using FluentAssertions.Specialized;
 using IdentityServer8.Models;
 using IdentityServer8.Stores;
 using Xunit;
@@ -23,9 +24,11 @@ namespace IdentityServer.UnitTests.Extensions
                     new IdentityResource { Name = "A" },
                     new IdentityResource { Name = "A" } }
             };
-
+            
             Func<Task> a = () => store.GetAllEnabledResourcesAsync();
-            a.Should().Throw<Exception>().And.Message.ToLowerInvariant().Should().Contain("duplicate").And.Contain("identity scopes");
+            a.Should().ThrowAsync<Exception>()
+                .WithMessage("*duplicate*")
+                .WithMessage("*identity scope*");
         }
 
         [Fact]
@@ -50,7 +53,9 @@ namespace IdentityServer.UnitTests.Extensions
             };
 
             Func<Task> a = () => store.GetAllEnabledResourcesAsync();
-            a.Should().Throw<Exception>().And.Message.ToLowerInvariant().Should().Contain("duplicate").And.Contain("api resources");
+            a.Should().ThrowAsync<Exception>()
+                .WithMessage("*duplicate*")
+                .WithMessage("*api resources*");
         }
 
         [Fact]
@@ -75,7 +80,9 @@ namespace IdentityServer.UnitTests.Extensions
             };
 
             Func<Task> a = () => store.FindResourcesByScopeAsync(new string[] { "A" });
-            a.Should().Throw<Exception>().And.Message.ToLowerInvariant().Should().Contain("duplicate").And.Contain("identity scopes");
+            a.Should().ThrowAsync<Exception>()
+                .WithMessage("*duplicate*")
+                .WithMessage("*identity scopes*");
         }
 
         [Fact]

@@ -14,9 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.Certificate" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Certificate" Version="8.0.10" />
     
-    <PackageReference Include="Serilog.AspNetCore" Version="3.2.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.3" />
 
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" />
     <!--<PackageReference Include="IdentityServer8.EntityFramework" />-->
