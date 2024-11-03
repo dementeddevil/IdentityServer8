@@ -1,17 +1,13 @@
-﻿using FluentAssertions;
+using System.Security.Claims;
+using FluentAssertions;
+using IdentityModel;
 using IdentityServer8.EntityFramework.DbContexts;
+using IdentityServer8.EntityFramework.Entities;
 using IdentityServer8.EntityFramework.Options;
 using IdentityServer8.EntityFramework.Stores;
 using IdentityServer8.Models;
 using IdentityServer8.Stores.Serialization;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using IdentityModel;
-using IdentityServer8.EntityFramework.Entities;
 using Microsoft.EntityFrameworkCore.InMemory.Infrastructure.Internal;
 using Xunit;
 
@@ -23,7 +19,7 @@ namespace IdentityServer8.EntityFramework.IntegrationTests.Stores
 
         public DeviceFlowStoreTests(DatabaseProviderFixture<PersistedGrantDbContext> fixture) : base(fixture)
         {
-            foreach (var options in TestDatabaseProviders.SelectMany(x => x.Select(y => (DbContextOptions<PersistedGrantDbContext>)y)).ToList())
+            foreach (var options in ((IEnumerable<DbContextOptions<PersistedGrantDbContext>>) TestDatabaseProviders).ToList())
             {
                 using (var context = new PersistedGrantDbContext(options, StoreOptions))
                     context.Database.EnsureCreated();
@@ -83,7 +79,7 @@ namespace IdentityServer8.EntityFramework.IntegrationTests.Stores
                 foundDeviceFlowCodes.Should().NotBeNull();
                 var deserializedData = new PersistentGrantSerializer().Deserialize<DeviceCode>(foundDeviceFlowCodes?.Data);
 
-                deserializedData.CreationTime.Should().BeCloseTo(data.CreationTime);
+                deserializedData.CreationTime.Should().BeCloseTo(data.CreationTime, TimeSpan.FromMilliseconds(100));
                 deserializedData.ClientId.Should().Be(data.ClientId);
                 deserializedData.Lifetime.Should().Be(data.Lifetime);
             }
@@ -213,9 +209,9 @@ namespace IdentityServer8.EntityFramework.IntegrationTests.Stores
                 var store = new DeviceFlowStore(context, new PersistentGrantSerializer(), FakeLogger<DeviceFlowStore>.Create());
                 code = await store.FindByUserCodeAsync(testUserCode);
             }
-            
-            code.Should().BeEquivalentTo(expectedDeviceCodeData, 
-                assertionOptions => assertionOptions.Excluding(x=> x.Subject));
+
+            code.Should().BeEquivalentTo(expectedDeviceCodeData,
+                assertionOptions => assertionOptions.Excluding(x => x.Subject));
 
             code.Subject.Claims.FirstOrDefault(x => x.Type == JwtClaimTypes.Subject && x.Value == expectedSubject).Should().NotBeNull();
         }
@@ -297,7 +293,7 @@ namespace IdentityServer8.EntityFramework.IntegrationTests.Stores
             var unauthorizedDeviceCode = new DeviceCode
             {
                 ClientId = "device_flow",
-                RequestedScopes = new[] {"openid", "api1"},
+                RequestedScopes = new[] { "openid", "api1" },
                 CreationTime = new DateTime(2018, 10, 19, 16, 14, 29),
                 Lifetime = 300,
                 IsOpenId = true
@@ -381,13 +377,13 @@ namespace IdentityServer8.EntityFramework.IntegrationTests.Stores
                 });
                 context.SaveChanges();
             }
-            
+
             using (var context = new PersistedGrantDbContext(options, StoreOptions))
             {
                 var store = new DeviceFlowStore(context, new PersistentGrantSerializer(), FakeLogger<DeviceFlowStore>.Create());
                 await store.RemoveByDeviceCodeAsync(testDeviceCode);
             }
-            
+
             using (var context = new PersistedGrantDbContext(options, StoreOptions))
             {
                 context.DeviceFlowCodes.FirstOrDefault(x => x.UserCode == testUserCode).Should().BeNull();

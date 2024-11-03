@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -23,14 +23,16 @@ namespace IdentityServer8.EntityFramework.IntegrationTests.Stores
     {
         public PersistedGrantStoreTests(DatabaseProviderFixture<PersistedGrantDbContext> fixture) : base(fixture)
         {
-            foreach (var options in TestDatabaseProviders.SelectMany(x => x.Select(y => (DbContextOptions<PersistedGrantDbContext>)y)).ToList())
+            foreach (var options in TestDatabaseProviders)
             {
                 using (var context = new PersistedGrantDbContext(options, StoreOptions))
+                {
                     context.Database.EnsureCreated();
+                }
             }
         }
 
-        private static PersistedGrant CreateTestObject(string sub = null, string clientId = null, string sid = null, string type = null)
+        private static PersistedGrant CreateTestObject(string? sub = null, string? clientId = null, string? sid = null, string? type = null)
         {
             return new PersistedGrant
             {

@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -15,10 +15,12 @@ namespace IdentityServer8.EntityFramework.IntegrationTests.DbContexts
     {
         public ClientDbContextTests(DatabaseProviderFixture<ConfigurationDbContext> fixture) : base(fixture)
         {
-            foreach (var options in TestDatabaseProviders.SelectMany(x => x.Select(y => (DbContextOptions<ConfigurationDbContext>)y)).ToList())
+            foreach (var options in TestDatabaseProviders)
             {
                 using (var context = new ConfigurationDbContext(options, StoreOptions))
+                {
                     context.Database.EnsureCreated();
+                }
             }
         }
 

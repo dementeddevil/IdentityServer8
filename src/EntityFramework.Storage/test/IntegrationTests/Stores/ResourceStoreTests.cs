@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -21,7 +21,7 @@ namespace IdentityServer8.EntityFramework.IntegrationTests.Stores
     {
         public ScopeStoreTests(DatabaseProviderFixture<ConfigurationDbContext> fixture) : base(fixture)
         {
-            foreach (var options in TestDatabaseProviders.SelectMany(x => x.Select(y => (DbContextOptions<ConfigurationDbContext>)y)).ToList())
+            foreach (var options in ((IEnumerable<DbContextOptions<ConfigurationDbContext>>) TestDatabaseProviders).ToList())
             {
                 using (var context = new ConfigurationDbContext(options, StoreOptions))
                     context.Database.EnsureCreated();
@@ -36,7 +36,7 @@ namespace IdentityServer8.EntityFramework.IntegrationTests.Stores
                 DisplayName = Guid.NewGuid().ToString(),
                 Description = Guid.NewGuid().ToString(),
                 ShowInDiscoveryDocument = true,
-                UserClaims = 
+                UserClaims =
                 {
                     JwtClaimTypes.Subject,
                     JwtClaimTypes.Name,
@@ -58,7 +58,7 @@ namespace IdentityServer8.EntityFramework.IntegrationTests.Stores
                 }
             };
         }
-        
+
         private static ApiScope CreateApiScopeTestResource()
         {
             return new ApiScope()
@@ -345,7 +345,7 @@ namespace IdentityServer8.EntityFramework.IntegrationTests.Stores
                 context.IdentityResources.Add(hiddenIdentityResource.ToEntity());
                 context.ApiResources.Add(hiddenApiResource.ToEntity());
                 context.ApiScopes.Add(hiddenApiScope.ToEntity());
-                
+
                 context.SaveChanges();
             }
 

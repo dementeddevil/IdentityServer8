@@ -1,7 +1,3 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using FluentAssertions;
 using IdentityServer8.EntityFramework.DbContexts;
 using IdentityServer8.EntityFramework.Entities;
@@ -22,7 +18,7 @@ namespace IdentityServer8.EntityFramework.IntegrationTests.TokenCleanup
 
         public TokenCleanupTests(DatabaseProviderFixture<PersistedGrantDbContext> fixture) : base(fixture)
         {
-            foreach (var options in TestDatabaseProviders.SelectMany(x => x.Select(y => (DbContextOptions<PersistedGrantDbContext>)y)).ToList())
+            foreach (var options in ((IEnumerable<DbContextOptions<PersistedGrantDbContext>>)TestDatabaseProviders).ToList())
             {
                 using (var context = new PersistedGrantDbContext(options, StoreOptions))
                 {
