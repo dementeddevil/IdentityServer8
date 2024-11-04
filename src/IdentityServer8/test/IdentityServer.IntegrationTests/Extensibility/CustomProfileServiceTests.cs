@@ -1,7 +1,6 @@
 ﻿using System.Net;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
 using FluentAssertions;
 using IdentityModel;
 using IdentityServer.IntegrationTests.Common;

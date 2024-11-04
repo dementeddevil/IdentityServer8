@@ -1,5 +1,3 @@
-using System;
-using System.Threading.Tasks;
 using IdentityServer8.Configuration;
 using IdentityServer8.Extensions;
 using Microsoft.AspNetCore.Authentication;

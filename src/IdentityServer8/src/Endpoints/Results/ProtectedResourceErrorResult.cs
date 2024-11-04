@@ -2,7 +2,6 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using System.Threading.Tasks;
 using IdentityServer8.Extensions;
 using Microsoft.Extensions.Primitives;
 using IdentityServer8.Hosting;

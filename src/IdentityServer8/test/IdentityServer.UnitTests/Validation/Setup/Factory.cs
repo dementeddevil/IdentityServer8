@@ -2,10 +2,6 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
 using IdentityServer.UnitTests.Common;
 using IdentityServer8.Configuration;
 using IdentityServer8.Models;
@@ -27,18 +23,18 @@ namespace IdentityServer.UnitTests.Validation.Setup
         }
 
         public static TokenRequestValidator CreateTokenRequestValidator(
-            IdentityServerOptions options = null,
-            IResourceStore resourceStore = null,
-            IAuthorizationCodeStore authorizationCodeStore = null,
-            IRefreshTokenStore refreshTokenStore = null,
-            IResourceOwnerPasswordValidator resourceOwnerValidator = null,
-            IProfileService profile = null,
-            IDeviceCodeValidator deviceCodeValidator = null,
-            IEnumerable<IExtensionGrantValidator> extensionGrantValidators = null,
-            ICustomTokenRequestValidator customRequestValidator = null,
-            ITokenValidator tokenValidator = null,
-            IRefreshTokenService refreshTokenService = null,
-            IResourceValidator resourceValidator = null)
+            IdentityServerOptions? options = null,
+            IResourceStore? resourceStore = null,
+            IAuthorizationCodeStore? authorizationCodeStore = null,
+            IRefreshTokenStore? refreshTokenStore = null,
+            IResourceOwnerPasswordValidator? resourceOwnerValidator = null,
+            IProfileService? profile = null,
+            IDeviceCodeValidator? deviceCodeValidator = null,
+            IEnumerable<IExtensionGrantValidator>? extensionGrantValidators = null,
+            ICustomTokenRequestValidator? customRequestValidator = null,
+            ITokenValidator? tokenValidator = null,
+            IRefreshTokenService? refreshTokenService = null,
+            IResourceValidator? resourceValidator = null)
         {
             if (options == null)
             {
@@ -135,13 +131,13 @@ namespace IdentityServer.UnitTests.Validation.Setup
             return service;
         }
 
-        internal static IResourceValidator CreateResourceValidator(IResourceStore store = null)
+        internal static IResourceValidator CreateResourceValidator(IResourceStore? store = null)
         {
             store = store ?? new InMemoryResourcesStore(TestScopes.GetIdentity(), TestScopes.GetApis(), TestScopes.GetScopes());
             return new DefaultResourceValidator(store, new DefaultScopeParser(TestLogger.Create<DefaultScopeParser>()), TestLogger.Create<DefaultResourceValidator>());
         }
 
-        internal static ITokenCreationService CreateDefaultTokenCreator(IdentityServerOptions options = null)
+        internal static ITokenCreationService CreateDefaultTokenCreator(IdentityServerOptions? options = null)
         {
             return new DefaultTokenCreationService(
                 new StubClock(),
@@ -152,9 +148,9 @@ namespace IdentityServer.UnitTests.Validation.Setup
         }
 
         public static DeviceAuthorizationRequestValidator CreateDeviceAuthorizationRequestValidator(
-            IdentityServerOptions options = null,
-            IResourceStore resourceStore = null,
-            IResourceValidator resourceValidator = null)
+            IdentityServerOptions? options = null,
+            IResourceStore? resourceStore = null,
+            IResourceValidator? resourceValidator = null)
         {
             if (options == null)
             {
@@ -179,15 +175,15 @@ namespace IdentityServer.UnitTests.Validation.Setup
         }
 
         public static AuthorizeRequestValidator CreateAuthorizeRequestValidator(
-            IdentityServerOptions options = null,
-            IResourceStore resourceStore = null,
-            IClientStore clients = null,
-            IProfileService profile = null,
-            ICustomAuthorizeRequestValidator customValidator = null,
-            IRedirectUriValidator uriValidator = null,
-            IResourceValidator resourceValidator = null,
-            JwtRequestValidator jwtRequestValidator = null,
-            IJwtRequestUriHttpClient jwtRequestUriHttpClient = null)
+            IdentityServerOptions? options = null,
+            IResourceStore? resourceStore = null,
+            IClientStore? clients = null,
+            IProfileService? profile = null,
+            ICustomAuthorizeRequestValidator? customValidator = null,
+            IRedirectUriValidator? uriValidator = null,
+            IResourceValidator? resourceValidator = null,
+            JwtRequestValidator? jwtRequestValidator = null,
+            IJwtRequestUriHttpClient? jwtRequestUriHttpClient = null)
         {
             if (options == null)
             {
@@ -245,10 +241,11 @@ namespace IdentityServer.UnitTests.Validation.Setup
         }
 
         public static TokenValidator CreateTokenValidator(
-            IReferenceTokenStore store = null, 
-            IRefreshTokenStore refreshTokenStore = null,
-            IProfileService profile = null, 
-            IdentityServerOptions options = null, ISystemClock clock = null)
+            IReferenceTokenStore? store = null, 
+            IRefreshTokenStore? refreshTokenStore = null,
+            IProfileService? profile = null, 
+            IdentityServerOptions? options = null,
+            ISystemClock? clock = null)
         {
             if (options == null)
             {
@@ -299,9 +296,9 @@ namespace IdentityServer.UnitTests.Validation.Setup
 
         public static IDeviceCodeValidator CreateDeviceCodeValidator(
             IDeviceFlowCodeService service,
-            IProfileService profile = null,
-            IDeviceFlowThrottlingService throttlingService = null,
-            ISystemClock clock = null)
+            IProfileService? profile = null,
+            IDeviceFlowThrottlingService? throttlingService = null,
+            ISystemClock clock? = null)
         {
             profile = profile ?? new TestProfileService();
             throttlingService = throttlingService ?? new TestDeviceFlowThrottlingService();
@@ -312,7 +309,11 @@ namespace IdentityServer.UnitTests.Validation.Setup
             return validator;
         }
 
-        public static IClientSecretValidator CreateClientSecretValidator(IClientStore clients = null, SecretParser parser = null, SecretValidator validator = null, IdentityServerOptions options = null)
+        public static IClientSecretValidator CreateClientSecretValidator(
+            IClientStore? clients = null,
+            SecretParser? parser = null,
+            SecretValidator? validator = null,
+            IdentityServerOptions? options = null)
         {
             options = options ?? TestIdentityServerOptions.Create();
 

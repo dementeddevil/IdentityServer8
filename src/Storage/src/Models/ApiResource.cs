@@ -2,10 +2,8 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer8.Extensions;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
+using IdentityServer8.Extensions;
 
 namespace IdentityServer8.Models
 {
@@ -60,7 +58,7 @@ namespace IdentityServer8.Models
         /// <param name="displayName">The display name.</param>
         /// <param name="userClaims">List of associated user claims that should be included when this resource is requested.</param>
         /// <exception cref="System.ArgumentNullException">name</exception>
-        public ApiResource(string name, string displayName, IEnumerable<string> userClaims)
+        public ApiResource(string name, string displayName, IEnumerable<string>? userClaims)
         {
             if (name.IsMissing()) throw new ArgumentNullException(nameof(name));
 

@@ -2,11 +2,8 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using System;
 using IdentityServer8.Models;
 using Microsoft.Extensions.Logging;
-using System.Net.Http;
-using System.Threading.Tasks;
 using IdentityModel;
 using IdentityServer8.Configuration;
 

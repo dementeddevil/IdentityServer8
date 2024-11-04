@@ -2,10 +2,8 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer8.Extensions;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
+using IdentityServer8.Extensions;
 
 namespace IdentityServer8.Models
 {

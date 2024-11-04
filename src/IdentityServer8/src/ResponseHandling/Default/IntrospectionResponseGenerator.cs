@@ -8,9 +8,6 @@ using IdentityServer8.Extensions;
 using IdentityServer8.Services;
 using IdentityServer8.Validation;
 using Microsoft.Extensions.Logging;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace IdentityServer8.ResponseHandling
 {

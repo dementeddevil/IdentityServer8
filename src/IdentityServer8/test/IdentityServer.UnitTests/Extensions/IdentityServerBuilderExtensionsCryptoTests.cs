@@ -2,12 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Security.Cryptography;
-using System.Text;
-using System.Text.Json;
 using IdentityServer8;
 using IdentityServer8.Configuration;
 using Microsoft.Extensions.DependencyInjection;

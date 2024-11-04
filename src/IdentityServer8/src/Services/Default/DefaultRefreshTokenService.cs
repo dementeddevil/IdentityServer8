@@ -7,9 +7,7 @@ using IdentityServer8.Models;
 using IdentityServer8.Stores;
 using Microsoft.Extensions.Logging;
 using System.Security.Claims;
-using System.Threading.Tasks;
 using IdentityModel;
-using IdentityServer8.Logging.Models;
 using IdentityServer8.Validation;
 using Microsoft.AspNetCore.Authentication;
 

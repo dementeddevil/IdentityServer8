@@ -1,7 +1,5 @@
 ﻿using IdentityServer8.Models;
 using IdentityServer8.Stores;
-using System;
-using System.Collections.Generic;
 using Xunit;
 using FluentAssertions;
 

@@ -2,9 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using System.Collections.Generic;
 using System.Security.Claims;
-using System;
 using IdentityServer8.Validation;
 
 namespace IdentityServer8.Models

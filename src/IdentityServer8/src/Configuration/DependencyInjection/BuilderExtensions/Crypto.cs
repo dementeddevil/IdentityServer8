@@ -2,16 +2,13 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using System.Security.Cryptography.X509Certificates;
 using IdentityServer8;
 using IdentityServer8.Configuration;
 using IdentityServer8.Models;
 using IdentityServer8.Stores;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
-using System;
-using System.IO;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using JsonWebKey = Microsoft.IdentityModel.Tokens.JsonWebKey;
 
 namespace Microsoft.Extensions.DependencyInjection

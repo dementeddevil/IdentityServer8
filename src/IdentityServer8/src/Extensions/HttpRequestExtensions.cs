@@ -2,9 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using System;
 using Microsoft.AspNetCore.Http;
-using System.Linq;
 using Microsoft.Net.Http.Headers;
 
 #pragma warning disable 1591

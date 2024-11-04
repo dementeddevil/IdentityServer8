@@ -1,4 +1,3 @@
-using System;
 using IdentityServer8.Models;
 using Microsoft.AspNetCore.Mvc;
 

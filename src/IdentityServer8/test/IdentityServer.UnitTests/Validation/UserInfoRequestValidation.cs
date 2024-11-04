@@ -7,9 +7,7 @@ using IdentityModel;
 using IdentityServer.UnitTests.Validation.Setup;
 using IdentityServer8.Stores;
 using IdentityServer8.Validation;
-using System.Collections.Generic;
 using System.Security.Claims;
-using System.Threading.Tasks;
 using IdentityServer.UnitTests.Common;
 using Xunit;
 

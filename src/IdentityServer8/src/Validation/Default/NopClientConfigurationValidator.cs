@@ -1,5 +1,3 @@
-using System.Threading.Tasks;
-
 namespace IdentityServer8.Validation
 {
     /// <summary>

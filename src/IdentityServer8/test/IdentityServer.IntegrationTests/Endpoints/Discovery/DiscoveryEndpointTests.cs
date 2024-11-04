@@ -11,8 +11,6 @@ using IdentityServer8.Models;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json.Linq;
-using System.Linq;
-using System.Threading.Tasks;
 using Xunit;
 using JsonWebKey = Microsoft.IdentityModel.Tokens.JsonWebKey;
 

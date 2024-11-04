@@ -1,7 +1,5 @@
 ﻿using IdentityModel;
 using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;

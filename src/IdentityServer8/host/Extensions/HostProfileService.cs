@@ -1,9 +1,6 @@
-using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
 using IdentityServer8.Models;
 using IdentityServer8.Test;
-using Microsoft.Extensions.Logging;
 
 namespace IdentityServerHost.Extensions
 {

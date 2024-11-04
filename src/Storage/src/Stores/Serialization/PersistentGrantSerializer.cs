@@ -41,7 +41,7 @@ namespace IdentityServer8.Stores.Serialization
         /// <typeparam name="T"></typeparam>
         /// <param name="json">The json.</param>
         /// <returns></returns>
-        public T Deserialize<T>(string json)
+        public T? Deserialize<T>(string json)
         {
             return JsonConvert.DeserializeObject<T>(json, _settings);
         }

@@ -10,11 +10,7 @@ using IdentityServer8.Stores;
 using IdentityServer8.Validation;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
-using System.Threading.Tasks;
 
 namespace IdentityServer8.ResponseHandling
 {

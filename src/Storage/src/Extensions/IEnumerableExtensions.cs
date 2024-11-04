@@ -2,9 +2,8 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
+using System.Diagnostics.CodeAnalysis;
 
 #pragma warning disable 1591
 
@@ -13,7 +12,7 @@ namespace IdentityServer8.Extensions
     internal static class IEnumerableExtensions
     {
         [DebuggerStepThrough]
-        public static bool IsNullOrEmpty<T>(this IEnumerable<T> list)
+        public static bool IsNullOrEmpty<T>([NotNullWhen(false)] this IEnumerable<T>? list)
         {
             if (list == null)
             {

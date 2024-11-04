@@ -8,9 +8,6 @@ using IdentityServer8.Models;
 using IdentityServer8.Services;
 using IdentityServer8.Validation;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 
 namespace IdentityServer8.ResponseHandling

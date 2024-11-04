@@ -1,6 +1,4 @@
 ﻿using IdentityServer8.Validation;
-using Microsoft.Extensions.Logging;
-using System;
 
 namespace IdentityServerHost.Extensions
 {

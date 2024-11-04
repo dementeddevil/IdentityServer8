@@ -1,11 +1,8 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using System;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Threading.Tasks;
 using FluentAssertions;
 using IdentityModel;
 using IdentityServer.UnitTests.Common;
@@ -24,18 +21,18 @@ namespace IdentityServer.UnitTests.Validation
         private IClientStore _clients = Factory.CreateClientStore();
         private IdentityServerOptions _options = new IdentityServerOptions();
         private StubClock _clock = new StubClock();
+        private DateTime _now;
 
         static AccessTokenValidation()
         {
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
         }
 
-        private DateTime now;
         public DateTime UtcNow
         {
             get
             {
-                if (now > DateTime.MinValue) return now;
+                if (_now > DateTime.MinValue) return _now;
                 return DateTime.UtcNow;
             }
         }
@@ -126,17 +123,17 @@ namespace IdentityServer.UnitTests.Validation
         [Trait("Category", Category)]
         public async Task Expired_Reference_Token()
         {
-            now = DateTime.UtcNow;
+            _now = DateTime.UtcNow;
 
             var store = Factory.CreateReferenceTokenStore();
             var validator = Factory.CreateTokenValidator(store, clock:_clock);
 
             var token = TokenFactory.CreateAccessToken(new Client { ClientId = "roclient" }, "valid", 2, "read", "write");
-            token.CreationTime = now;
+            token.CreationTime = _now;
 
             var handle = await store.StoreReferenceTokenAsync(token);
 
-            now = now.AddSeconds(3);
+            _now = _now.AddSeconds(3);
 
             var result = await validator.ValidateAccessTokenAsync(handle);
 

@@ -3,7 +3,6 @@
 
 
 using IdentityServer8.Stores;
-using System;
 
 namespace IdentityServer8.Extensions
 {
@@ -16,7 +15,7 @@ namespace IdentityServer8.Extensions
         /// Validates the PersistedGrantFilter and throws if invalid.
         /// </summary>
         /// <param name="filter"></param>
-        public static void Validate(this PersistedGrantFilter filter)
+        public static void Validate(this PersistedGrantFilter? filter)
         {
             if (filter == null) throw new ArgumentNullException(nameof(filter));
 

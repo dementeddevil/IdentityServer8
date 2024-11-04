@@ -2,16 +2,13 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer8.Models;
-using Microsoft.AspNetCore.Http;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using IdentityServer8.Extensions;
 using System.Security.Claims;
-using IdentityServer8.Services;
 using IdentityModel;
-using System;
+using IdentityServer8.Extensions;
+using IdentityServer8.Models;
+using IdentityServer8.Services;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Http;
 
 namespace IdentityServer8
 {

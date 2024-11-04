@@ -12,8 +12,6 @@ using IdentityServer8.Services;
 using IdentityServer8.Validation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace IdentityServer8.Endpoints
 {

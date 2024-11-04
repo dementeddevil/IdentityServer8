@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using IdentityServer8.Validation;
 
 namespace IdentityServer.UnitTests.Validation.Setup

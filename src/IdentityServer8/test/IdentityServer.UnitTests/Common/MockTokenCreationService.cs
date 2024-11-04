@@ -1,6 +1,5 @@
 ﻿using IdentityServer8.Models;
 using IdentityServer8.Services;
-using System.Threading.Tasks;
 
 namespace IdentityServer.UnitTests.Common
 {

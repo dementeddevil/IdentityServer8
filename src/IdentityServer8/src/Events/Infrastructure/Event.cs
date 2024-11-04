@@ -4,8 +4,6 @@
 
 using IdentityServer8.Extensions;
 using IdentityServer8.Logging;
-using System;
-using System.Threading.Tasks;
 
 namespace IdentityServer8.Events
 {

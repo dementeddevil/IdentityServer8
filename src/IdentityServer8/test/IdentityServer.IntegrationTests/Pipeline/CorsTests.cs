@@ -2,11 +2,8 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using System.Collections.Generic;
 using System.Net;
-using System.Net.Http;
 using System.Security.Claims;
-using System.Threading.Tasks;
 using FluentAssertions;
 using IdentityServer.IntegrationTests.Common;
 using IdentityServer8.Models;

@@ -2,8 +2,6 @@
 using IdentityServer8.Stores;
 using Xunit;
 using FluentAssertions;
-using System.Threading.Tasks;
-using System.Linq;
 
 namespace IdentityServer.UnitTests.Stores
 {

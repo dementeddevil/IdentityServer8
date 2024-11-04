@@ -7,8 +7,6 @@ using IdentityServer8.Models;
 using IdentityServer8.Services;
 using IdentityServer8.Stores.Serialization;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Threading.Tasks;
 
 namespace IdentityServer8.Stores
 {

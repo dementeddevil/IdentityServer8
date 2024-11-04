@@ -6,8 +6,6 @@ using IdentityServer8;
 using IdentityServer8.Configuration;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.Http
 {

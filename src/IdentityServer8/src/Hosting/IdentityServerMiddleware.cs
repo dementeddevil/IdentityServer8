@@ -7,8 +7,6 @@ using IdentityServer8.Extensions;
 using IdentityServer8.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Threading.Tasks;
 
 namespace IdentityServer8.Hosting
 {

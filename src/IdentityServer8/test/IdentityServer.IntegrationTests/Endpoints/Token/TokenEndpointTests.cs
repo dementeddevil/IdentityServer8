@@ -2,11 +2,8 @@
 using IdentityServer8.Models;
 using IdentityServer8.Test;
 using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
 using System.Net;
-using System.Net.Http;
 using System.Security.Claims;
-using System.Threading.Tasks;
 using IdentityServer.IntegrationTests.Common;
 using Xunit;
 

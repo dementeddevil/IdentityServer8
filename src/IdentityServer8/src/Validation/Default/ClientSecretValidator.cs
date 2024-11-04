@@ -3,7 +3,6 @@
 
 
 using IdentityServer8.Services;
-using System.Threading.Tasks;
 using IdentityServer8.Events;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Http;

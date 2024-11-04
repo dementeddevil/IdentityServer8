@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using IdentityServer8.Models;
+﻿using IdentityServer8.Models;
 using IdentityServer8.Test;
 using Microsoft.Extensions.Logging;
 

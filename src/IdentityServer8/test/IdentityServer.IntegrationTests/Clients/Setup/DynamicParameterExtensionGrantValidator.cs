@@ -3,7 +3,6 @@
 
 
 using System.Security.Claims;
-using System.Threading.Tasks;
 using IdentityServer8.Models;
 using IdentityServer8.Validation;
 

@@ -3,7 +3,6 @@
 
 
 using System.IdentityModel.Tokens.Jwt;
-using System.Threading.Tasks;
 using FluentAssertions;
 using IdentityModel;
 using IdentityServer.UnitTests.Validation.Setup;

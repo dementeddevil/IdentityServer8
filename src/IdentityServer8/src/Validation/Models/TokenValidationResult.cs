@@ -3,7 +3,6 @@
 
 
 using IdentityServer8.Models;
-using System.Collections.Generic;
 using System.Security.Claims;
 
 namespace IdentityServer8.Validation

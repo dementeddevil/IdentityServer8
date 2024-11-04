@@ -6,8 +6,6 @@ using FluentAssertions;
 using IdentityServer8.Configuration;
 using IdentityServer8.Models;
 using IdentityServer8.Validation;
-using System;
-using System.Threading.Tasks;
 using IdentityServer.UnitTests.Validation.Setup;
 using Xunit;
 

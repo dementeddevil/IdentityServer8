@@ -2,7 +2,6 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using System.IO;
 using System.Text;
 using FluentAssertions;
 using IdentityServer.UnitTests.Common;

@@ -4,9 +4,7 @@
 
 using IdentityServer8.Models;
 using IdentityServer8.Validation;
-using System.Collections.Generic;
 using System.Security.Claims;
-using System.Threading.Tasks;
 
 namespace IdentityServer8.Services
 {

@@ -4,9 +4,7 @@
 
 using IdentityModel;
 using IdentityServer8.Extensions;
-using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 

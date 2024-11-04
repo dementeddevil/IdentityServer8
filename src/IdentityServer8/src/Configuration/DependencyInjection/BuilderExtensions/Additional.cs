@@ -2,15 +2,13 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using IdentityServer8;
+using IdentityServer8.Configuration;
 using IdentityServer8.ResponseHandling;
 using IdentityServer8.Services;
 using IdentityServer8.Stores;
 using IdentityServer8.Validation;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using System;
-using System.Net.Http;
-using IdentityServer8;
-using IdentityServer8.Configuration;
 using Microsoft.Extensions.Logging;
 
 namespace Microsoft.Extensions.DependencyInjection

@@ -2,11 +2,9 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using System.Security.Claims;
 using IdentityModel;
 using Newtonsoft.Json;
-using System;
-using System.Linq;
-using System.Security.Claims;
 
 #pragma warning disable 1591
 
@@ -19,7 +17,7 @@ namespace IdentityServer8.Stores.Serialization
             return typeof(ClaimsPrincipal) == objectType;
         }
 
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override object? ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
             var source = serializer.Deserialize<ClaimsPrincipalLite>(reader);
             if (source == null) return null;

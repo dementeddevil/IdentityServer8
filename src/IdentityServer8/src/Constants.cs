@@ -4,8 +4,6 @@
 
 using IdentityModel;
 using IdentityServer8.Models;
-using System;
-using System.Collections.Generic;
 
 namespace IdentityServer8
 {
@@ -243,8 +241,6 @@ namespace IdentityServer8
         public static class EnvironmentKeys
         {
             public const string IdentityServerBasePath = "idsvr:IdentityServerBasePath";
-            [Obsolete("The IdentityServerOrigin constant is obsolete.")]
-            public const string IdentityServerOrigin = "idsvr:IdentityServerOrigin"; // todo: deprecate
             public const string SignOutCalled = "idsvr:IdentityServerSignOutCalled";
         }
 

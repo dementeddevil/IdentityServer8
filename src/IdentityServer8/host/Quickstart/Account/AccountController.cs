@@ -12,11 +12,7 @@ using IdentityServer8.Stores;
 using IdentityServer8.Test;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace IdentityServerHost.Quickstart.UI
 {

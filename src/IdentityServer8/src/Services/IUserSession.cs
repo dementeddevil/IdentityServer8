@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authentication;
-using System.Collections.Generic;
 using System.Security.Claims;
-using System.Threading.Tasks;
 
 namespace IdentityServer8.Services
 {

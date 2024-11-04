@@ -3,8 +3,6 @@
 
 
 using IdentityServer8.Models;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace IdentityServer8.Validation
 {

@@ -4,7 +4,6 @@
 
 using IdentityServer8.Models;
 using IdentityServer8.Validation;
-using System.Threading.Tasks;
 
 namespace IdentityServerHost.Extensions
 {

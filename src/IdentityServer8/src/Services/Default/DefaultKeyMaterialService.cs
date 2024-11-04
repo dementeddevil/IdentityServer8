@@ -2,13 +2,9 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Microsoft.IdentityModel.Tokens;
 using IdentityServer8.Stores;
 using IdentityServer8.Models;
-using System.Linq;
-using System;
 using IdentityServer8.Extensions;
 
 namespace IdentityServer8.Services

@@ -4,8 +4,6 @@
 
 using IdentityServer8.Extensions;
 using IdentityServer8.Models;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace IdentityServer8.Services
 {

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using IdentityModel;
+﻿using IdentityModel;
 using IdentityServer8.Models;
 using IdentityServer8.Services;
 using Microsoft.Extensions.Caching.Distributed;

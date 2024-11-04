@@ -3,7 +3,6 @@
 
 using System.Collections.Specialized;
 using System.Net;
-using System.Threading.Tasks;
 using IdentityServer8.Endpoints.Results;
 using IdentityServer8.Extensions;
 using IdentityServer8.Hosting;
