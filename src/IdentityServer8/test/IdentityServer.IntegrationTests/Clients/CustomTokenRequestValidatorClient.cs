@@ -2,7 +2,9 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Net.Http;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -127,6 +129,26 @@ namespace IdentityServer.IntegrationTests.Clients
     }
 }
 
+public class ObjectNativeTypeConverter : JsonConverter<object>
+{
+    public override object? Read(ref Utf8JsonReader reader, Type typeToConvert,
+        JsonSerializerOptions options) => reader.TokenType switch
+        {
+            JsonTokenType.True => true,
+            JsonTokenType.False => false,
+            JsonTokenType.Number when reader.TryGetInt64(out long l) => l,
+            JsonTokenType.Number => reader.GetDouble(),
+            JsonTokenType.String when reader.TryGetDateTime(out DateTime datetime) => datetime,
+            JsonTokenType.String => reader.GetString()!,
+            _ => JsonDocument.ParseValue(ref reader).RootElement.Clone()
+        };
+
+    public override void Write(Utf8JsonWriter writer, object value, JsonSerializerOptions options)
+    {
+        throw new NotImplementedException();
+    }
+}
+
 public static class JsonElementExtensions
 {
     public static TObject ToObject<TObject>(this JsonElement? element)
@@ -136,6 +158,8 @@ public static class JsonElementExtensions
             return default(TObject);
         }
 
-        return JsonSerializer.Deserialize<TObject>(element.ToString(), new JsonSerializerOptions());
+        var serializerOptions = new JsonSerializerOptions();
+        serializerOptions.Converters.Add(new ObjectNativeTypeConverter());
+        return JsonSerializer.Deserialize<TObject>(element.ToString(), serializerOptions);
     }
 }

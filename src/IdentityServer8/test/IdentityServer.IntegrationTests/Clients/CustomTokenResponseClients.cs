@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using FluentAssertions;
 using IdentityModel;
@@ -62,7 +63,7 @@ namespace IdentityServer.IntegrationTests.Clients
             fields.TryGetValue("token_type", out temp).Should().BeTrue();
             fields.TryGetValue("expires_in", out temp).Should().BeTrue();
 
-            var responseObject = fields["dto"] as JObject;
+            var responseObject = fields["dto"] as JsonElement?;
             responseObject.Should().NotBeNull();
 
             var responseDto = GetDto(responseObject);
@@ -127,7 +128,7 @@ namespace IdentityServer.IntegrationTests.Clients
             fields.TryGetValue("token_type", out temp).Should().BeFalse();
             fields.TryGetValue("expires_in", out temp).Should().BeFalse();
 
-            var responseObject = fields["dto"] as JObject;
+            var responseObject = fields["dto"] as JsonElement?;
             responseObject.Should().NotBeNull();
 
             var responseDto = GetDto(responseObject);
@@ -181,7 +182,7 @@ namespace IdentityServer.IntegrationTests.Clients
             fields.TryGetValue("token_type", out temp).Should().BeTrue();
             fields.TryGetValue("expires_in", out temp).Should().BeTrue();
 
-            var responseObject = fields["dto"] as JObject;
+            var responseObject = fields["dto"] as JsonElement?;
             responseObject.Should().NotBeNull();
 
             var responseDto = GetDto(responseObject);
@@ -252,7 +253,7 @@ namespace IdentityServer.IntegrationTests.Clients
             fields.TryGetValue("token_type", out temp).Should().BeFalse();
             fields.TryGetValue("expires_in", out temp).Should().BeFalse();
 
-            var responseObject = fields["dto"] as JObject;
+            var responseObject = fields["dto"] as JsonElement?;
             responseObject.Should().NotBeNull();
 
             var responseDto = GetDto(responseObject);
@@ -274,7 +275,7 @@ namespace IdentityServer.IntegrationTests.Clients
             response.RefreshToken.Should().BeNull();
         }
 
-        private CustomResponseDto GetDto(JObject responseObject)
+        private CustomResponseDto GetDto(JsonElement? responseObject)
         {
             return responseObject.ToObject<CustomResponseDto>();
         }

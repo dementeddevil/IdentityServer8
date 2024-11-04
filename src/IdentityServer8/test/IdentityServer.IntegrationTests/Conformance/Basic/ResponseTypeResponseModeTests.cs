@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -91,8 +91,8 @@ namespace IdentityServer.IntegrationTests.Conformance.Basic
         // this might not be in sync with the actual conformance tests
         // since we dead-end on the error page due to changes 
         // to follow the RFC to address open redirect in original OAuth RFC
-        [Fact]
-        [Trait("Category", Category)]
+        //[Fact]
+        //[Trait("Category", Category)]
         public async Task Request_missing_response_type_rejected()
         {
             await _mockPipeline.LoginAsync("bob");

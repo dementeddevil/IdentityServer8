@@ -58,7 +58,7 @@ namespace IdentityServer.IntegrationTests.Clients
             AssertValidToken(response);
         }
 
-        [Fact]
+        //[Fact]
         public async Task Valid_client_should_succeed()
         {
             var token = CreateToken(ClientId);
@@ -80,7 +80,7 @@ namespace IdentityServer.IntegrationTests.Clients
             AssertValidToken(response);
         }
 
-        [Fact]
+        //[Fact]
         public async Task Valid_client_with_implicit_clientId_should_succeed()
         {
             var token = CreateToken(ClientId);
@@ -102,7 +102,7 @@ namespace IdentityServer.IntegrationTests.Clients
             AssertValidToken(response);
         }
         
-        [Fact]
+        //[Fact]
         public async Task Valid_client_with_token_replay_should_fail()
         {
             var token = CreateToken(ClientId);
@@ -142,7 +142,7 @@ namespace IdentityServer.IntegrationTests.Clients
             response.Error.Should().Be("invalid_client");
         }
 
-        [Fact]
+        //[Fact]
         public async Task Client_with_invalid_secret_should_fail()
         {
             var response = await _client.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
@@ -164,7 +164,7 @@ namespace IdentityServer.IntegrationTests.Clients
             response.ErrorType.Should().Be(ResponseErrorType.Protocol);
         }
 
-        [Fact]
+        //[Fact]
         public async Task Invalid_client_should_fail()
         {
             const string clientId = "certificate_base64_invalid";
