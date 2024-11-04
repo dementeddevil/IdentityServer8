@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -14,15 +14,16 @@ namespace IdentityServer.UnitTests.Common
 {
     internal class MockHttpContextAccessor : IHttpContextAccessor
     {
-        private HttpContext _context = new DefaultHttpContext();
+        private HttpContext? _context = new DefaultHttpContext();
+
         public MockAuthenticationService AuthenticationService { get; set; } = new MockAuthenticationService();
 
         public MockAuthenticationSchemeProvider Schemes { get; set; } = new MockAuthenticationSchemeProvider();
 
         public MockHttpContextAccessor(
-            IdentityServerOptions options = null,
-            IUserSession userSession = null,
-            IMessageStore<LogoutNotificationContext> endSessionStore = null)
+            IdentityServerOptions? options = null,
+            IUserSession? userSession = null,
+            IMessageStore<LogoutNotificationContext>? endSessionStore = null)
         {
             options = options ?? TestIdentityServerOptions.Create();
 
@@ -58,13 +59,12 @@ namespace IdentityServer.UnitTests.Common
             _context.RequestServices = services.BuildServiceProvider();
         }
 
-        public HttpContext HttpContext
+        public HttpContext? HttpContext
         {
             get
             {
                 return _context;
             }
-
             set
             {
                 _context = value;

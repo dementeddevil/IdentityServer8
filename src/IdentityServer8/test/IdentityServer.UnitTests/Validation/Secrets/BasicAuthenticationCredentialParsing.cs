@@ -29,7 +29,7 @@ namespace IdentityServer.UnitTests.Validation.Secrets
 
         [Fact]
         [Trait("Category", Category)]
-        public async void EmptyContext()
+         public async Task EmptyContext()
         {
             var context = new DefaultHttpContext();
 
@@ -40,7 +40,7 @@ namespace IdentityServer.UnitTests.Validation.Secrets
 
         [Fact]
         [Trait("Category", Category)]
-        public async void Valid_BasicAuthentication_Request()
+         public async Task Valid_BasicAuthentication_Request()
         {
             var context = new DefaultHttpContext();
 
@@ -58,7 +58,7 @@ namespace IdentityServer.UnitTests.Validation.Secrets
 
         [Fact]
         [Trait("Category", Category)]
-        public async void Valid_BasicAuthentication_Request_With_UserName_Only_And_Colon_For_Optional_ClientSecret()
+         public async Task Valid_BasicAuthentication_Request_With_UserName_Only_And_Colon_For_Optional_ClientSecret()
         {
             var context = new DefaultHttpContext();
 
@@ -75,7 +75,7 @@ namespace IdentityServer.UnitTests.Validation.Secrets
 
         [Fact]
         [Trait("Category", Category)]
-        public async void BasicAuthentication_Request_With_Empty_Basic_Header()
+         public async Task BasicAuthentication_Request_With_Empty_Basic_Header()
         {
             var context = new DefaultHttpContext();
 
@@ -88,7 +88,7 @@ namespace IdentityServer.UnitTests.Validation.Secrets
 
         [Fact]
         [Trait("Category", Category)]
-        public async void Valid_BasicAuthentication_Request_ClientId_Too_Long()
+         public async Task Valid_BasicAuthentication_Request_ClientId_Too_Long()
         {
             var context = new DefaultHttpContext();
 
@@ -105,7 +105,7 @@ namespace IdentityServer.UnitTests.Validation.Secrets
 
         [Fact]
         [Trait("Category", Category)]
-        public async void Valid_BasicAuthentication_Request_ClientSecret_Too_Long()
+         public async Task Valid_BasicAuthentication_Request_ClientSecret_Too_Long()
         {
             var context = new DefaultHttpContext();
 
@@ -122,7 +122,7 @@ namespace IdentityServer.UnitTests.Validation.Secrets
 
         [Fact]
         [Trait("Category", Category)]
-        public async void BasicAuthentication_Request_With_Empty_Basic_Header_Variation()
+         public async Task BasicAuthentication_Request_With_Empty_Basic_Header_Variation()
         {
             var context = new DefaultHttpContext();
 
@@ -135,7 +135,7 @@ namespace IdentityServer.UnitTests.Validation.Secrets
 
         [Fact]
         [Trait("Category", Category)]
-        public async void BasicAuthentication_Request_With_Unknown_Scheme()
+         public async Task BasicAuthentication_Request_With_Unknown_Scheme()
         {
             var context = new DefaultHttpContext();
 
@@ -148,7 +148,7 @@ namespace IdentityServer.UnitTests.Validation.Secrets
 
         [Fact]
         [Trait("Category", Category)]
-        public async void BasicAuthentication_Request_With_Malformed_Credentials_NoBase64_Encoding()
+         public async Task BasicAuthentication_Request_With_Malformed_Credentials_NoBase64_Encoding()
         {
             var context = new DefaultHttpContext();
 
@@ -161,7 +161,7 @@ namespace IdentityServer.UnitTests.Validation.Secrets
 
         [Fact]
         [Trait("Category", Category)]
-        public async void BasicAuthentication_Request_With_Malformed_Credentials_Base64_Encoding_UserName_Only()
+         public async Task BasicAuthentication_Request_With_Malformed_Credentials_Base64_Encoding_UserName_Only()
         {
             var context = new DefaultHttpContext();
 

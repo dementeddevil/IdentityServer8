@@ -13,6 +13,6 @@ namespace IdentityServer8.Services
         /// </summary>
         /// <param name="origin">The origin.</param>
         /// <returns></returns>
-        Task<bool> IsOriginAllowedAsync(string origin);
+        Task<bool> IsOriginAllowedAsync(string? origin);
     }
 }

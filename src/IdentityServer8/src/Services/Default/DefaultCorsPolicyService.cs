@@ -46,7 +46,7 @@ namespace IdentityServer8.Services
         /// </summary>
         /// <param name="origin">The origin.</param>
         /// <returns></returns>
-        public virtual Task<bool> IsOriginAllowedAsync(string origin)
+        public virtual Task<bool> IsOriginAllowedAsync(string? origin)
         {
             if (!String.IsNullOrWhiteSpace(origin))
             {

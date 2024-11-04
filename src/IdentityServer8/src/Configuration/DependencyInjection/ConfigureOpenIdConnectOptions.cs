@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -20,12 +20,12 @@ namespace IdentityServer8.Configuration
             _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
         }
 
-        public void PostConfigure(string name, OpenIdConnectOptions options)
+        public void PostConfigure(string? name, OpenIdConnectOptions options)
         {
             // no schemes means configure them all
             if (_schemes.Length == 0 || _schemes.Contains(name))
             {
-                options.StateDataFormat = new DistributedCacheStateDataFormatter(_httpContextAccessor, name);
+                options.StateDataFormat = new DistributedCacheStateDataFormatter(_httpContextAccessor, name ?? "Default");
             }
         }
     }

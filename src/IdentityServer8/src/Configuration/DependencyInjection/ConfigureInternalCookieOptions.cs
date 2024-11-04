@@ -22,7 +22,7 @@ namespace IdentityServer8.Configuration
         {
         }
 
-        public void Configure(string name, CookieAuthenticationOptions options)
+        public void Configure(string? name, CookieAuthenticationOptions options)
         {
             if (name == IdentityServerConstants.DefaultCookieAuthenticationScheme)
             {
@@ -54,7 +54,7 @@ namespace IdentityServer8.Configuration
             }
         }
 
-        private static string ExtractLocalUrl(string url)
+        private static string? ExtractLocalUrl(string url)
         {
             if (url.IsLocalUrl())
             {

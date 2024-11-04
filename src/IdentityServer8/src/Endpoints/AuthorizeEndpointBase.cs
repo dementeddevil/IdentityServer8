@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 using System.Collections.Specialized;
@@ -52,7 +52,7 @@ namespace IdentityServer8.Endpoints
 
         protected IUserSession UserSession { get; private set; }
 
-        public abstract Task<IEndpointResult> ProcessAsync(HttpContext context);
+        public abstract Task<IEndpointResult?> ProcessAsync(HttpContext context);
 
         internal async Task<IEndpointResult> ProcessAuthorizeRequestAsync(NameValueCollection parameters, ClaimsPrincipal user, ConsentResponse consent)
         {
@@ -109,9 +109,9 @@ namespace IdentityServer8.Endpoints
 
         protected async Task<IEndpointResult> CreateErrorResultAsync(
             string logMessage,
-            ValidatedAuthorizeRequest request = null,
+            ValidatedAuthorizeRequest? request = null,
             string error = OidcConstants.AuthorizeErrors.ServerError,
-            string errorDescription = null,
+            string? errorDescription = null,
             bool logError = true)
         {
             if (logError)
@@ -168,7 +168,7 @@ namespace IdentityServer8.Endpoints
             }
         }
 
-        private Task RaiseFailureEventAsync(ValidatedAuthorizeRequest request, string error, string errorDescription)
+        private Task RaiseFailureEventAsync(ValidatedAuthorizeRequest? request, string error, string? errorDescription)
         {
             return _events.RaiseAsync(new TokenIssuedFailureEvent(request, error, errorDescription));
         }

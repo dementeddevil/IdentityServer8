@@ -20,7 +20,7 @@ namespace IdentityServer8.Endpoints
     internal class AuthorizeCallbackEndpoint : AuthorizeEndpointBase
     {
         private readonly IConsentMessageStore _consentResponseStore;
-        private readonly IAuthorizationParametersMessageStore _authorizationParametersMessageStore;
+        private readonly IAuthorizationParametersMessageStore? _authorizationParametersMessageStore;
 
         public AuthorizeCallbackEndpoint(
             IEventService events,
@@ -31,14 +31,14 @@ namespace IdentityServer8.Endpoints
             IAuthorizeResponseGenerator authorizeResponseGenerator,
             IUserSession userSession,
             IConsentMessageStore consentResponseStore,
-            IAuthorizationParametersMessageStore authorizationParametersMessageStore = null)
+            IAuthorizationParametersMessageStore? authorizationParametersMessageStore = null)
             : base(events, logger, options, validator, interactionGenerator, authorizeResponseGenerator, userSession)
         {
             _consentResponseStore = consentResponseStore;
             _authorizationParametersMessageStore = authorizationParametersMessageStore;
         }
 
-        public override async Task<IEndpointResult> ProcessAsync(HttpContext context)
+        public override async Task<IEndpointResult?> ProcessAsync(HttpContext context)
         {
             if (!HttpMethods.IsGet(context.Request.Method))
             {

@@ -296,8 +296,8 @@ namespace Microsoft.Extensions.DependencyInjection
             }
             else
             {
-                var type = registration.ImplementationType;
-                var innerType = typeof(Decorator<,>).MakeGenericType(typeof(TService), registration.ImplementationType);
+                var type = registration.ImplementationType!;
+                var innerType = typeof(Decorator<,>).MakeGenericType(typeof(TService), type);
                 services.Add(new ServiceDescriptor(typeof(Decorator<TService>), innerType, ServiceLifetime.Transient));
                 services.Add(new ServiceDescriptor(type, type, registration.Lifetime));
             }

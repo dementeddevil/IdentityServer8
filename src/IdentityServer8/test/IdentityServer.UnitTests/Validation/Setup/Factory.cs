@@ -298,7 +298,7 @@ namespace IdentityServer.UnitTests.Validation.Setup
             IDeviceFlowCodeService service,
             IProfileService? profile = null,
             IDeviceFlowThrottlingService? throttlingService = null,
-            ISystemClock clock? = null)
+            ISystemClock? clock = null)
         {
             profile = profile ?? new TestProfileService();
             throttlingService = throttlingService ?? new TestDeviceFlowThrottlingService();

@@ -13,7 +13,7 @@ namespace IdentityServer8.Extensions
     internal static class StringExtensions
     {
         [DebuggerStepThrough]
-        public static string ToSpaceSeparatedString(this IEnumerable<string> list)
+        public static string ToSpaceSeparatedString(this IEnumerable<string>? list)
         {
             if (list == null)
             {
@@ -37,7 +37,7 @@ namespace IdentityServer8.Extensions
             return input.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).ToList();
         }
 
-        public static List<string> ParseScopesString(this string scopes)
+        public static List<string>? ParseScopesString(this string scopes)
         {
             if (scopes.IsMissing())
             {
@@ -57,13 +57,13 @@ namespace IdentityServer8.Extensions
         }
 
         [DebuggerStepThrough]
-        public static bool IsMissing(this string value)
+        public static bool IsMissing(this string? value)
         {
             return string.IsNullOrWhiteSpace(value);
         }
 
         [DebuggerStepThrough]
-        public static bool IsMissingOrTooLong(this string value, int maxLength)
+        public static bool IsMissingOrTooLong(this string? value, int maxLength)
         {
             if (string.IsNullOrWhiteSpace(value))
             {
@@ -78,13 +78,13 @@ namespace IdentityServer8.Extensions
         }
 
         [DebuggerStepThrough]
-        public static bool IsPresent(this string value)
+        public static bool IsPresent(this string? value)
         {
             return !string.IsNullOrWhiteSpace(value);
         }
 
         [DebuggerStepThrough]
-        public static string EnsureLeadingSlash(this string url)
+        public static string EnsureLeadingSlash(this string? url)
         {
             if (url != null && !url.StartsWith("/"))
             {
@@ -95,7 +95,7 @@ namespace IdentityServer8.Extensions
         }
 
         [DebuggerStepThrough]
-        public static string EnsureTrailingSlash(this string url)
+        public static string EnsureTrailingSlash(this string? url)
         {
             if (url != null && !url.EndsWith("/"))
             {
@@ -106,7 +106,7 @@ namespace IdentityServer8.Extensions
         }
 
         [DebuggerStepThrough]
-        public static string RemoveLeadingSlash(this string url)
+        public static string RemoveLeadingSlash(this string? url)
         {
             if (url != null && url.StartsWith("/"))
             {
@@ -117,7 +117,7 @@ namespace IdentityServer8.Extensions
         }
 
         [DebuggerStepThrough]
-        public static string RemoveTrailingSlash(this string url)
+        public static string RemoveTrailingSlash(this string? url)
         {
             if (url != null && url.EndsWith("/"))
             {
@@ -128,7 +128,7 @@ namespace IdentityServer8.Extensions
         }
 
         [DebuggerStepThrough]
-        public static string CleanUrlPath(this string url)
+        public static string CleanUrlPath(this string? url)
         {
             if (String.IsNullOrWhiteSpace(url)) url = "/";
 
@@ -141,7 +141,7 @@ namespace IdentityServer8.Extensions
         }
 
         [DebuggerStepThrough]
-        public static bool IsLocalUrl(this string url)
+        public static bool IsLocalUrl(this string? url)
         {
             if (string.IsNullOrEmpty(url))
             {
@@ -220,7 +220,7 @@ namespace IdentityServer8.Extensions
         }
 
         [DebuggerStepThrough]
-        public static NameValueCollection ReadQueryStringAsNameValueCollection(this string url)
+        public static NameValueCollection ReadQueryStringAsNameValueCollection(this string? url)
         {
             if (url != null)
             {
@@ -239,7 +239,7 @@ namespace IdentityServer8.Extensions
             return new NameValueCollection();           
         }
 
-        public static string GetOrigin(this string url)
+        public static string? GetOrigin(this string? url)
         {
             if (url != null)
             {

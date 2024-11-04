@@ -50,7 +50,7 @@ namespace IdentityServer8.Infrastructure
         /// <param name="data">The data.</param>
         /// <param name="purpose">The purpose.</param>
         /// <returns></returns>
-        public string Protect(AuthenticationProperties data, string purpose)
+        public string Protect(AuthenticationProperties data, string? purpose)
         {
             var key = Guid.NewGuid().ToString();
             var cacheKey = $"{CacheKeyPrefix}-{_name}-{purpose}-{key}";

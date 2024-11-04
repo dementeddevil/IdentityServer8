@@ -89,7 +89,7 @@ namespace Microsoft.AspNetCore.Builder
             }
             else
             {
-                AuthenticationScheme authenticationScheme = null;
+                AuthenticationScheme? authenticationScheme = null;
 
                 if (options.Authentication.CookieAuthenticationScheme != null)
                 {
@@ -102,7 +102,7 @@ namespace Microsoft.AspNetCore.Builder
                     logger.LogInformation("Using the default authentication scheme {scheme} for IdentityServer", authenticationScheme.Name);
                 }
 
-                if (!typeof(IAuthenticationSignInHandler).IsAssignableFrom(authenticationScheme.HandlerType))
+                if (!typeof(IAuthenticationSignInHandler).IsAssignableFrom(authenticationScheme!.HandlerType))
                 {
                     logger.LogInformation("Authentication scheme {scheme} is configured for IdentityServer, but it is not a scheme that supports signin (like cookies). If you support interactive logins via the browser, then a cookie-based scheme should be used.", authenticationScheme.Name);
                 }
@@ -135,7 +135,7 @@ namespace Microsoft.AspNetCore.Builder
             if (options.Cors.CorsPolicyName.IsMissing()) throw new InvalidOperationException("CorsPolicyName is not configured");
         }
 
-        internal static object TestService(IServiceProvider serviceProvider, Type service, ILogger logger, string message = null, bool doThrow = true)
+        internal static object? TestService(IServiceProvider serviceProvider, Type service, ILogger logger, string? message = null, bool doThrow = true)
         {
             var appService = serviceProvider.GetService(service);
 
