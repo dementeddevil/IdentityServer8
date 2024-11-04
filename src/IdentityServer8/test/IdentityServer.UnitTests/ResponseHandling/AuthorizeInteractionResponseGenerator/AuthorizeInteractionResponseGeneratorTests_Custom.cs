@@ -23,7 +23,10 @@ namespace IdentityServer.UnitTests.ResponseHandling.AuthorizeInteractionResponse
         {
         }
 
-        public InteractionResponse ProcessLoginResponse { get; set; }
+        public InteractionResponse? ProcessLoginResponse { get; set; }
+
+        public InteractionResponse? ProcessConsentResponse { get; set; }
+
         protected internal override Task<InteractionResponse> ProcessLoginAsync(ValidatedAuthorizeRequest request)
         {
             if (ProcessLoginResponse != null)
@@ -34,8 +37,7 @@ namespace IdentityServer.UnitTests.ResponseHandling.AuthorizeInteractionResponse
             return base.ProcessLoginAsync(request);
         }
 
-        public InteractionResponse ProcessConsentResponse { get; set; }
-        protected internal override Task<InteractionResponse> ProcessConsentAsync(ValidatedAuthorizeRequest request, ConsentResponse consent = null)
+        protected internal override Task<InteractionResponse> ProcessConsentAsync(ValidatedAuthorizeRequest request, ConsentResponse? consent = null)
         {
             if (ProcessConsentResponse != null)
             {

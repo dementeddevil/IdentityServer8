@@ -107,7 +107,7 @@ namespace IdentityServer8.Models
         /// </summary>
         /// <param name="iframeUrl">The iframe URL.</param>
         /// <param name="message">The message.</param>
-        public LogoutRequest(string iframeUrl, LogoutMessage message)
+        public LogoutRequest(string iframeUrl, LogoutMessage? message)
         {
             if (message != null)
             {

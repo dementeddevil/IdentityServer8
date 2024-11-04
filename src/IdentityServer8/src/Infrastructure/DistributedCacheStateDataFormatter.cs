@@ -78,7 +78,7 @@ namespace IdentityServer8.Infrastructure
         /// </summary>
         /// <param name="protectedText">The protected text.</param>
         /// <returns></returns>
-        public AuthenticationProperties Unprotect(string protectedText)
+        public AuthenticationProperties? Unprotect(string? protectedText)
         {
             return Unprotect(protectedText, null);
         }
@@ -89,7 +89,7 @@ namespace IdentityServer8.Infrastructure
         /// <param name="protectedText">The protected text.</param>
         /// <param name="purpose">The purpose.</param>
         /// <returns></returns>
-        public AuthenticationProperties Unprotect(string protectedText, string purpose)
+        public AuthenticationProperties? Unprotect(string? protectedText, string? purpose)
         {
             if (String.IsNullOrWhiteSpace(protectedText))
             {
@@ -106,7 +106,7 @@ namespace IdentityServer8.Infrastructure
                 return null;
             }
 
-            var items = ObjectSerializer.FromString<Dictionary<string, string>>(json);
+            var items = ObjectSerializer.FromString<Dictionary<string, string?>>(json);
             var props = new AuthenticationProperties(items);
             return props;
         }

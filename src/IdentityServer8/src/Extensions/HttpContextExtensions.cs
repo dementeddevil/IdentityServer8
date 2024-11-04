@@ -90,7 +90,7 @@ namespace IdentityServer8.Extensions
         /// </summary>
         /// <param name="context">The context.</param>
         /// <returns></returns>
-        public static string GetIdentityServerBasePath(this HttpContext context)
+        public static string? GetIdentityServerBasePath(this HttpContext context)
         {
             return context.Items[Constants.EnvironmentKeys.IdentityServerBasePath] as string;
         }
@@ -111,7 +111,7 @@ namespace IdentityServer8.Extensions
         /// <param name="context">The context.</param>
         /// <param name="path">The path.</param>
         /// <returns></returns>
-        public static string GetIdentityServerRelativeUrl(this HttpContext context, string path)
+        public static string? GetIdentityServerRelativeUrl(this HttpContext context, string path)
         {
             if (!path.IsLocalUrl())
             {
@@ -150,13 +150,13 @@ namespace IdentityServer8.Extensions
             return uri;
         }
 
-        internal static async Task<string> GetIdentityServerSignoutFrameCallbackUrlAsync(this HttpContext context, LogoutMessage logoutMessage = null)
+        internal static async Task<string?> GetIdentityServerSignoutFrameCallbackUrlAsync(this HttpContext context, LogoutMessage? logoutMessage = null)
         {
             var userSession = context.RequestServices.GetRequiredService<IUserSession>();
             var user = await userSession.GetUserAsync();
             var currentSubId = user?.GetSubjectId();
 
-            LogoutNotificationContext endSessionMsg = null;
+            LogoutNotificationContext? endSessionMsg = null;
 
             // if we have a logout message, then that take precedence over the current user
             if (logoutMessage?.ClientIds?.Any() == true)

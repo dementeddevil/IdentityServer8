@@ -63,7 +63,7 @@ namespace IdentityServer8.ResponseHandling
         /// <param name="request">The request.</param>
         /// <param name="consent">The consent.</param>
         /// <returns></returns>
-        public virtual async Task<InteractionResponse> ProcessInteractionAsync(ValidatedAuthorizeRequest request, ConsentResponse consent = null)
+        public virtual async Task<InteractionResponse> ProcessInteractionAsync(ValidatedAuthorizeRequest request, ConsentResponse? consent = null)
         {
             Logger.LogTrace("ProcessInteractionAsync");
 
@@ -226,7 +226,7 @@ namespace IdentityServer8.ResponseHandling
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException">Invalid PromptMode</exception>
-        protected internal virtual async Task<InteractionResponse> ProcessConsentAsync(ValidatedAuthorizeRequest request, ConsentResponse consent = null)
+        protected internal virtual async Task<InteractionResponse> ProcessConsentAsync(ValidatedAuthorizeRequest request, ConsentResponse? consent = null)
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
