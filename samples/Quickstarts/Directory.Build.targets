@@ -16,7 +16,7 @@
         <PackageReference Update="Microsoft.EntityFrameworkCore.SqlServer" Version="$(AspNetVersion)" />
         <PackageReference Update="Microsoft.EntityFrameworkCore.Design" Version="$(AspNetVersion)" />
 
-        <PackageReference Update="System.IdentityModel.Tokens.Jwt" Version="8.1.2" />
+        <PackageReference Update="System.IdentityModel.Tokens.Jwt" Version="8.2.0" />
 
         <PackageReference Update="Serilog.AspNetCore" Version="8.0.3" />
     </ItemGroup>
