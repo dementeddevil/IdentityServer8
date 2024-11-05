@@ -5,7 +5,16 @@
     <ExtensionsVersion>8.0.0</ExtensionsVersion>
     <EntityFrameworkVersion>8.0.10</EntityFrameworkVersion>
     
-    <IdentityServerVersion>8.0.2-*</IdentityServerVersion>
+    <Stable>true</Stable>
+    <BaseVersion>8.0.2</BaseVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Stable)' == 'true'">
+    <IdentityServerVersion>$(BaseVersion)</IdentityServerVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Stable)' != 'true'">
+    <IdentityServerVersion>$(BaseVersion)-*</IdentityServerVersion>
   </PropertyGroup>
 
   <ItemGroup>
