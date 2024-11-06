@@ -45,7 +45,7 @@ namespace IdentityServer8.Services
             _logger = logger;
         }
 
-        public async Task<AuthorizationRequest> GetAuthorizationContextAsync(string returnUrl)
+        public async Task<AuthorizationRequest?> GetAuthorizationContextAsync(string returnUrl)
         {
             var result = await _returnUrlParser.ParseAsync(returnUrl);
 
@@ -68,7 +68,7 @@ namespace IdentityServer8.Services
             return new LogoutRequest(iframeUrl, msg?.Data);
         }
 
-        public async Task<string> CreateLogoutContextAsync()
+        public async Task<string?> CreateLogoutContextAsync()
         {
             var user = await _userSession.GetUserAsync();
             if (user != null)
@@ -91,7 +91,7 @@ namespace IdentityServer8.Services
             return null;
         }
 
-        public async Task<ErrorMessage> GetErrorContextAsync(string errorId)
+        public async Task<ErrorMessage?> GetErrorContextAsync(string errorId)
         {
             if (errorId != null)
             { 
@@ -113,7 +113,7 @@ namespace IdentityServer8.Services
             return null;
         }
 
-        public async Task GrantConsentAsync(AuthorizationRequest request, ConsentResponse consent, string subject = null)
+        public async Task GrantConsentAsync(AuthorizationRequest request, ConsentResponse consent, string? subject = null)
         {
             if (subject == null)
             {
@@ -130,7 +130,7 @@ namespace IdentityServer8.Services
             await _consentMessageStore.WriteAsync(consentRequest.Id, new Message<ConsentResponse>(consent, _clock.UtcNow.UtcDateTime));
         }
 
-        public Task DenyAuthorizationAsync(AuthorizationRequest request, AuthorizationError error, string errorDescription = null)
+        public Task DenyAuthorizationAsync(AuthorizationRequest request, AuthorizationError error, string? errorDescription = null)
         {
             var response = new ConsentResponse 
             {

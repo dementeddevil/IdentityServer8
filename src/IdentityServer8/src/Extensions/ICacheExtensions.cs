@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -29,7 +29,7 @@ namespace IdentityServer8.Extensions
         /// <exception cref="ArgumentNullException">cache
         /// or
         /// get</exception>
-        public static async Task<T> GetAsync<T>(this ICache<T> cache, string key, TimeSpan duration, Func<Task<T>> get, ILogger logger)
+        public static async Task<T?> GetAsync<T>(this ICache<T> cache, string key, TimeSpan duration, Func<Task<T>> get, ILogger logger)
             where T : class
         {
             if (cache == null) throw new ArgumentNullException(nameof(cache));

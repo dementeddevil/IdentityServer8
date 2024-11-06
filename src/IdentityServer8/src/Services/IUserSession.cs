@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication;
 using System.Security.Claims;
 
 namespace IdentityServer8.Services
@@ -22,7 +22,7 @@ namespace IdentityServer8.Services
         /// Gets the current session identifier.
         /// </summary>
         /// <returns></returns>
-        Task<string> GetSessionIdAsync();
+        Task<string?> GetSessionIdAsync();
 
         /// <summary>
         /// Ensures the session identifier cookie asynchronous.

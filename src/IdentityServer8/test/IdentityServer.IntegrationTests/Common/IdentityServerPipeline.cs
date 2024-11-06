@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using System.Diagnostics.CodeAnalysis;
 using System.Net;
 using System.Security.Claims;
 using FluentAssertions;
@@ -66,7 +67,7 @@ namespace IdentityServer.IntegrationTests.Common
         public event Action<IApplicationBuilder> OnPreConfigure = app => { };
         public event Action<IApplicationBuilder> OnPostConfigure = app => { };
 
-        public Func<HttpContext, Task<bool>> OnFederatedSignout;
+        public Func<HttpContext, Task<bool>>? OnFederatedSignout;
 
         public void Initialize(string basePath = null, bool enableLogging = false)
         {
@@ -174,8 +175,8 @@ namespace IdentityServer.IntegrationTests.Common
         }
 
         public bool LoginWasCalled { get; set; }
-        public AuthorizationRequest LoginRequest { get; set; }
-        public ClaimsPrincipal Subject { get; set; }
+        public AuthorizationRequest? LoginRequest { get; set; }
+        public ClaimsPrincipal? Subject { get; set; }
         public bool FollowLoginReturnUrl { get; set; }
 
         private async Task OnLogin(HttpContext ctx)
@@ -207,7 +208,7 @@ namespace IdentityServer.IntegrationTests.Common
         }
 
         public bool LogoutWasCalled { get; set; }
-        public LogoutRequest LogoutRequest { get; set; }
+        public LogoutRequest? LogoutRequest { get; set; }
 
         private async Task OnLogout(HttpContext ctx)
         {
@@ -223,8 +224,8 @@ namespace IdentityServer.IntegrationTests.Common
         }
 
         public bool ConsentWasCalled { get; set; }
-        public AuthorizationRequest ConsentRequest { get; set; }
-        public ConsentResponse ConsentResponse { get; set; }
+        public AuthorizationRequest? ConsentRequest { get; set; }
+        public ConsentResponse? ConsentResponse { get; set; }
 
         private async Task OnConsent(HttpContext ctx)
         {
@@ -256,7 +257,7 @@ namespace IdentityServer.IntegrationTests.Common
         }
 
         public bool ErrorWasCalled { get; set; }
-        public ErrorMessage ErrorMessage { get; set; }
+        public ErrorMessage? ErrorMessage { get; set; }
 
         private async Task OnError(HttpContext ctx)
         {
@@ -301,18 +302,18 @@ namespace IdentityServer.IntegrationTests.Common
         }
 
         public string CreateAuthorizeUrl(
-            string clientId = null,
-            string responseType = null,
-            string scope = null,
-            string redirectUri = null,
-            string state = null,
-            string nonce = null,
-            string loginHint = null,
-            string acrValues = null,
-            string responseMode = null,
-            string codeChallenge = null,
-            string codeChallengeMethod = null,
-            Parameters extra = null)
+            string? clientId = null,
+            string? responseType = null,
+            string? scope = null,
+            string? redirectUri = null,
+            string? state = null,
+            string? nonce = null,
+            string? loginHint = null,
+            string? acrValues = null,
+            string? responseMode = null,
+            string? codeChallenge = null,
+            string? codeChallengeMethod = null,
+            Parameters? extra = null)
         {
             var url = new RequestUrl(AuthorizeEndpoint).CreateAuthorizeUrl(
                 clientId: clientId,
@@ -335,19 +336,19 @@ namespace IdentityServer.IntegrationTests.Common
             return new AuthorizeResponse(url);
         }
 
-        public async Task<AuthorizeResponse> RequestAuthorizationEndpointAsync(
+        public async Task<AuthorizeResponse?> RequestAuthorizationEndpointAsync(
             string clientId,
             string responseType,
-            string scope = null,
-            string redirectUri = null,
-            string state = null,
-            string nonce = null,
-            string loginHint = null,
-            string acrValues = null,
-            string responseMode = null,
-            string codeChallenge = null,
-            string codeChallengeMethod = null,
-            Parameters extra = null)
+            string? scope = null,
+            string? redirectUri = null,
+            string? state = null,
+            string? nonce = null,
+            string? loginHint = null,
+            string? acrValues = null,
+            string? responseMode = null,
+            string? codeChallenge = null,
+            string? codeChallengeMethod = null,
+            Parameters? extra = null)
         {
             var old = BrowserClient.AllowAutoRedirect;
             BrowserClient.AllowAutoRedirect = false;
@@ -425,12 +426,12 @@ namespace IdentityServer.IntegrationTests.Common
             return Task.FromResult(AuthenticateResult.NoResult());
         }
 
-        public Task ChallengeAsync(AuthenticationProperties properties)
+        public Task ChallengeAsync(AuthenticationProperties? properties)
         {
             return Task.CompletedTask;
         }
 
-        public Task ForbidAsync(AuthenticationProperties properties)
+        public Task ForbidAsync(AuthenticationProperties? properties)
         {
             return Task.CompletedTask;
         }
@@ -440,12 +441,12 @@ namespace IdentityServer.IntegrationTests.Common
             return Task.CompletedTask;
         }
 
-        public Task SignInAsync(ClaimsPrincipal user, AuthenticationProperties properties)
+        public Task SignInAsync(ClaimsPrincipal user, AuthenticationProperties? properties)
         {
             return Task.CompletedTask;
         }
 
-        public Task SignOutAsync(AuthenticationProperties properties)
+        public Task SignOutAsync(AuthenticationProperties? properties)
         {
             return Task.CompletedTask;
         }

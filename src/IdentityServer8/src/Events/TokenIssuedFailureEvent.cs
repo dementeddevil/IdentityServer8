@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -20,7 +20,7 @@ namespace IdentityServer8.Events
         /// <param name="request">The request.</param>
         /// <param name="error">The error.</param>
         /// <param name="description">The description.</param>
-        public TokenIssuedFailureEvent(ValidatedAuthorizeRequest request, string error, string description)
+        public TokenIssuedFailureEvent(ValidatedAuthorizeRequest? request, string error, string? description)
             : this()
         {
             if (request != null)
@@ -31,7 +31,7 @@ namespace IdentityServer8.Events
                 Scopes = request.RequestedScopes?.ToSpaceSeparatedString();
                 GrantType = request.GrantType;
 
-                if (request.Subject != null && request.Subject.Identity.IsAuthenticated)
+                if (request.Subject != null && request.Subject.Identity!.IsAuthenticated)
                 {
                     SubjectId = request.Subject?.GetSubjectId();
                 }
@@ -56,7 +56,7 @@ namespace IdentityServer8.Events
                 GrantType = result.ValidatedRequest.GrantType;
                 Scopes = result.ValidatedRequest.RequestedScopes?.ToSpaceSeparatedString();
 
-                if (result.ValidatedRequest.Subject != null && result.ValidatedRequest.Subject.Identity.IsAuthenticated)
+                if (result.ValidatedRequest.Subject != null && result.ValidatedRequest.Subject.Identity!.IsAuthenticated)
                 {
                     SubjectId = result.ValidatedRequest.Subject.GetSubjectId();
                 }
@@ -84,7 +84,7 @@ namespace IdentityServer8.Events
         /// <value>
         /// The client identifier.
         /// </value>
-        public string ClientId { get; set; }
+        public string? ClientId { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the client.
@@ -92,7 +92,7 @@ namespace IdentityServer8.Events
         /// <value>
         /// The name of the client.
         /// </value>
-        public string ClientName { get; set; }
+        public string? ClientName { get; set; }
 
         /// <summary>
         /// Gets or sets the redirect URI.
@@ -100,7 +100,7 @@ namespace IdentityServer8.Events
         /// <value>
         /// The redirect URI.
         /// </value>
-        public string RedirectUri { get; set; }
+        public string? RedirectUri { get; set; }
 
         /// <summary>
         /// Gets or sets the endpoint.
@@ -116,7 +116,7 @@ namespace IdentityServer8.Events
         /// <value>
         /// The subject identifier.
         /// </value>
-        public string SubjectId { get; set; }
+        public string? SubjectId { get; set; }
 
         /// <summary>
         /// Gets or sets the scopes.
@@ -124,7 +124,7 @@ namespace IdentityServer8.Events
         /// <value>
         /// The scopes.
         /// </value>
-        public string Scopes { get; set; }
+        public string? Scopes { get; set; }
 
         /// <summary>
         /// Gets or sets the grant type.
@@ -132,7 +132,7 @@ namespace IdentityServer8.Events
         /// <value>
         /// The grant type.
         /// </value>
-        public string GrantType { get; set; }
+        public string? GrantType { get; set; }
 
         /// <summary>
         /// Gets or sets the error.
@@ -148,6 +148,6 @@ namespace IdentityServer8.Events
         /// <value>
         /// The error description.
         /// </value>
-        public string ErrorDescription { get; set; }
+        public string? ErrorDescription { get; set; }
     }
 }

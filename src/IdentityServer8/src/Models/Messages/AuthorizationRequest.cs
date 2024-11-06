@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -15,7 +15,7 @@ namespace IdentityServer8.Models
         /// <summary>
         /// The client.
         /// </summary>
-        public Client Client { get; set; }
+        public Client? Client { get; set; }
 
         /// <summary>
         /// The display mode passed from the authorization request.
@@ -23,7 +23,7 @@ namespace IdentityServer8.Models
         /// <value>
         /// The display mode.
         /// </value>
-        public string DisplayMode { get; set; }
+        public string? DisplayMode { get; set; }
 
         /// <summary>
         /// Gets or sets the redirect URI.
@@ -31,7 +31,7 @@ namespace IdentityServer8.Models
         /// <value>
         /// The redirect URI.
         /// </value>
-        public string RedirectUri { get; set; }
+        public string? RedirectUri { get; set; }
 
         /// <summary>
         /// The UI locales passed from the authorization request.
@@ -39,7 +39,7 @@ namespace IdentityServer8.Models
         /// <value>
         /// The UI locales.
         /// </value>
-        public string UiLocales { get; set; }
+        public string? UiLocales { get; set; }
 
         /// <summary>
         /// The external identity provider requested. This is used to bypass home realm 
@@ -49,7 +49,7 @@ namespace IdentityServer8.Models
         /// <value>
         /// The external identity provider identifier.
         /// </value>
-        public string IdP { get; set; }
+        public string? IdP { get; set; }
 
         /// <summary>
         /// The tenant requested. This is provided via the <c>"tenant:"</c> prefix to 
@@ -58,7 +58,7 @@ namespace IdentityServer8.Models
         /// <value>
         /// The tenant.
         /// </value>
-        public string Tenant { get; set; }
+        public string? Tenant { get; set; }
 
         /// <summary>
         /// The expected username the user will use to login. This is requested from the client 
@@ -67,7 +67,7 @@ namespace IdentityServer8.Models
         /// <value>
         /// The LoginHint.
         /// </value>
-        public string LoginHint { get; set; }
+        public string? LoginHint { get; set; }
 
         /// <summary>
         /// Gets or sets the collection of prompt modes.
@@ -83,12 +83,12 @@ namespace IdentityServer8.Models
         /// <value>
         /// The acr values.
         /// </value>
-        public IEnumerable<string> AcrValues { get; set; }
+        public IEnumerable<string>? AcrValues { get; set; }
 
         /// <summary>
         /// The validated resources.
         /// </summary>
-        public ResourceValidationResult ValidatedResources { get; set; }
+        public ResourceValidationResult? ValidatedResources { get; set; }
 
         /// <summary>
         /// Gets the entire parameter collection.

@@ -263,11 +263,11 @@ namespace IdentityServer.IntegrationTests.Endpoints.Authorize
         }
 
         [Theory]
-        [InlineData((Type) null)]
+        [InlineData((Type?) null)]
         [InlineData(typeof(QueryStringAuthorizationParametersMessageStore))]
         [InlineData(typeof(DistributedCacheAuthorizationParametersMessageStore))]
         [Trait("Category", Category)]
-        public async Task login_response_and_consent_response_should_receive_authorization_response(Type storeType)
+        public async Task login_response_and_consent_response_should_receive_authorization_response(Type? storeType)
         {
             if (storeType != null)
             {

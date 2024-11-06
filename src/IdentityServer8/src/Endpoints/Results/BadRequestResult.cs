@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -10,10 +10,11 @@ namespace IdentityServer8.Endpoints.Results
 {
     internal class BadRequestResult : IEndpointResult
     {
-        public string Error { get; set; }
-        public string ErrorDescription { get; set; }
+        public string? Error { get; set; }
+        
+        public string? ErrorDescription { get; set; }
 
-        public BadRequestResult(string error = null, string errorDescription = null)
+        public BadRequestResult(string? error = null, string? errorDescription = null)
         {
             Error = error;
             ErrorDescription = errorDescription;
@@ -38,8 +39,8 @@ namespace IdentityServer8.Endpoints.Results
 
         internal class ResultDto
         {
-            public string error { get; set; }
-            public string error_description { get; set; }
+            public string? error { get; set; }
+            public string? error_description { get; set; }
         }    
     }
 }

@@ -19,7 +19,7 @@ namespace IdentityServer8.Validation
             request.Raw.Remove(OidcConstants.AuthorizeRequest.Prompt);
         }
 
-        public static string GetPrefixedAcrValue(this ValidatedAuthorizeRequest request, string prefix)
+        public static string? GetPrefixedAcrValue(this ValidatedAuthorizeRequest request, string prefix)
         {
             var value = request.AuthenticationContextReferenceClasses
                 .FirstOrDefault(x => x.StartsWith(prefix));
@@ -46,7 +46,7 @@ namespace IdentityServer8.Validation
             }
         }
 
-        public static string GetIdP(this ValidatedAuthorizeRequest request)
+        public static string? GetIdP(this ValidatedAuthorizeRequest request)
         {
             return request.GetPrefixedAcrValue(Constants.KnownAcrValues.HomeRealm);
         }
@@ -56,7 +56,7 @@ namespace IdentityServer8.Validation
             request.RemovePrefixedAcrValue(Constants.KnownAcrValues.HomeRealm);
         }
 
-        public static string GetTenant(this ValidatedAuthorizeRequest request)
+        public static string? GetTenant(this ValidatedAuthorizeRequest request)
         {
             return request.GetPrefixedAcrValue(Constants.KnownAcrValues.Tenant);
         }
@@ -93,7 +93,7 @@ namespace IdentityServer8.Validation
             request.Raw[OidcConstants.AuthorizeRequest.AcrValues] = acr_values;
         }
 
-        public static string GenerateSessionStateValue(this ValidatedAuthorizeRequest request)
+        public static string? GenerateSessionStateValue(this ValidatedAuthorizeRequest request)
         {
             if (request == null) return null;
             if (!request.IsOpenIdRequest) return null;

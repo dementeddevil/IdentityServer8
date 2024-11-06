@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -66,7 +66,7 @@ namespace IdentityServer8.Endpoints.Results
 
             var validatedRequest = _result.IsError ? null : _result.ValidatedRequest;
 
-            string id = null;
+            string? id = null;
 
             if (validatedRequest != null)
             {

@@ -59,7 +59,7 @@ namespace IdentityServer8.Endpoints.Results
         {
             if (_options.Authentication.RequireCspFrameSrcForSignout)
             {
-                string frameSources = null;
+                string? frameSources = null;
                 var origins = _result.FrontChannelLogoutUrls?.Select(x => x.GetOrigin());
                 if (origins != null && origins.Any())
                 {
@@ -73,7 +73,7 @@ namespace IdentityServer8.Endpoints.Results
 
         private string GetHtml()
         {
-            string framesHtml = null;
+            string? framesHtml = null;
 
             if (_result.FrontChannelLogoutUrls != null && _result.FrontChannelLogoutUrls.Any())
             {

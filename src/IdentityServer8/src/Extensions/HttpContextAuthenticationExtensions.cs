@@ -32,7 +32,7 @@ namespace Microsoft.AspNetCore.Http
         /// <param name="user">The IdentityServer user.</param>
         /// <param name="properties">The authentication properties.</param>
         /// <returns></returns>
-        public static async Task SignInAsync(this HttpContext context, IdentityServerUser user, AuthenticationProperties properties)
+        public static async Task SignInAsync(this HttpContext context, IdentityServerUser user, AuthenticationProperties? properties)
         {
             await context.SignInAsync(await context.GetCookieAuthenticationSchemeAsync(), user.CreatePrincipal(), properties);
         }

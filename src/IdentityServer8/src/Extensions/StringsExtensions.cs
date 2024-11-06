@@ -5,6 +5,7 @@
 using Microsoft.AspNetCore.WebUtilities;
 using System.Collections.Specialized;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using System.Text.Encodings.Web;
 
@@ -78,13 +79,13 @@ namespace IdentityServer8.Extensions
         }
 
         [DebuggerStepThrough]
-        public static bool IsPresent(this string? value)
+        public static bool IsPresent([NotNullWhen(true)] this string? value)
         {
             return !string.IsNullOrWhiteSpace(value);
         }
 
         [DebuggerStepThrough]
-        public static string EnsureLeadingSlash(this string? url)
+        public static string? EnsureLeadingSlash([NotNullIfNotNull(nameof(url))] this string? url)
         {
             if (url != null && !url.StartsWith("/"))
             {
@@ -95,7 +96,7 @@ namespace IdentityServer8.Extensions
         }
 
         [DebuggerStepThrough]
-        public static string EnsureTrailingSlash(this string? url)
+        public static string? EnsureTrailingSlash([NotNullIfNotNull(nameof(url))] this string? url)
         {
             if (url != null && !url.EndsWith("/"))
             {
@@ -106,7 +107,7 @@ namespace IdentityServer8.Extensions
         }
 
         [DebuggerStepThrough]
-        public static string RemoveLeadingSlash(this string? url)
+        public static string? RemoveLeadingSlash([NotNullIfNotNull(nameof(url))] this string? url)
         {
             if (url != null && url.StartsWith("/"))
             {
@@ -117,7 +118,7 @@ namespace IdentityServer8.Extensions
         }
 
         [DebuggerStepThrough]
-        public static string RemoveTrailingSlash(this string? url)
+        public static string? RemoveTrailingSlash([NotNullIfNotNull(nameof(url))] this string? url)
         {
             if (url != null && url.EndsWith("/"))
             {
@@ -236,7 +237,7 @@ namespace IdentityServer8.Extensions
                 }
             }
 
-            return new NameValueCollection();           
+            return new NameValueCollection();
         }
 
         public static string? GetOrigin(this string? url)
@@ -261,7 +262,7 @@ namespace IdentityServer8.Extensions
 
             return null;
         }
-        
+
         public static string Obfuscate(this string value)
         {
             var last4Chars = "****";

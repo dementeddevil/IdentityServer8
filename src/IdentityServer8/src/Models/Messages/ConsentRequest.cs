@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -20,7 +20,7 @@ namespace IdentityServer8.Models
         /// </summary>
         /// <param name="request">The request.</param>
         /// <param name="subject">The subject.</param>
-        public ConsentRequest(AuthorizationRequest request, string subject)
+        public ConsentRequest(AuthorizationRequest request, string? subject)
         {
             ClientId = request.Client.ClientId;
             Nonce = request.Parameters[OidcConstants.AuthorizeRequest.Nonce];
@@ -33,7 +33,7 @@ namespace IdentityServer8.Models
         /// </summary>
         /// <param name="parameters">The parameters.</param>
         /// <param name="subject">The subject.</param>
-        public ConsentRequest(NameValueCollection parameters, string subject)
+        public ConsentRequest(NameValueCollection parameters, string? subject)
         {
             ClientId = parameters[OidcConstants.AuthorizeRequest.ClientId];
             Nonce = parameters[OidcConstants.AuthorizeRequest.Nonce];
@@ -71,7 +71,7 @@ namespace IdentityServer8.Models
         /// <value>
         /// The subject.
         /// </value>
-        public string Subject { get; set; }
+        public string? Subject { get; set; }
 
         /// <summary>
         /// Gets the identifier.

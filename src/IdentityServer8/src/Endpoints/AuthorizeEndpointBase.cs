@@ -54,7 +54,7 @@ namespace IdentityServer8.Endpoints
 
         public abstract Task<IEndpointResult?> ProcessAsync(HttpContext context);
 
-        internal async Task<IEndpointResult> ProcessAuthorizeRequestAsync(NameValueCollection parameters, ClaimsPrincipal user, ConsentResponse consent)
+        internal async Task<IEndpointResult> ProcessAuthorizeRequestAsync(NameValueCollection parameters, ClaimsPrincipal? user, ConsentResponse? consent)
         {
             if (user != null)
             {
@@ -181,7 +181,7 @@ namespace IdentityServer8.Endpoints
                 return _events.RaiseAsync(new TokenIssuedSuccessEvent(response));
             }
 
-            return RaiseFailureEventAsync(response.Request, response.Error, response.ErrorDescription);
+            return RaiseFailureEventAsync(response.Request, response.Error!, response.ErrorDescription);
         }
     }
 }

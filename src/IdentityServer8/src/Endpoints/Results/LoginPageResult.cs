@@ -34,7 +34,7 @@ namespace IdentityServer8.Endpoints.Results
         internal LoginPageResult(
             ValidatedAuthorizeRequest request,
             IdentityServerOptions options,
-            IAuthorizationParametersMessageStore authorizationParametersMessageStore = null) 
+            IAuthorizationParametersMessageStore? authorizationParametersMessageStore = null) 
             : this(request)
         {
             _options = options;
@@ -42,7 +42,7 @@ namespace IdentityServer8.Endpoints.Results
         }
 
         private IdentityServerOptions _options;
-        private IAuthorizationParametersMessageStore _authorizationParametersMessageStore;
+        private IAuthorizationParametersMessageStore? _authorizationParametersMessageStore;
 
         private void Init(HttpContext context)
         {

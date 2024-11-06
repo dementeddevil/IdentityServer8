@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -28,10 +28,10 @@ namespace IdentityServer8.Endpoints.Results
 
             var dto = new ResultDto
             {
-                error = Response.Error,
-                error_description = Response.ErrorDescription,
+                Error = Response.Error,
+                ErrorDescription = Response.ErrorDescription,
                 
-                custom = Response.Custom
+                Custom = Response.Custom
             };
 
             await context.Response.WriteJsonAsync(dto);
@@ -39,11 +39,15 @@ namespace IdentityServer8.Endpoints.Results
 
         internal class ResultDto
         {
-            public string error { get; set; }
-            public string error_description { get; set; }
+            [JsonPropertyName("error")]
+            public string Error { get; set; }
+
+            [JsonPropertyName("error_description")]
+            public string? ErrorDescription { get; set; }
 
             [JsonExtensionData]
-            public Dictionary<string, object> custom { get; set; }
+            [JsonPropertyName("custom")]
+            public Dictionary<string, object> Custom { get; set; }
         }    
     }
 }

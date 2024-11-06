@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -19,7 +19,7 @@ namespace IdentityServer8.Events
         /// <param name="error">The error.</param>
         /// <param name="interactive">Specifies if login was interactive</param>
         /// <param name="clientId">The client id</param>
-        public UserLoginFailureEvent(string username, string error, bool interactive = true, string clientId = null)
+        public UserLoginFailureEvent(string username, string error, bool interactive = true, string? clientId = null)
             : base(EventCategories.Authentication,
                   "User Login Failure",
                   EventTypes.Failure, 
@@ -61,6 +61,6 @@ namespace IdentityServer8.Events
         /// <value>
         /// The client id.
         /// </value>
-        public string ClientId { get; set; }
+        public string? ClientId { get; set; }
     }
 }

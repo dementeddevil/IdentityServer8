@@ -49,7 +49,7 @@ namespace IdentityServer8.Configuration
         /// <value>
         /// The consent URL.
         /// </value>
-        public string ConsentUrl { get; set; } = Constants.UIConstants.DefaultRoutePaths.Consent.EnsureLeadingSlash();
+        public string ConsentUrl { get; set; } = Constants.UIConstants.DefaultRoutePaths.Consent.EnsureLeadingSlash()!;
 
         /// <summary>
         /// Gets or sets the consent return URL parameter.
@@ -65,7 +65,7 @@ namespace IdentityServer8.Configuration
         /// <value>
         /// The error URL.
         /// </value>
-        public string ErrorUrl { get; set; } = Constants.UIConstants.DefaultRoutePaths.Error.EnsureLeadingSlash();
+        public string ErrorUrl { get; set; } = Constants.UIConstants.DefaultRoutePaths.Error.EnsureLeadingSlash()!;
 
         /// <summary>
         /// Gets or sets the error identifier parameter.

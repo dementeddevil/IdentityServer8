@@ -16,7 +16,7 @@ namespace IdentityServer8.Services
         /// Creates a LogoutNotificationContext for the current user session.
         /// </summary>
         /// <returns></returns>
-        public static async Task<LogoutNotificationContext> GetLogoutNotificationContext(this IUserSession session)
+        public static async Task<LogoutNotificationContext?> GetLogoutNotificationContext(this IUserSession session)
         {
             var clientIds = await session.GetClientListAsync();
 

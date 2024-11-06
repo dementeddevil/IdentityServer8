@@ -48,7 +48,7 @@ namespace IdentityServer8.Endpoints
         /// </summary>
         /// <param name="context">The HTTP context.</param>
         /// <returns></returns>
-        public async Task<IEndpointResult> ProcessAsync(HttpContext context)
+        public async Task<IEndpointResult?> ProcessAsync(HttpContext context)
         {
             if (!HttpMethods.IsGet(context.Request.Method) && !HttpMethods.IsPost(context.Request.Method))
             {
@@ -91,7 +91,7 @@ namespace IdentityServer8.Endpoints
             return new UserInfoResult(response);
         }
 
-        private IEndpointResult Error(string error, string description = null)
+        private IEndpointResult Error(string error, string? description = null)
         {
             return new ProtectedResourceErrorResult(error, description);
         }

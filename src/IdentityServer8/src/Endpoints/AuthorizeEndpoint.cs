@@ -29,7 +29,7 @@ namespace IdentityServer8.Endpoints
         {
         }
 
-        public override async Task<IEndpointResult> ProcessAsync(HttpContext context)
+        public override async Task<IEndpointResult?> ProcessAsync(HttpContext context)
         {
             Logger.LogDebug("Start authorize request");
 

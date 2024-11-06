@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -27,7 +27,7 @@ namespace IdentityServer8.Hosting.FederatedSignOut
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public async Task<IAuthenticationHandler> GetHandlerAsync(HttpContext context, string authenticationScheme)
+        public async Task<IAuthenticationHandler?> GetHandlerAsync(HttpContext context, string authenticationScheme)
         {
             var handler = await _provider.GetHandlerAsync(context, authenticationScheme);
             if (handler is IAuthenticationRequestHandler requestHandler)

@@ -50,7 +50,7 @@ namespace IdentityServer8.Hosting
             _logger = logger;
         }
 
-        public async Task SignInAsync(HttpContext context, string scheme, ClaimsPrincipal principal, AuthenticationProperties properties)
+        public async Task SignInAsync(HttpContext context, string? scheme, ClaimsPrincipal principal, AuthenticationProperties? properties)
         {
             var defaultScheme = await _schemes.GetDefaultSignInSchemeAsync();
             var cookieScheme = await context.GetCookieAuthenticationSchemeAsync();
@@ -74,7 +74,7 @@ namespace IdentityServer8.Hosting
             AugmentMissingClaims(principal, _clock.UtcNow.UtcDateTime);
         }
 
-        public async Task SignOutAsync(HttpContext context, string scheme, AuthenticationProperties properties)
+        public async Task SignOutAsync(HttpContext context, string? scheme, AuthenticationProperties? properties)
         {
             var defaultScheme = await _schemes.GetDefaultSignOutSchemeAsync();
             var cookieScheme = await context.GetCookieAuthenticationSchemeAsync();
@@ -88,17 +88,17 @@ namespace IdentityServer8.Hosting
             await _inner.SignOutAsync(context, scheme, properties);
         }
 
-        public Task<AuthenticateResult> AuthenticateAsync(HttpContext context, string scheme)
+        public Task<AuthenticateResult> AuthenticateAsync(HttpContext context, string? scheme)
         {
             return _inner.AuthenticateAsync(context, scheme);
         }
 
-        public Task ChallengeAsync(HttpContext context, string scheme, AuthenticationProperties properties)
+        public Task ChallengeAsync(HttpContext context, string? scheme, AuthenticationProperties? properties)
         {
             return _inner.ChallengeAsync(context, scheme, properties);
         }
 
-        public Task ForbidAsync(HttpContext context, string scheme, AuthenticationProperties properties)
+        public Task ForbidAsync(HttpContext context, string? scheme, AuthenticationProperties? properties)
         {
             return _inner.ForbidAsync(context, scheme, properties);
         }

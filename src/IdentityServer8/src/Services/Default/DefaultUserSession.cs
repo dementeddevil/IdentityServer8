@@ -185,7 +185,7 @@ namespace IdentityServer8.Services
         /// Gets the current session identifier.
         /// </summary>
         /// <returns></returns>
-        public virtual async Task<string> GetSessionIdAsync()
+        public virtual async Task<string?> GetSessionIdAsync()
         {
             await AuthenticateAsync();
 

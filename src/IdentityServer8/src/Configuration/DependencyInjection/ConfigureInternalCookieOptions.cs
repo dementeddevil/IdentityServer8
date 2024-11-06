@@ -86,7 +86,7 @@ namespace IdentityServer8.Configuration
             _logger = loggerFactory.CreateLogger("IdentityServer8.Startup");
         }
 
-        public void PostConfigure(string name, CookieAuthenticationOptions options)
+        public void PostConfigure(string? name, CookieAuthenticationOptions options)
         {
             var scheme = _idsrv.Authentication.CookieAuthenticationScheme ??
                 _authOptions.Value.DefaultAuthenticateScheme ??

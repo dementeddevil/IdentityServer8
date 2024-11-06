@@ -51,7 +51,7 @@ namespace IdentityServer8.Endpoints
             var parameters = context.Request.Query.AsNameValueCollection();
             if (_authorizationParametersMessageStore != null)
             {
-                var messageStoreId = parameters[Constants.AuthorizationParamsStore.MessageStoreIdParameterName];
+                var messageStoreId = parameters[Constants.AuthorizationParamsStore.MessageStoreIdParameterName]!;
                 var entry = await _authorizationParametersMessageStore.ReadAsync(messageStoreId);
                 parameters = entry?.Data.FromFullDictionary() ?? new NameValueCollection();
 

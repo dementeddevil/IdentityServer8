@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -11,7 +11,7 @@ namespace IdentityServer8.Extensions
 {
     public static class HttpRequestExtensions
     {
-        public static string GetCorsOrigin(this HttpRequest request)
+        public static string? GetCorsOrigin(this HttpRequest request)
         {
             var origin = request.Headers["Origin"].FirstOrDefault();
             var thisOrigin = request.Scheme + "://" + request.Host;

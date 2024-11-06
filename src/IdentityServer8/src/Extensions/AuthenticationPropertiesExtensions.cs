@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -21,7 +21,7 @@ namespace IdentityServer8.Extensions
         /// </summary>
         /// <param name="properties"></param>
         /// <returns></returns>
-        public static string GetSessionId(this AuthenticationProperties properties)
+        public static string? GetSessionId(this AuthenticationProperties properties)
         {
             if (properties?.Items.ContainsKey(SessionIdKey) == true)
             {
@@ -51,7 +51,7 @@ namespace IdentityServer8.Extensions
         {
             if (properties?.Items.ContainsKey(ClientListKey) == true)
             {
-                var value = properties.Items[ClientListKey];
+                var value = properties.Items[ClientListKey]!;
                 return DecodeList(value);
             }
 
@@ -107,7 +107,7 @@ namespace IdentityServer8.Extensions
             return Enumerable.Empty<string>();
         }
 
-        private static string EncodeList(IEnumerable<string> list)
+        private static string? EncodeList(IEnumerable<string> list)
         {
             if (list != null && list.Any())
             {

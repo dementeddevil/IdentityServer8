@@ -46,9 +46,9 @@ namespace IdentityServer8.Hosting.LocalApiAuthentication
         {
             _logger.LogTrace("HandleAuthenticateAsync called");
 
-            string token = null;
+            string? token = null;
 
-            string authorization = Request.Headers["Authorization"];
+            string? authorization = Request.Headers["Authorization"];
 
             if (string.IsNullOrEmpty(authorization))
             {

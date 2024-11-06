@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -146,7 +146,7 @@ namespace IdentityServer8.ResponseHandling
         /// <param name="request"></param>
         /// <param name="authorizationCode"></param>
         /// <returns></returns>
-        protected virtual async Task<AuthorizeResponse> CreateImplicitFlowResponseAsync(ValidatedAuthorizeRequest request, string authorizationCode = null)
+        protected virtual async Task<AuthorizeResponse> CreateImplicitFlowResponseAsync(ValidatedAuthorizeRequest request, string? authorizationCode = null)
         {
             Logger.LogDebug("Creating Implicit Flow response.");
 
@@ -171,10 +171,10 @@ namespace IdentityServer8.ResponseHandling
                 accessTokenValue = await TokenService.CreateSecurityTokenAsync(accessToken);
             }
 
-            string jwt = null;
+            string? jwt = null;
             if (responseTypes.Contains(OidcConstants.ResponseTypes.IdToken))
             {
-                string stateHash = null;
+                string? stateHash = null;
                 if (request.State.IsPresent())
                 {
                     var credential = await KeyMaterialService.GetSigningCredentialsAsync(request.Client.AllowedIdentityTokenSigningAlgorithms);
@@ -222,7 +222,7 @@ namespace IdentityServer8.ResponseHandling
         /// <returns></returns>
         protected virtual async Task<AuthorizationCode> CreateCodeAsync(ValidatedAuthorizeRequest request)
         {
-            string stateHash = null;
+            string? stateHash = null;
             if (request.State.IsPresent())
             {
                 var credential = await KeyMaterialService.GetSigningCredentialsAsync(request.Client.AllowedIdentityTokenSigningAlgorithms);

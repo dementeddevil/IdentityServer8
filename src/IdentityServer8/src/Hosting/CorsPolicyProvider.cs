@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -32,7 +32,7 @@ namespace IdentityServer8.Hosting
             _httpContext = httpContext;
         }
 
-        public Task<CorsPolicy> GetPolicyAsync(HttpContext context, string policyName)
+        public Task<CorsPolicy?> GetPolicyAsync(HttpContext context, string? policyName)
         {
             if (_options.Cors.CorsPolicyName == policyName)
             {
@@ -44,7 +44,7 @@ namespace IdentityServer8.Hosting
             }
         }
 
-        private async Task<CorsPolicy> ProcessAsync(HttpContext context)
+        private async Task<CorsPolicy?> ProcessAsync(HttpContext context)
         {
             var origin = context.Request.GetCorsOrigin();
             if (origin != null)

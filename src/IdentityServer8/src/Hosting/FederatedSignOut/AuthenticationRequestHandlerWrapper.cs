@@ -5,6 +5,7 @@
 using IdentityServer8.Extensions;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace IdentityServer8.Hosting.FederatedSignOut
@@ -15,14 +16,14 @@ namespace IdentityServer8.Hosting.FederatedSignOut
 
         private readonly IAuthenticationRequestHandler _inner;
         private readonly HttpContext _context;
-        private readonly ILogger _logger;
+        private readonly ILogger? _logger;
 
         public AuthenticationRequestHandlerWrapper(IAuthenticationRequestHandler inner, IHttpContextAccessor httpContextAccessor)
         {
             _inner = inner;
-            _context = httpContextAccessor.HttpContext;
+            _context = httpContextAccessor.HttpContext!;
 
-            var factory = (ILoggerFactory)_context.RequestServices.GetService(typeof(ILoggerFactory));
+            var factory = _context.RequestServices.GetService<ILoggerFactory>();
             _logger = factory?.CreateLogger(GetType());
         }
 
@@ -54,12 +55,12 @@ namespace IdentityServer8.Hosting.FederatedSignOut
             return _inner.AuthenticateAsync();
         }
 
-        public Task ChallengeAsync(AuthenticationProperties properties)
+        public Task ChallengeAsync(AuthenticationProperties? properties)
         {
             return _inner.ChallengeAsync(properties);
         }
 
-        public Task ForbidAsync(AuthenticationProperties properties)
+        public Task ForbidAsync(AuthenticationProperties? properties)
         {
             return _inner.ForbidAsync(properties);
         }

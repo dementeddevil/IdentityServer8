@@ -54,7 +54,7 @@ namespace IdentityServer8.Endpoints
         /// </summary>
         /// <param name="context">The HTTP context.</param>
         /// <returns></returns>
-        public async Task<IEndpointResult> ProcessAsync(HttpContext context)
+        public async Task<IEndpointResult?> ProcessAsync(HttpContext context)
         {
             _logger.LogTrace("Processing token request.");
 

@@ -1,4 +1,4 @@
-﻿using IdentityModel;
+using IdentityModel;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
@@ -165,9 +165,9 @@ namespace IdentityServer8.Configuration
             };
         }
 
-        internal static X509Certificate2 FindCertificate(string name, StoreLocation location, NameType nameType)
+        internal static X509Certificate2? FindCertificate(string name, StoreLocation location, NameType nameType)
         {
-            X509Certificate2 certificate = null;
+            X509Certificate2? certificate = null;
 
             if (location == StoreLocation.LocalMachine)
             {

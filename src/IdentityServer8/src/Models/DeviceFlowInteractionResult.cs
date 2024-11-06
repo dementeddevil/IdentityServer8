@@ -14,7 +14,7 @@ namespace IdentityServer8.Models
         /// <value>
         /// The error description.
         /// </value>
-        public string ErrorDescription { get; private set; }
+        public string? ErrorDescription { get; private set; }
 
         /// <summary>
         /// Gets a value indicating whether this instance is error.
@@ -37,7 +37,7 @@ namespace IdentityServer8.Models
         /// </summary>
         /// <param name="errorDescription">The error description.</param>
         /// <returns></returns>
-        public static DeviceFlowInteractionResult Failure(string errorDescription = null)
+        public static DeviceFlowInteractionResult Failure(string? errorDescription = null)
         {
             return new DeviceFlowInteractionResult
             {

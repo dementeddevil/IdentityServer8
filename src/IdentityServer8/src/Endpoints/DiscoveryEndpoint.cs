@@ -30,7 +30,7 @@ namespace IdentityServer8.Endpoints
             _responseGenerator = responseGenerator;
         }
 
-        public async Task<IEndpointResult> ProcessAsync(HttpContext context)
+        public async Task<IEndpointResult?> ProcessAsync(HttpContext context)
         {
             _logger.LogTrace("Processing discovery request.");
 

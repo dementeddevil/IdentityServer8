@@ -31,7 +31,7 @@ namespace IdentityServer8.Endpoints
             _logger = logger;
         }
 
-        public async Task<IEndpointResult> ProcessAsync(HttpContext context)
+        public async Task<IEndpointResult?> ProcessAsync(HttpContext context)
         {
             NameValueCollection parameters;
             if (HttpMethods.IsGet(context.Request.Method))

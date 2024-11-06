@@ -113,7 +113,7 @@ namespace IdentityServerHost.Quickstart.UI
 
                     // only set explicit expiration here if user chooses "remember me". 
                     // otherwise we rely upon expiration configured in cookie middleware.
-                    AuthenticationProperties props = null;
+                    AuthenticationProperties? props = null;
                     if (AccountOptions.AllowRememberLogin && model.RememberLogin)
                     {
                         props = new AuthenticationProperties
@@ -199,7 +199,7 @@ namespace IdentityServerHost.Quickstart.UI
             // build a model so the logged out page knows what to display
             var vm = await BuildLoggedOutViewModelAsync(model.LogoutId);
 
-            if (User?.Identity.IsAuthenticated == true)
+            if (User?.Identity?.IsAuthenticated == true)
             {
                 // delete local authentication cookie
                 await HttpContext.SignOutAsync();

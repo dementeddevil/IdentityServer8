@@ -14,9 +14,9 @@ namespace IdentityServer8.Endpoints.Results
     internal class ProtectedResourceErrorResult : IEndpointResult
     {
         public string Error;
-        public string ErrorDescription;
+        public string? ErrorDescription;
 
-        public ProtectedResourceErrorResult(string error, string errorDescription = null)
+        public ProtectedResourceErrorResult(string error, string? errorDescription = null)
         {
             Error = error;
             ErrorDescription = errorDescription;

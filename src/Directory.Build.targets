@@ -1,7 +1,7 @@
 <Project>
 
   <PropertyGroup>
-    <FrameworkVersion>8.0.0</FrameworkVersion>
+    <FrameworkVersion>8.0.10</FrameworkVersion>
     <ExtensionsVersion>8.0.0</ExtensionsVersion>
     <EntityFrameworkVersion>8.0.10</EntityFrameworkVersion>
     

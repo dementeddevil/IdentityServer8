@@ -47,7 +47,7 @@ namespace IdentityServer8.Endpoints
         /// <param name="context">The HTTP context.</param>
         /// <returns></returns>
         /// <exception cref="System.NotImplementedException"></exception>
-        public async Task<IEndpointResult> ProcessAsync(HttpContext context)
+        public async Task<IEndpointResult?> ProcessAsync(HttpContext context)
         {
             _logger.LogTrace("Processing device authorize request.");
 
@@ -72,7 +72,6 @@ namespace IdentityServer8.Endpoints
             // validate request
             var form = (await context.Request.ReadFormAsync()).AsNameValueCollection();
             var requestResult = await _requestValidator.ValidateAsync(form, clientResult);
-
             if (requestResult.IsError)
             {
                 await _events.RaiseAsync(new DeviceAuthorizationFailureEvent(requestResult));
@@ -84,6 +83,7 @@ namespace IdentityServer8.Endpoints
             // create response
             _logger.LogTrace("Calling into device authorize response generator: {type}", _responseGenerator.GetType().FullName);
             var response = await _responseGenerator.ProcessAsync(requestResult, baseUrl);
+            LogResponse(response, requestResult);
 
             await _events.RaiseAsync(new DeviceAuthorizationSuccessEvent(response, requestResult));
 
@@ -92,14 +92,18 @@ namespace IdentityServer8.Endpoints
             return new DeviceAuthorizationResult(response);
         }
 
-        private TokenErrorResult Error(string error, string errorDescription = null, Dictionary<string, object> custom = null)
+        private TokenErrorResult Error(string error, string? errorDescription = null, Dictionary<string, object>? custom = null)
         {
             var response = new TokenErrorResponse
             {
                 Error = error,
-                ErrorDescription = errorDescription,
-                Custom = custom
+                ErrorDescription = errorDescription
             };
+
+            if (custom != null)
+            {
+                response.Custom = custom;
+            }
 
             _logger.LogError("Device authorization error: {error}:{errorDescriptions}", error, error ?? "-no message-");
 

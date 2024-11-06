@@ -159,7 +159,7 @@ namespace IdentityServer8.ResponseHandling
             if (request.ValidatedRequest.AuthorizationCode.IsOpenId)
             {
                 // load the client that belongs to the authorization code
-                Client client = null;
+                Client? client = null;
                 if (request.ValidatedRequest.AuthorizationCode.ClientId != null)
                 {
                     client = await Clients.FindEnabledClientByIdAsync(request.ValidatedRequest.AuthorizationCode.ClientId);
@@ -278,7 +278,7 @@ namespace IdentityServer8.ResponseHandling
             if (request.ValidatedRequest.DeviceCode.IsOpenId)
             {
                 // load the client that belongs to the device code
-                Client client = null;
+                Client? client = null;
                 if (request.ValidatedRequest.DeviceCode.ClientId != null)
                 {
                     client = await Clients.FindEnabledClientByIdAsync(request.ValidatedRequest.DeviceCode.ClientId);
@@ -349,7 +349,7 @@ namespace IdentityServer8.ResponseHandling
         /// <param name="request">The request.</param>
         /// <returns></returns>
         /// <exception cref="System.InvalidOperationException">Client does not exist anymore.</exception>
-        protected virtual async Task<(string accessToken, string refreshToken)> CreateAccessTokenAsync(ValidatedTokenRequest request)
+        protected virtual async Task<(string accessToken, string? refreshToken)> CreateAccessTokenAsync(ValidatedTokenRequest request)
         {
             TokenCreationRequest tokenRequest;
             bool createRefreshToken;
@@ -359,7 +359,7 @@ namespace IdentityServer8.ResponseHandling
                 createRefreshToken = request.AuthorizationCode.RequestedScopes.Contains(IdentityServerConstants.StandardScopes.OfflineAccess);
 
                 // load the client that belongs to the authorization code
-                Client client = null;
+                Client? client = null;
                 if (request.AuthorizationCode.ClientId != null)
                 {
                     client = await Clients.FindEnabledClientByIdAsync(request.AuthorizationCode.ClientId);
@@ -384,7 +384,7 @@ namespace IdentityServer8.ResponseHandling
             {
                 createRefreshToken = request.DeviceCode.AuthorizedScopes.Contains(IdentityServerConstants.StandardScopes.OfflineAccess);
 
-                Client client = null;
+                Client? client = null;
                 if (request.DeviceCode.ClientId != null)
                 {
                     client = await Clients.FindEnabledClientByIdAsync(request.DeviceCode.ClientId);
@@ -435,7 +435,7 @@ namespace IdentityServer8.ResponseHandling
         /// <param name="request">The request.</param>
         /// <param name="newAccessToken">The new access token.</param>
         /// <returns></returns>
-        protected virtual async Task<string> CreateIdTokenFromRefreshTokenRequestAsync(ValidatedTokenRequest request, string newAccessToken)
+        protected virtual async Task<string?> CreateIdTokenFromRefreshTokenRequestAsync(ValidatedTokenRequest request, string newAccessToken)
         {
             // todo: can we just check for "openid" scope?
             //var identityResources = await Resources.FindEnabledIdentityResourcesByScopeAsync(request.RefreshToken.Scopes);

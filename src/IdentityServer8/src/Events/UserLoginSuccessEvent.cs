@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -23,7 +23,7 @@ namespace IdentityServer8.Events
         /// <param name="name">The name.</param>
         /// <param name="interactive">if set to <c>true</c> [interactive].</param>
         /// <param name="clientId">The client id.</param>
-        public UserLoginSuccessEvent(string provider, string providerUserId, string subjectId, string name, bool interactive = true, string clientId = null)
+        public UserLoginSuccessEvent(string provider, string providerUserId, string subjectId, string name, bool interactive = true, string? clientId = null)
             : this()
         {
             Provider = provider;
@@ -49,7 +49,7 @@ namespace IdentityServer8.Events
         /// <param name="name">The name.</param>
         /// <param name="interactive">if set to <c>true</c> [interactive].</param>
         /// <param name="clientId">The client id.</param>
-        public UserLoginSuccessEvent(string username, string subjectId, string name, bool interactive = true, string clientId = null)
+        public UserLoginSuccessEvent(string username, string subjectId, string name, bool interactive = true, string? clientId = null)
             : this()
         {
             Username = username;
@@ -132,6 +132,6 @@ namespace IdentityServer8.Events
         /// <value>
         /// The client id.
         /// </value>
-        public string ClientId { get; set; }
+        public string? ClientId { get; set; }
     }
 }
