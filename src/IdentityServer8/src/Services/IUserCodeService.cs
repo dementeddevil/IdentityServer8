@@ -13,6 +13,6 @@ namespace IdentityServer8.Services
         /// </summary>
         /// <param name="userCodeType">Type of user code.</param>
         /// <returns></returns>
-        Task<IUserCodeGenerator> GetGenerator(string userCodeType);
+        Task<IUserCodeGenerator?> GetGenerator(string userCodeType);
     }
 }

@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -63,7 +63,7 @@ namespace IdentityServer8.Stores
         /// </summary>
         /// <param name="origin">The origin.</param>
         /// <returns></returns>
-        public virtual async Task<bool> IsOriginAllowedAsync(string origin)
+        public virtual async Task<bool> IsOriginAllowedAsync(string? origin)
         {
             var entry = await CorsCache.GetAsync(origin,
                           Options.Caching.CorsExpiration,

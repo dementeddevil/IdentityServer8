@@ -26,7 +26,7 @@ namespace IdentityServer8.Services
         /// </summary>
         /// <param name="userCodeType">Type of user code.</param>
         /// <returns></returns>
-        public Task<IUserCodeGenerator> GetGenerator(string userCodeType) =>
+        public Task<IUserCodeGenerator?> GetGenerator(string userCodeType) =>
             Task.FromResult(_generators.FirstOrDefault(x => x.UserCodeType == userCodeType));
     }
 }

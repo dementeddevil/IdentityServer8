@@ -46,7 +46,7 @@ namespace IdentityServer8.Stores
         /// </summary>
         /// <param name="code">The code.</param>
         /// <returns></returns>
-        public Task<AuthorizationCode> GetAuthorizationCodeAsync(string code)
+        public Task<AuthorizationCode?> GetAuthorizationCodeAsync(string code)
         {
             return GetItemAsync(code);
         }

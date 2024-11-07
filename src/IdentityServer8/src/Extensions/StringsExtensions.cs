@@ -58,7 +58,7 @@ namespace IdentityServer8.Extensions
         }
 
         [DebuggerStepThrough]
-        public static bool IsMissing(this string? value)
+        public static bool IsMissing([NotNullWhen(false)] this string? value)
         {
             return string.IsNullOrWhiteSpace(value);
         }

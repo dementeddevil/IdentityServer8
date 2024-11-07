@@ -13,6 +13,6 @@ namespace IdentityServer8.Services
         /// <param name="url"></param>
         /// <param name="client"></param>
         /// <returns></returns>
-        Task<string> GetJwtAsync(string url, Client client);
+        Task<string?> GetJwtAsync(string url, Client client);
     }
 }

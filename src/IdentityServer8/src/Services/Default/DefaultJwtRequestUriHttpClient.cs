@@ -33,7 +33,7 @@ namespace IdentityServer8.Services
 
 
         /// <inheritdoc />
-        public async Task<string> GetJwtAsync(string url, Client client)
+        public async Task<string?> GetJwtAsync(string url, Client client)
         {
             var req = new HttpRequestMessage(HttpMethod.Get, url);
             req.Options.Set(new HttpRequestOptionsKey<Client>(IdentityServerConstants.JwtRequestClientKey), client);
