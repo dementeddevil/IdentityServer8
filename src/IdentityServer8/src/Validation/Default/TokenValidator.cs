@@ -405,7 +405,7 @@ namespace IdentityServer8.Validation
             return claims;
         }
 
-        private string GetClientIdFromJwt(string token)
+        private string? GetClientIdFromJwt(string token)
         {
             try
             {

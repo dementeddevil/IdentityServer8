@@ -46,7 +46,7 @@ namespace IdentityServer8.Stores
         /// <returns>
         /// The client or an InvalidOperationException
         /// </returns>
-        public async Task<Client> FindClientByIdAsync(string clientId)
+        public async Task<Client?> FindClientByIdAsync(string clientId)
         {
             var client = await _inner.FindClientByIdAsync(clientId);
 

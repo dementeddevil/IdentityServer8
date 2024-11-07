@@ -45,7 +45,7 @@ namespace IdentityServer8.Stores
         /// <returns>
         /// The client
         /// </returns>
-        public async Task<Client> FindClientByIdAsync(string clientId)
+        public async Task<Client?> FindClientByIdAsync(string clientId)
         {
             var client = await _cache.GetAsync(clientId,
                 _options.Caching.ClientStoreExpiration,

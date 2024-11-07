@@ -47,7 +47,7 @@ namespace IdentityServer8.Validation
         /// <returns>
         /// A parsed secret
         /// </returns>
-        public async Task<ParsedSecret> ParseAsync(HttpContext context)
+        public async Task<ParsedSecret?> ParseAsync(HttpContext context)
         {
             _logger.LogDebug("Start parsing for JWT client assertion in post body");
 
@@ -100,7 +100,7 @@ namespace IdentityServer8.Validation
             return null;
         }
 
-        private string GetClientIdFromToken(string token)
+        private string? GetClientIdFromToken(string token)
         {
             try
             {

@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -25,7 +25,7 @@ namespace IdentityServer8.Validation
         /// <summary>
         /// Custom fields for the token response
         /// </summary>
-        public Dictionary<string, object> CustomResponse { get; set; } = new Dictionary<string, object>();
+        public Dictionary<string, object>? CustomResponse { get; set; } = new Dictionary<string, object>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="GrantValidationResult"/> class with no subject.

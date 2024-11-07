@@ -32,10 +32,10 @@ namespace IdentityServer8.Validation
         /// </summary>
         /// <param name="context">The HTTP context.</param>
         /// <returns></returns>
-        public async Task<ParsedSecret> ParseAsync(HttpContext context)
+        public async Task<ParsedSecret?> ParseAsync(HttpContext context)
         {
             // see if a registered parser finds a secret on the request
-            ParsedSecret bestSecret = null;
+            ParsedSecret? bestSecret = null;
             foreach (var parser in _parsers)
             {
                 var parsedSecret = await parser.ParseAsync(context);

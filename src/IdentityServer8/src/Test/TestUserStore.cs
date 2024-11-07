@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -52,7 +52,7 @@ namespace IdentityServer8.Test
         /// </summary>
         /// <param name="subjectId">The subject identifier.</param>
         /// <returns></returns>
-        public TestUser FindBySubjectId(string subjectId)
+        public TestUser? FindBySubjectId(string subjectId)
         {
             return _users.FirstOrDefault(x => x.SubjectId == subjectId);
         }
@@ -62,7 +62,7 @@ namespace IdentityServer8.Test
         /// </summary>
         /// <param name="username">The username.</param>
         /// <returns></returns>
-        public TestUser FindByUsername(string username)
+        public TestUser? FindByUsername(string username)
         {
             return _users.FirstOrDefault(x => x.Username.Equals(username, StringComparison.OrdinalIgnoreCase));
         }
@@ -73,7 +73,7 @@ namespace IdentityServer8.Test
         /// <param name="provider">The provider.</param>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        public TestUser FindByExternalProvider(string provider, string userId)
+        public TestUser? FindByExternalProvider(string provider, string userId)
         {
             return _users.FirstOrDefault(x =>
                 x.ProviderName == provider &&

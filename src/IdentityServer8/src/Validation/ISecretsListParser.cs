@@ -1,4 +1,4 @@
-﻿// Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
+// Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 using IdentityServer8.Models;
 using Microsoft.AspNetCore.Http;
 
@@ -16,7 +16,7 @@ namespace IdentityServer8.Validation
         /// <returns>
         /// A parsed secret
         /// </returns>
-        Task<ParsedSecret> ParseAsync(HttpContext context);
+        Task<ParsedSecret?> ParseAsync(HttpContext context);
 
         /// <summary>
         /// Gets all available authentication methods.
