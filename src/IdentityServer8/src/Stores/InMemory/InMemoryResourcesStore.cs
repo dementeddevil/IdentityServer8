@@ -20,9 +20,9 @@ namespace IdentityServer8.Stores
         /// Initializes a new instance of the <see cref="InMemoryResourcesStore" /> class.
         /// </summary>
         public InMemoryResourcesStore(
-            IEnumerable<IdentityResource> identityResources = null, 
-            IEnumerable<ApiResource> apiResources = null, 
-            IEnumerable<ApiScope> apiScopes = null)
+            IEnumerable<IdentityResource>? identityResources = null, 
+            IEnumerable<ApiResource>? apiResources = null, 
+            IEnumerable<ApiScope>? apiScopes = null)
         {
             if (identityResources?.HasDuplicates(m => m.Name) == true)
             {

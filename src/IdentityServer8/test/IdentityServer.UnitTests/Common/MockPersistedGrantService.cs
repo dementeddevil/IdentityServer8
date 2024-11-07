@@ -17,7 +17,7 @@ namespace IdentityServer.UnitTests.Common
             return Task.FromResult(GetAllGrantsResult ?? Enumerable.Empty<Grant>());
         }
 
-        public Task RemoveAllGrantsAsync(string subjectId, string clientId, string sessionId = null)
+        public Task RemoveAllGrantsAsync(string subjectId, string clientId, string? sessionId = null)
         {
             RemoveAllGrantsWasCalled = true;
             return Task.CompletedTask;

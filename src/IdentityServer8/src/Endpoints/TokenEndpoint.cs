@@ -103,7 +103,7 @@ namespace IdentityServer8.Endpoints
             return new TokenResult(response);
         }
 
-        private TokenErrorResult Error(string error, string errorDescription = null, Dictionary<string, object> custom = null)
+        private TokenErrorResult Error(string error, string? errorDescription = null, Dictionary<string, object>? custom = null)
         {
             var response = new TokenErrorResponse
             {

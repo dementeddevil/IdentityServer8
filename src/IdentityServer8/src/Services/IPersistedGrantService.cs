@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -25,6 +25,6 @@ namespace IdentityServer8.Services
         /// <param name="clientId">The client identifier (optional).</param>
         /// <param name="sessionId">The sesion id (optional).</param>
         /// <returns></returns>
-        Task RemoveAllGrantsAsync(string subjectId, string clientId = null, string sessionId = null);
+        Task RemoveAllGrantsAsync(string subjectId, string? clientId = null, string? sessionId = null);
     }
 }

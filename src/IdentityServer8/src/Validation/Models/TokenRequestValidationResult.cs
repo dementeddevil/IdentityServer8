@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 namespace IdentityServer8.Validation
@@ -13,7 +13,7 @@ namespace IdentityServer8.Validation
         /// </summary>
         /// <param name="validatedRequest">The validated request.</param>
         /// <param name="customResponse">The custom response.</param>
-        public TokenRequestValidationResult(ValidatedTokenRequest validatedRequest, Dictionary<string, object> customResponse = null)
+        public TokenRequestValidationResult(ValidatedTokenRequest validatedRequest, Dictionary<string, object>? customResponse = null)
         {
             IsError = false;
 
@@ -28,7 +28,7 @@ namespace IdentityServer8.Validation
         /// <param name="error">The error.</param>
         /// <param name="errorDescription">The error description.</param>
         /// <param name="customResponse">The custom response.</param>
-        public TokenRequestValidationResult(ValidatedTokenRequest validatedRequest, string error, string errorDescription = null, Dictionary<string, object> customResponse = null)
+        public TokenRequestValidationResult(ValidatedTokenRequest validatedRequest, string error, string? errorDescription = null, Dictionary<string, object>? customResponse = null)
         {
             IsError = true;
 
@@ -52,6 +52,6 @@ namespace IdentityServer8.Validation
         /// <value>
         /// The custom response.
         /// </value>
-        public Dictionary<string, object> CustomResponse { get; set; }
+        public Dictionary<string, object>? CustomResponse { get; set; }
     }
 }

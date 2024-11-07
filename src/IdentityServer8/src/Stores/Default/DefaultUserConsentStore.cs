@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -52,7 +52,7 @@ namespace IdentityServer8.Stores
         /// <param name="subjectId">The subject identifier.</param>
         /// <param name="clientId">The client identifier.</param>
         /// <returns></returns>
-        public Task<Consent> GetUserConsentAsync(string subjectId, string clientId)
+        public Task<Consent?> GetUserConsentAsync(string subjectId, string clientId)
         {
             var key = GetConsentKey(subjectId, clientId);
             return GetItemAsync(key);

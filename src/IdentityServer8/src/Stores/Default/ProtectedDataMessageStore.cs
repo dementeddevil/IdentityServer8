@@ -42,7 +42,7 @@ namespace IdentityServer8.Stores
         /// <inheritdoc />
         public virtual Task<Message<TModel>> ReadAsync(string value)
         {
-            Message<TModel> result = null;
+            Message<TModel>? result = null;
 
             if (!String.IsNullOrWhiteSpace(value))
             {

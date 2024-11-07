@@ -31,7 +31,7 @@ namespace IdentityServer8.Validation
         /// Initializes a new instance of the <see cref="GrantValidationResult"/> class with no subject.
         /// Warning: the resulting access token will only contain the client identity.
         /// </summary>
-        public GrantValidationResult(Dictionary<string, object> customResponse = null)
+        public GrantValidationResult(Dictionary<string, object>? customResponse = null)
         {
             IsError = false;
             CustomResponse = customResponse;
@@ -41,7 +41,7 @@ namespace IdentityServer8.Validation
         /// Initializes a new instance of the <see cref="GrantValidationResult"/> class with a given principal.
         /// Warning: the principal needs to include the required claims - it is recommended to use the other constructor that does validation.
         /// </summary>
-        public GrantValidationResult(ClaimsPrincipal principal, Dictionary<string, object> customResponse = null)
+        public GrantValidationResult(ClaimsPrincipal principal, Dictionary<string, object>? customResponse = null)
         {
             IsError = false;
 
@@ -61,7 +61,7 @@ namespace IdentityServer8.Validation
         /// <param name="error">The error.</param>
         /// <param name="errorDescription">The error description.</param>
         /// <param name="customResponse">Custom response elements</param>
-        public GrantValidationResult(TokenRequestErrors error, string errorDescription = null, Dictionary<string, object> customResponse = null)
+        public GrantValidationResult(TokenRequestErrors error, string? errorDescription = null, Dictionary<string, object>? customResponse = null)
         {
             Error = ConvertTokenErrorEnumToString(error);
             ErrorDescription = errorDescription;
@@ -80,9 +80,9 @@ namespace IdentityServer8.Validation
         public GrantValidationResult(
             string subject,
             string authenticationMethod,
-            IEnumerable<Claim> claims = null,
+            IEnumerable<Claim>? claims = null,
             string identityProvider = IdentityServerConstants.LocalIdentityProvider,
-            Dictionary<string, object> customResponse = null)
+            Dictionary<string, object>? customResponse = null)
             : this(subject, authenticationMethod, DateTime.UtcNow, claims, identityProvider, customResponse)
         {
         }
@@ -101,9 +101,9 @@ namespace IdentityServer8.Validation
             string subject,
             string authenticationMethod,
             DateTime authTime,
-            IEnumerable<Claim> claims = null,
+            IEnumerable<Claim>? claims = null,
             string identityProvider = IdentityServerConstants.LocalIdentityProvider,
-            Dictionary<string, object> customResponse = null)
+            Dictionary<string, object>? customResponse = null)
         {
             IsError = false;
 

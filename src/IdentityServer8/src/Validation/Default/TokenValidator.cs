@@ -56,7 +56,7 @@ namespace IdentityServer8.Validation
             _log = new TokenValidationLog();
         }
 
-        public async Task<TokenValidationResult> ValidateIdentityTokenAsync(string token, string clientId = null, bool validateLifetime = true)
+        public async Task<TokenValidationResult> ValidateIdentityTokenAsync(string token, string? clientId = null, bool validateLifetime = true)
         {
             _logger.LogDebug("Start identity token validation");
 
@@ -116,7 +116,7 @@ namespace IdentityServer8.Validation
             return customResult;
         }
 
-        public async Task<TokenValidationResult> ValidateAccessTokenAsync(string token, string expectedScope = null)
+        public async Task<TokenValidationResult> ValidateAccessTokenAsync(string token, string? expectedScope = null)
         {
             _logger.LogTrace("Start access token validation");
 
@@ -239,7 +239,7 @@ namespace IdentityServer8.Validation
             return customResult;
         }
 
-        private async Task<TokenValidationResult> ValidateJwtAsync(string jwt, IEnumerable<SecurityKeyInfo> validationKeys, bool validateLifetime = true, string audience = null)
+        private async Task<TokenValidationResult> ValidateJwtAsync(string jwt, IEnumerable<SecurityKeyInfo> validationKeys, bool validateLifetime = true, string? audience = null)
         {
             var handler = new JwtSecurityTokenHandler();
             handler.InboundClaimTypeMap.Clear();

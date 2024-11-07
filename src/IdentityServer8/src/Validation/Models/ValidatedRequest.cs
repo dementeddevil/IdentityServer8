@@ -112,7 +112,7 @@ namespace IdentityServer8.Validation
         /// <param name="secret">The client secret (optional).</param>
         /// <param name="confirmation">The confirmation.</param>
         /// <exception cref="ArgumentNullException">client</exception>
-        public void SetClient(Client client, ParsedSecret secret = null, string confirmation = "")
+        public void SetClient(Client client, ParsedSecret? secret = null, string confirmation = "")
         {
             Client = client ?? throw new ArgumentNullException(nameof(client));
             Secret = secret;

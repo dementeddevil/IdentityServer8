@@ -26,7 +26,7 @@ namespace IdentityServer8.Validation
         /// <param name="request">The request.</param>
         /// <param name="error">The error.</param>
         /// <param name="errorDescription">The error description.</param>
-        public DeviceAuthorizationRequestValidationResult(ValidatedDeviceAuthorizationRequest request, string error, string errorDescription = null)
+        public DeviceAuthorizationRequestValidationResult(ValidatedDeviceAuthorizationRequest request, string error, string? errorDescription = null)
         {
             IsError = true;
 

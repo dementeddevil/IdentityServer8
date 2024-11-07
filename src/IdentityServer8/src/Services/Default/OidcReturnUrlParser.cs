@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -16,13 +16,13 @@ namespace IdentityServer8.Services
         private readonly IAuthorizeRequestValidator _validator;
         private readonly IUserSession _userSession;
         private readonly ILogger _logger;
-        private readonly IAuthorizationParametersMessageStore _authorizationParametersMessageStore;
+        private readonly IAuthorizationParametersMessageStore? _authorizationParametersMessageStore;
 
         public OidcReturnUrlParser(
             IAuthorizeRequestValidator validator,
             IUserSession userSession,
             ILogger<OidcReturnUrlParser> logger,
-            IAuthorizationParametersMessageStore authorizationParametersMessageStore = null)
+            IAuthorizationParametersMessageStore? authorizationParametersMessageStore = null)
         {
             _validator = validator;
             _userSession = userSession;
@@ -30,7 +30,7 @@ namespace IdentityServer8.Services
             _authorizationParametersMessageStore = authorizationParametersMessageStore;
         }
 
-        public async Task<AuthorizationRequest> ParseAsync(string returnUrl)
+        public async Task<AuthorizationRequest?> ParseAsync(string returnUrl)
         {
             if (IsValidReturnUrl(returnUrl))
             {

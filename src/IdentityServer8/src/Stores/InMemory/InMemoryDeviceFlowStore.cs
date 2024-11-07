@@ -35,7 +35,7 @@ namespace IdentityServer8.Stores
         /// Finds device authorization by user code.
         /// </summary>
         /// <param name="userCode">The user code.</param>
-        public Task<DeviceCode> FindByUserCodeAsync(string userCode)
+        public Task<DeviceCode?> FindByUserCodeAsync(string userCode)
         {
             DeviceCode foundDeviceCode;
 
@@ -51,7 +51,7 @@ namespace IdentityServer8.Stores
         /// Finds device authorization by device code.
         /// </summary>
         /// <param name="deviceCode">The device code.</param>
-        public Task<DeviceCode> FindByDeviceCodeAsync(string deviceCode)
+        public Task<DeviceCode?> FindByDeviceCodeAsync(string deviceCode)
         {
             DeviceCode foundDeviceCode;
 

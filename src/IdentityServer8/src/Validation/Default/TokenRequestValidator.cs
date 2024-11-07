@@ -782,32 +782,32 @@ namespace IdentityServer8.Validation
             return TimeConstantComparer.IsEqual(transformedCodeVerifier.Sha256(), codeChallenge);
         }
 
-        private TokenRequestValidationResult Valid(Dictionary<string, object> customResponse = null)
+        private TokenRequestValidationResult Valid(Dictionary<string, object>? customResponse = null)
         {
             return new TokenRequestValidationResult(_validatedRequest, customResponse);
         }
 
-        private TokenRequestValidationResult Invalid(string error, string errorDescription = null, Dictionary<string, object> customResponse = null)
+        private TokenRequestValidationResult Invalid(string error, string? errorDescription = null, Dictionary<string, object>? customResponse = null)
         {
             return new TokenRequestValidationResult(_validatedRequest, error, errorDescription, customResponse);
         }
 
-        private void LogError(string message = null, object values = null)
+        private void LogError(string? message = null, object? values = null)
         {
             LogWithRequestDetails(LogLevel.Error, message, values);
         }
 
-        private void LogWarning(string message = null, object values = null)
+        private void LogWarning(string? message = null, object? values = null)
         {
             LogWithRequestDetails(LogLevel.Warning, message, values);
         }
 
-        private void LogInformation(string message = null, object values = null)
+        private void LogInformation(string? message = null, object? values = null)
         {
             LogWithRequestDetails(LogLevel.Information, message, values);
         }
 
-        private void LogWithRequestDetails(LogLevel logLevel, string message = null, object values = null)
+        private void LogWithRequestDetails(LogLevel logLevel, string? message = null, object? values = null)
         {
             var details = new TokenRequestValidationLog(_validatedRequest, _options.Logging.TokenRequestSensitiveValuesFilter);
 

@@ -59,7 +59,7 @@ namespace IdentityServer8.Validation
             return new DeviceAuthorizationRequestValidationResult(request);
         }
 
-        private DeviceAuthorizationRequestValidationResult Invalid(ValidatedDeviceAuthorizationRequest request, string error = OidcConstants.AuthorizeErrors.InvalidRequest, string description = null)
+        private DeviceAuthorizationRequestValidationResult Invalid(ValidatedDeviceAuthorizationRequest request, string error = OidcConstants.AuthorizeErrors.InvalidRequest, string? description = null)
         {
             return new DeviceAuthorizationRequestValidationResult(request, error, description);
         }

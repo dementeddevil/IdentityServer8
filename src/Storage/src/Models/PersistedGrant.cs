@@ -38,7 +38,7 @@ namespace IdentityServer8.Models
         /// <value>
         /// The session identifier.
         /// </value>
-        public string SessionId { get; set; }
+        public string? SessionId { get; set; }
         
         /// <summary>
         /// Gets the client identifier.
@@ -54,7 +54,7 @@ namespace IdentityServer8.Models
         /// <value>
         /// The description.
         /// </value>
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         /// <summary>
         /// Gets or sets the creation time.

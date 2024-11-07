@@ -150,7 +150,7 @@ namespace IdentityServer8.ResponseHandling
         {
             Logger.LogDebug("Creating Implicit Flow response.");
 
-            string accessTokenValue = null;
+            string? accessTokenValue = null;
             int accessTokenLifetime = 0;
 
             var responseTypes = request.ResponseType.FromSpaceSeparatedString();

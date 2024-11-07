@@ -132,9 +132,9 @@ namespace IdentityServer8.ResponseHandling
         /// </summary>
         /// <param name="resourceValidationResult"></param>
         /// <returns></returns>
-        protected internal virtual Task<IEnumerable<string>> GetRequestedClaimTypesAsync(ResourceValidationResult resourceValidationResult)
+        protected internal virtual Task<IEnumerable<string>> GetRequestedClaimTypesAsync(ResourceValidationResult? resourceValidationResult)
         {
-            IEnumerable<string> result = null;
+            IEnumerable<string>? result = null;
 
             if (resourceValidationResult == null)
             {

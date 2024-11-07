@@ -20,7 +20,7 @@ namespace IdentityServer8.Events
         /// <param name="token">The token.</param>
         /// <param name="apiScopes">The API scopes.</param>
         /// <param name="tokenScopes">The token scopes.</param>
-        public TokenIntrospectionFailureEvent(string apiName, string errorMessage, string token = null, IEnumerable<string> apiScopes = null, IEnumerable<string> tokenScopes = null)
+        public TokenIntrospectionFailureEvent(string apiName, string errorMessage, string? token = null, IEnumerable<string>? apiScopes = null, IEnumerable<string>? tokenScopes = null)
             : base(EventCategories.Token,
                   "Token Introspection Failure",
                   EventTypes.Failure,
@@ -59,7 +59,7 @@ namespace IdentityServer8.Events
         /// <value>
         /// The token.
         /// </value>
-        public string Token { get; set; }
+        public string? Token { get; set; }
 
         /// <summary>
         /// Gets or sets the API scopes.
@@ -67,7 +67,7 @@ namespace IdentityServer8.Events
         /// <value>
         /// The API scopes.
         /// </value>
-        public IEnumerable<string> ApiScopes { get; set; }
+        public IEnumerable<string>? ApiScopes { get; set; }
 
         /// <summary>
         /// Gets or sets the token scopes.
@@ -75,6 +75,6 @@ namespace IdentityServer8.Events
         /// <value>
         /// The token scopes.
         /// </value>
-        public IEnumerable<string> TokenScopes { get; set; }
+        public IEnumerable<string>? TokenScopes { get; set; }
     }
 }

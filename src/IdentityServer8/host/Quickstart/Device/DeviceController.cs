@@ -138,7 +138,7 @@ namespace IdentityServerHost.Quickstart.UI
             return result;
         }
 
-        private async Task<DeviceAuthorizationViewModel> BuildViewModelAsync(string userCode, DeviceAuthorizationInputModel model = null)
+        private async Task<DeviceAuthorizationViewModel> BuildViewModelAsync(string userCode, DeviceAuthorizationInputModel? model = null)
         {
             var request = await _interaction.GetAuthorizationContextAsync(userCode);
             if (request != null)

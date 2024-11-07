@@ -23,7 +23,7 @@ namespace IdentityServer8.Stores
         /// </summary>
         /// <param name="key">The key.</param>
         /// <returns></returns>
-        Task<PersistedGrant> GetAsync(string key);
+        Task<PersistedGrant?> GetAsync(string key);
 
         /// <summary>
         /// Gets all grants based on the filter.

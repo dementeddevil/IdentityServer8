@@ -14,7 +14,7 @@ namespace IdentityServer.UnitTests.Common
             return Task.FromResult(SigningCredentials.AsEnumerable());
         }
 
-        public Task<SigningCredentials> GetSigningCredentialsAsync(IEnumerable<string> allowedAlgorithms = null)
+        public Task<SigningCredentials> GetSigningCredentialsAsync(IEnumerable<string>? allowedAlgorithms = null)
         {
             return Task.FromResult(SigningCredentials.FirstOrDefault());
         }

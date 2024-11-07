@@ -5,7 +5,7 @@
     <ExtensionsVersion>8.0.0</ExtensionsVersion>
     <EntityFrameworkVersion>8.0.10</EntityFrameworkVersion>
     
-    <Stable>true</Stable>
+    <Stable>false</Stable>
     <BaseVersion>8.0.2</BaseVersion>
   </PropertyGroup>
 

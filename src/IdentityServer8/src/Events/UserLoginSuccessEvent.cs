@@ -49,7 +49,7 @@ namespace IdentityServer8.Events
         /// <param name="name">The name.</param>
         /// <param name="interactive">if set to <c>true</c> [interactive].</param>
         /// <param name="clientId">The client id.</param>
-        public UserLoginSuccessEvent(string username, string subjectId, string name, bool interactive = true, string? clientId = null)
+        public UserLoginSuccessEvent(string username, string subjectId, string? name, bool interactive = true, string? clientId = null)
             : this()
         {
             Username = username;
@@ -116,7 +116,7 @@ namespace IdentityServer8.Events
         /// <value>
         /// The display name.
         /// </value>
-        public string DisplayName { get; set; }
+        public string? DisplayName { get; set; }
 
         /// <summary>
         /// Gets or sets the endpoint.

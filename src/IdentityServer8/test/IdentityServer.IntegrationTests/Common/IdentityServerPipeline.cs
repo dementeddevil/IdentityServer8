@@ -69,7 +69,7 @@ namespace IdentityServer.IntegrationTests.Common
 
         public Func<HttpContext, Task<bool>>? OnFederatedSignout;
 
-        public void Initialize(string basePath = null, bool enableLogging = false)
+        public void Initialize(string? basePath = null, bool enableLogging = false)
         {
             var builder = new WebHostBuilder();
             builder.ConfigureServices(ConfigureServices);

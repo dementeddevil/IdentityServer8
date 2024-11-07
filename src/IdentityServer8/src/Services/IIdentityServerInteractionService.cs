@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -47,7 +47,7 @@ namespace IdentityServer8.Services
         /// <param name="request">The request.</param>
         /// <param name="consent">The consent.</param>
         /// <param name="subject">The subject.</param>
-        Task GrantConsentAsync(AuthorizationRequest request, ConsentResponse consent, string subject = null);
+        Task GrantConsentAsync(AuthorizationRequest request, ConsentResponse consent, string? subject = null);
 
         /// <summary>
         /// Triggers error back to the client for the authorization request.
@@ -56,7 +56,7 @@ namespace IdentityServer8.Services
         /// <param name="request">The request.</param>
         /// <param name="error"></param>
         /// <param name="errorDescription"></param>
-        Task DenyAuthorizationAsync(AuthorizationRequest request, AuthorizationError error, string errorDescription = null);
+        Task DenyAuthorizationAsync(AuthorizationRequest request, AuthorizationError error, string? errorDescription = null);
 
         /// <summary>
         /// Returns a collection representing all of the user's consents and grants.

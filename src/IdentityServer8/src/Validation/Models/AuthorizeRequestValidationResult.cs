@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -25,7 +25,7 @@ namespace IdentityServer8.Validation
         /// <param name="request">The request.</param>
         /// <param name="error">The error.</param>
         /// <param name="errorDescription">The error description.</param>
-        public AuthorizeRequestValidationResult(ValidatedAuthorizeRequest request, string error, string errorDescription = null)
+        public AuthorizeRequestValidationResult(ValidatedAuthorizeRequest request, string error, string? errorDescription = null)
         {
             ValidatedRequest = request;
             IsError = true;

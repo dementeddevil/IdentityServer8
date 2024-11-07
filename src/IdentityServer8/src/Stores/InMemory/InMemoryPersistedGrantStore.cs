@@ -24,14 +24,14 @@ namespace IdentityServer8.Stores
         }
 
         /// <inheritdoc/>
-        public Task<PersistedGrant> GetAsync(string key)
+        public Task<PersistedGrant?> GetAsync(string key)
         {
-            if (_repository.TryGetValue(key, out PersistedGrant token))
+            if (_repository.TryGetValue(key, out var token))
             {
-                return Task.FromResult(token);
+                return Task.FromResult<PersistedGrant?>(token);
             }
 
-            return Task.FromResult<PersistedGrant>(null);
+            return Task.FromResult<PersistedGrant?>(null);
         }
 
         /// <inheritdoc/>

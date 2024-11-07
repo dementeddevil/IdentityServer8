@@ -12,7 +12,7 @@ namespace IdentityServer.UnitTests.Validation.Setup
         private readonly bool _isInvalid;
         private readonly string _errorDescription;
 
-        public TestGrantValidator(bool isInvalid = false, string errorDescription = null)
+        public TestGrantValidator(bool isInvalid = false, string? errorDescription = null)
         {
             _isInvalid = isInvalid;
             _errorDescription = errorDescription;

@@ -52,7 +52,7 @@ namespace IdentityServer8.Validation
             _logger = logger;
         }
 
-        public async Task<AuthorizeRequestValidationResult> ValidateAsync(NameValueCollection parameters, ClaimsPrincipal subject = null)
+        public async Task<AuthorizeRequestValidationResult> ValidateAsync(NameValueCollection parameters, ClaimsPrincipal? subject = null)
         {
             _logger.LogDebug("Start authorize request protocol validation");
 
@@ -820,7 +820,7 @@ namespace IdentityServer8.Validation
             return Valid(request);
         }
 
-        private AuthorizeRequestValidationResult Invalid(ValidatedAuthorizeRequest request, string error = OidcConstants.AuthorizeErrors.InvalidRequest, string description = null)
+        private AuthorizeRequestValidationResult Invalid(ValidatedAuthorizeRequest request, string error = OidcConstants.AuthorizeErrors.InvalidRequest, string? description = null)
         {
             return new AuthorizeRequestValidationResult(request, error, description);
         }

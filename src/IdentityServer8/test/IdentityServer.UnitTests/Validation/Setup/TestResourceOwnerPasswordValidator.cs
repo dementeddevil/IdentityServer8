@@ -16,7 +16,7 @@ namespace IdentityServer.UnitTests.Validation.Setup
         public TestResourceOwnerPasswordValidator()
         { }
 
-        public TestResourceOwnerPasswordValidator(TokenRequestErrors error, string errorDescription = null)
+        public TestResourceOwnerPasswordValidator(TokenRequestErrors error, string? errorDescription = null)
         {
             _sendError = true;
             _error = error;

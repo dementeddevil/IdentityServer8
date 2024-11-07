@@ -143,7 +143,7 @@ namespace IdentityServer8.Services
         }
 
         /// <inheritdoc/>
-        public Task RemoveAllGrantsAsync(string subjectId, string clientId = null, string sessionId = null)
+        public Task RemoveAllGrantsAsync(string subjectId, string? clientId = null, string? sessionId = null)
         {
             if (String.IsNullOrWhiteSpace(subjectId)) throw new ArgumentNullException(nameof(subjectId));
 

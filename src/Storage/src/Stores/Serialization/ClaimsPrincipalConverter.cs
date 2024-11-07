@@ -28,13 +28,13 @@ namespace IdentityServer8.Stores.Serialization
             return target;
         }
 
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
         {
-            var source = (ClaimsPrincipal)value;
+            var source = (ClaimsPrincipal)value!;
 
             var target = new ClaimsPrincipalLite
             {
-                AuthenticationType = source.Identity.AuthenticationType,
+                AuthenticationType = source!.Identity!.AuthenticationType!,
                 Claims = source.Claims.Select(x => new ClaimLite { Type = x.Type, Value = x.Value, ValueType = x.ValueType }).ToArray()
             };
             serializer.Serialize(writer, target);

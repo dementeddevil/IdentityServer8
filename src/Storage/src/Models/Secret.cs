@@ -14,7 +14,7 @@ namespace IdentityServer8.Models
         /// <value>
         /// The description.
         /// </value>
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         /// <summary>
         /// Gets or sets the value.
@@ -22,7 +22,7 @@ namespace IdentityServer8.Models
         /// <value>
         /// The value.
         /// </value>
-        public string Value { get; set; }
+        public string? Value { get; set; }
 
         /// <summary>
         /// Gets or sets the expiration.

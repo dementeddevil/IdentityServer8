@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -24,7 +24,7 @@ namespace IdentityServer8.Services
         /// <param name="allowedAlgorithms">Collection of algorithms used to filter the server supported algorithms. 
         /// A value of null or empty indicates that the server default should be returned.</param>
         /// <returns></returns>
-        Task<SigningCredentials> GetSigningCredentialsAsync(IEnumerable<string> allowedAlgorithms = null);
+        Task<SigningCredentials?> GetSigningCredentialsAsync(IEnumerable<string>? allowedAlgorithms = null);
 
         /// <summary>
         /// Gets all signing credentials.

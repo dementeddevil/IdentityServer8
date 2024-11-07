@@ -15,7 +15,7 @@ namespace IdentityServer8.Validation
     /// 2.0 Multiple Response Type Encoding Practices draft </see>).
     /// </para>
     /// </remarks>
-    public class ResponseTypeEqualityComparer : IEqualityComparer<string>
+    public class ResponseTypeEqualityComparer : IEqualityComparer<string?>
     {
         /// <summary>
         /// Determines whether the specified values are equal.
@@ -23,7 +23,7 @@ namespace IdentityServer8.Validation
         /// <param name="x">The first string to compare.</param>
         /// <param name="y">The second string to compare.</param>
         /// <returns>true if the specified values are equal; otherwise, false.</returns>
-        public bool Equals(string x, string y)
+        public bool Equals(string? x, string? y)
         {
             if (x == y) return true;
 
@@ -58,7 +58,7 @@ namespace IdentityServer8.Validation
         /// </summary>
         /// <param name="value">The value for which a hash code is to be returned.</param>
         /// <returns>A hash code for the value, suitable for use in hashing algorithms and data structures like a hash table.</returns>
-        public int GetHashCode(string value)
+        public int GetHashCode(string? value)
         {
             if (value == null) return 0;
 

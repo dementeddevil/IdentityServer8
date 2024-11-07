@@ -41,10 +41,10 @@ namespace IdentityServer8.Models
         /// <value>
         /// The access token.
         /// </value>
-        public Token AccessToken { get; set; }
+        public required Token AccessToken { get; set; }
 
         /// <summary>
-        /// Gets or sets the original subject that requiested the token.
+        /// Gets or sets the original subject that requested the token.
         /// </summary>
         /// <value>
         /// The subject.

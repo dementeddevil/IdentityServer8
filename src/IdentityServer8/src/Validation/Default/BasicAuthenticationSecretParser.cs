@@ -45,11 +45,11 @@ namespace IdentityServer8.Validation
         /// <returns>
         /// A parsed secret
         /// </returns>
-        public Task<ParsedSecret> ParseAsync(HttpContext context)
+        public Task<ParsedSecret?> ParseAsync(HttpContext context)
         {
             _logger.LogDebug("Start parsing Basic Authentication secret");
 
-            var notfound = Task.FromResult<ParsedSecret>(null);
+            var notfound = Task.FromResult<ParsedSecret?>(null);
             var authorizationHeader = context.Request.Headers["Authorization"].FirstOrDefault();
 
             if (authorizationHeader.IsMissing())
