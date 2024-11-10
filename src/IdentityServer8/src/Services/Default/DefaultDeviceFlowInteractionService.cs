@@ -34,7 +34,7 @@ namespace IdentityServer8.Services
             _logger = logger;
         }
 
-        public async Task<DeviceFlowAuthorizationRequest> GetAuthorizationContextAsync(string userCode)
+        public async Task<DeviceFlowAuthorizationRequest?> GetAuthorizationContextAsync(string userCode)
         {
             var deviceAuth = await _devices.FindByUserCodeAsync(userCode);
             if (deviceAuth == null) return null;

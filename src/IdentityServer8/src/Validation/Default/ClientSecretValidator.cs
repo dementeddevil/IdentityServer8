@@ -72,7 +72,7 @@ namespace IdentityServer8.Validation
                 return fail;
             }
 
-            SecretValidationResult secretValidationResult = null;
+            SecretValidationResult? secretValidationResult = null;
             if (!client.RequireClientSecret || client.IsImplicitOnly())
             {
                 _logger.LogDebug("Public Client - skipping secret validation success");

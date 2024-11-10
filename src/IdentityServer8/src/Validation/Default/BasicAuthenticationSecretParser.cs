@@ -114,7 +114,7 @@ namespace IdentityServer8.Validation
                         Type = IdentityServerConstants.ParsedSecretTypes.SharedSecret
                     };
 
-                    return Task.FromResult(parsedSecret);
+                    return Task.FromResult<ParsedSecret?>(parsedSecret);
                 }
                 else
                 {
@@ -127,7 +127,7 @@ namespace IdentityServer8.Validation
                         Type = IdentityServerConstants.ParsedSecretTypes.NoSecret
                     };
 
-                    return Task.FromResult(parsedSecret);
+                    return Task.FromResult<ParsedSecret?>(parsedSecret);
                 }
             }
 

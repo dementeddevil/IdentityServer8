@@ -64,7 +64,7 @@ namespace IdentityServer8.Services
         public async Task<LogoutRequest> GetLogoutContextAsync(string logoutId)
         {
             var msg = await _logoutMessageStore.ReadAsync(logoutId);
-            var iframeUrl = await _context.HttpContext.GetIdentityServerSignoutFrameCallbackUrlAsync(msg?.Data);
+            var iframeUrl = await _context.HttpContext!.GetIdentityServerSignoutFrameCallbackUrlAsync(msg?.Data);
             return new LogoutRequest(iframeUrl, msg?.Data);
         }
 

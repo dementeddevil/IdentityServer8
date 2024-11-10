@@ -76,7 +76,7 @@ namespace IdentityServer8.Stores
                 async () => await _inner.GetAllResourcesAsync(),
                 _logger);
 
-            return all;
+            return all!;
         }
 
         /// <inheritdoc/>
@@ -89,7 +89,7 @@ namespace IdentityServer8.Stores
                 async () => await _inner.FindApiResourcesByNameAsync(apiResourceNames),
                 _logger);
 
-            return apis;
+            return apis!;
         }
 
         /// <inheritdoc/>
@@ -102,7 +102,7 @@ namespace IdentityServer8.Stores
                 async () => await _inner.FindIdentityResourcesByScopeNameAsync(names),
                 _logger);
 
-            return identities;
+            return identities!;
         }
 
         /// <inheritdoc/>
@@ -115,7 +115,7 @@ namespace IdentityServer8.Stores
                 async () => await _inner.FindApiResourcesByScopeNameAsync(names),
                 _logger);
 
-            return apis;
+            return apis!;
         }
 
         /// <inheritdoc/>
@@ -128,7 +128,7 @@ namespace IdentityServer8.Stores
                 async () => await _inner.FindApiScopesByNameAsync(scopeNames),
                 _logger);
 
-            return apis;
+            return apis!;
         }
     }
 }

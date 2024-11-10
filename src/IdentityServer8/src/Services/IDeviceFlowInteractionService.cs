@@ -16,7 +16,7 @@ namespace IdentityServer8.Services
         /// </summary>
         /// <param name="userCode">The user code.</param>
         /// <returns></returns>
-        Task<DeviceFlowAuthorizationRequest> GetAuthorizationContextAsync(string userCode);
+        Task<DeviceFlowAuthorizationRequest?> GetAuthorizationContextAsync(string userCode);
 
         /// <summary>
         /// Handles the request asynchronous.

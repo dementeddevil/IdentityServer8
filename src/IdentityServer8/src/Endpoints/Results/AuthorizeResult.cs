@@ -96,7 +96,7 @@ namespace IdentityServer8.Endpoints.Results
             {
                 // success response -- track client authorization for sign-out
                 //_logger.LogDebug("Adding client {0} to client list cookie for subject {1}", request.ClientId, request.Subject.GetSubjectId());
-                await _userSession.AddClientIdAsync(Response.Request.ClientId);
+                await _userSession.AddClientIdAsync(Response.Request!.ClientId);
             }
 
             await RenderAuthorizeResponseAsync(context);
@@ -104,7 +104,7 @@ namespace IdentityServer8.Endpoints.Results
 
         private async Task RenderAuthorizeResponseAsync(HttpContext context)
         {
-            if (Response.Request.ResponseMode == OidcConstants.ResponseModes.Query ||
+            if (Response.Request!.ResponseMode == OidcConstants.ResponseModes.Query ||
                 Response.Request.ResponseMode == OidcConstants.ResponseModes.Fragment)
             {
                 context.Response.SetNoCache();
@@ -136,10 +136,10 @@ namespace IdentityServer8.Endpoints.Results
 
         private string BuildRedirectUri()
         {
-            var uri = Response.RedirectUri;
+            var uri = Response.RedirectUri!;
             var query = Response.ToNameValueCollection().ToQueryString();
 
-            if (Response.Request.ResponseMode == OidcConstants.ResponseModes.Query)
+            if (Response.Request!.ResponseMode == OidcConstants.ResponseModes.Query)
             {
                 uri = uri.AddQueryString(query);
             }
@@ -163,7 +163,7 @@ namespace IdentityServer8.Endpoints.Results
         {
             var html = FormPostHtml;
 
-            var url = Response.Request.RedirectUri;
+            var url = Response.Request!.RedirectUri!;
             url = HtmlEncoder.Default.Encode(url);
             html = html.Replace("{uri}", url);
             html = html.Replace("{body}", Response.ToNameValueCollection().ToFormPost());

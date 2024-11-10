@@ -70,7 +70,7 @@ namespace IdentityServer8.Stores
                           async () => new CorsCacheEntry(await Inner.IsOriginAllowedAsync(origin)),
                           Logger);
 
-            return entry.Allowed;
+            return entry!.Allowed;
         }
     }
 }

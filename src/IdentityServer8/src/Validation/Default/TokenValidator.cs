@@ -170,7 +170,7 @@ namespace IdentityServer8.Validation
             }
 
             // make sure client is still active (if client_id claim is present)
-            var clientClaim = result.Claims.FirstOrDefault(c => c.Type == JwtClaimTypes.ClientId);
+            var clientClaim = result.Claims?.FirstOrDefault(c => c.Type == JwtClaimTypes.ClientId);
             if (clientClaim != null)
             {
                 var client = await _clients.FindEnabledClientByIdAsync(clientClaim.Value);
@@ -187,7 +187,7 @@ namespace IdentityServer8.Validation
             }
 
             // make sure user is still active (if sub claim is present)
-            var subClaim = result.Claims.FirstOrDefault(c => c.Type == JwtClaimTypes.Subject);
+            var subClaim = result.Claims?.FirstOrDefault(c => c.Type == JwtClaimTypes.Subject);
             if (subClaim != null)
             {
                 var principal = Principal.Create("tokenvalidator", result.Claims.ToArray());
@@ -197,7 +197,7 @@ namespace IdentityServer8.Validation
                     principal.Identities.First().AddClaim(new Claim(JwtClaimTypes.ReferenceTokenId, result.ReferenceTokenId));
                 }
 
-                var isActiveCtx = new IsActiveContext(principal, result.Client, IdentityServerConstants.ProfileIsActiveCallers.AccessTokenValidation);
+                var isActiveCtx = new IsActiveContext(principal, result.Client!, IdentityServerConstants.ProfileIsActiveCallers.AccessTokenValidation);
                 await _profile.IsActiveAsync(isActiveCtx);
 
                 if (isActiveCtx.IsActive == false)
@@ -215,7 +215,7 @@ namespace IdentityServer8.Validation
             // check expected scope(s)
             if (expectedScope.IsPresent())
             {
-                var scope = result.Claims.FirstOrDefault(c => c.Type == JwtClaimTypes.Scope && c.Value == expectedScope);
+                var scope = result.Claims?.FirstOrDefault(c => c.Type == JwtClaimTypes.Scope && c.Value == expectedScope);
                 if (scope == null)
                 {
                     LogError($"Checking for expected scope {expectedScope} failed");
@@ -246,7 +246,7 @@ namespace IdentityServer8.Validation
 
             var parameters = new TokenValidationParameters
             {
-                ValidIssuer = _context.HttpContext.GetIdentityServerIssuerUri(),
+                ValidIssuer = _context.HttpContext!.GetIdentityServerIssuerUri(),
                 IssuerSigningKeys = validationKeys.Select(k => k.Key),
                 ValidateLifetime = validateLifetime
             };
@@ -270,7 +270,7 @@ namespace IdentityServer8.Validation
                 {
                     if (_options.AccessTokenJwtType.IsPresent())
                     {
-                        var type = jwtSecurityToken.Header.Typ;
+                        var type = jwtSecurityToken?.Header?.Typ;
                         if (!string.Equals(type, _options.AccessTokenJwtType))
                         {
                             return new TokenValidationResult
@@ -279,7 +279,6 @@ namespace IdentityServer8.Validation
                                 Error = "invalid JWT token type"
                             };
                         }
-
                     }
                 }
                 
@@ -291,7 +290,7 @@ namespace IdentityServer8.Validation
                 }
 
                 // load the client that belongs to the client_id claim
-                Client client = null;
+                Client? client = null;
                 var clientId = id.FindFirst(JwtClaimTypes.ClientId);
                 if (clientId != null)
                 {
@@ -364,7 +363,7 @@ namespace IdentityServer8.Validation
             }
 
             // load the client that is defined in the token
-            Client client = null;
+            Client? client = null;
             if (token.ClientId != null)
             {
                 client = await _clients.FindEnabledClientByIdAsync(token.ClientId);

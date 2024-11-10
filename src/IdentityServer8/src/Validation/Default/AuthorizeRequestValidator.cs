@@ -125,7 +125,7 @@ namespace IdentityServer8.Validation
             if (customResult.IsError)
             {
                 LogError("Error in custom validation", customResult.Error, request);
-                return Invalid(request, customResult.Error, customResult.ErrorDescription);
+                return Invalid(request, customResult.Error!, customResult.ErrorDescription);
             }
 
             _logger.LogTrace("Authorize request protocol validation successful");
@@ -836,7 +836,7 @@ namespace IdentityServer8.Validation
             _logger.LogError(message + "\n{@requestDetails}", requestDetails);
         }
 
-        private void LogError(string message, string detail, ValidatedAuthorizeRequest request)
+        private void LogError(string message, string? detail, ValidatedAuthorizeRequest request)
         {
             var requestDetails = new AuthorizeRequestValidationLog(request, _options.Logging.AuthorizeRequestSensitiveValuesFilter);
             _logger.LogError(message + ": {detail}\n{@requestDetails}", detail, requestDetails);

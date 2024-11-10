@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 namespace IdentityServer8.Logging.Models
@@ -12,7 +12,7 @@ namespace IdentityServer8.Logging.Models
 
         // access token
         public string AccessTokenType { get; set; }
-        public string ExpectedScope { get; set; }
+        public string? ExpectedScope { get; set; }
         public string TokenHandle { get; set; }
         public string JwtId { get; set; }
 

@@ -50,7 +50,7 @@ namespace IdentityServer8.Models
         /// <value>
         /// The access token to hash.
         /// </value>
-        public string AccessTokenToHash { get; set; }
+        public string? AccessTokenToHash { get; set; }
 
         /// <summary>
         /// Gets or sets the authorization code to hash.
@@ -58,7 +58,7 @@ namespace IdentityServer8.Models
         /// <value>
         /// The authorization code to hash.
         /// </value>
-        public string AuthorizationCodeToHash { get; set; }
+        public string? AuthorizationCodeToHash { get; set; }
 
         /// <summary>
         /// Gets or sets pre-hashed state
@@ -66,7 +66,7 @@ namespace IdentityServer8.Models
         /// <value>
         /// The pre-hashed state
         /// </value>
-        public string StateHash { get; set; }
+        public string? StateHash { get; set; }
 
         /// <summary>
         /// Gets or sets the nonce.
@@ -74,7 +74,7 @@ namespace IdentityServer8.Models
         /// <value>
         /// The nonce.
         /// </value>
-        public string Nonce { get; set; }
+        public string? Nonce { get; set; }
 
         /// <summary>
         /// Gets the description the user assigned to the device being authorized.
@@ -82,7 +82,7 @@ namespace IdentityServer8.Models
         /// <value>
         /// The description.
         /// </value>
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         /// <summary>
         /// Called to validate the <see cref="TokenCreationRequest"/> before it is processed.

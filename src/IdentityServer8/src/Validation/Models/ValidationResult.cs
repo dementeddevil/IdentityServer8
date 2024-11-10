@@ -2,6 +2,8 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using System.Diagnostics.CodeAnalysis;
+
 namespace IdentityServer8.Validation
 {
     /// <summary>
@@ -23,7 +25,7 @@ namespace IdentityServer8.Validation
         /// <value>
         /// The error.
         /// </value>
-        public string Error { get; set; }
+        public string? Error { get; set; }
 
         /// <summary>
         /// Gets or sets the error description.

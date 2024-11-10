@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -41,7 +41,7 @@ namespace IdentityServer8.ResponseHandling
         /// <value>
         /// The error.
         /// </value>
-        public string Error { get; set; }
+        public string? Error { get; set; }
 
         /// <summary>
         /// Gets or sets the error description.
@@ -49,7 +49,7 @@ namespace IdentityServer8.ResponseHandling
         /// <value>
         /// The error description.
         /// </value>
-        public string ErrorDescription { get; set; }
+        public string? ErrorDescription { get; set; }
 
         /// <summary>
         /// Gets a value indicating whether the user must be redirected to a custom page.
@@ -65,6 +65,6 @@ namespace IdentityServer8.ResponseHandling
         /// <value>
         /// The redirect URL.
         /// </value>
-        public string RedirectUrl { get; set; }
+        public string? RedirectUrl { get; set; }
     }
 }

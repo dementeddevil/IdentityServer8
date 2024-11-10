@@ -25,7 +25,7 @@ namespace IdentityServer8.Hosting
         {
             var request = context.Request;
             
-            context.SetIdentityServerBasePath(request.PathBase.Value.RemoveTrailingSlash());
+            context.SetIdentityServerBasePath(request.PathBase.Value.RemoveTrailingSlash()!);
 
             await _next(context);
         }

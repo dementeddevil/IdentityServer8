@@ -10,11 +10,11 @@ namespace IdentityServer8.Logging.Models
 {
     internal class AuthorizeRequestValidationLog
     {
-        public string ClientId { get; set; }
-        public string ClientName { get; set; }
-        public string RedirectUri { get; set; }
-        public IEnumerable<string> AllowedRedirectUris { get; set; }
-        public string SubjectId { get; set; }
+        public string? ClientId { get; set; }
+        public string? ClientName { get; set; }
+        public string? RedirectUri { get; set; }
+        public IEnumerable<string>? AllowedRedirectUris { get; set; }
+        public string? SubjectId { get; set; }
 
         public string ResponseType { get; set; }
         public string ResponseMode { get; set; }
@@ -24,7 +24,7 @@ namespace IdentityServer8.Logging.Models
         public string State { get; set; }
         public string UiLocales { get; set; }
         public string Nonce { get; set; }
-        public IEnumerable<string> AuthenticationContextReferenceClasses { get; set; }
+        public IEnumerable<string>? AuthenticationContextReferenceClasses { get; set; }
         public string DisplayMode { get; set; }
         public string PromptMode { get; set; }
         public int? MaxAge { get; set; }

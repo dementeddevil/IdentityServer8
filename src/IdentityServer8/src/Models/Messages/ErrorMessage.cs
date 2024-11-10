@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -15,7 +15,7 @@ namespace IdentityServer8.Models
         /// <value>
         /// The display mode.
         /// </value>
-        public string DisplayMode { get; set; }
+        public string? DisplayMode { get; set; }
 
         /// <summary>
         /// The UI locales passed from the authorization request.
@@ -23,7 +23,7 @@ namespace IdentityServer8.Models
         /// <value>
         /// The UI locales.
         /// </value>
-        public string UiLocales { get; set; }
+        public string? UiLocales { get; set; }
 
         /// <summary>
         /// Gets or sets the error code.
@@ -31,7 +31,7 @@ namespace IdentityServer8.Models
         /// <value>
         /// The error code.
         /// </value>
-        public string Error { get; set; }
+        public string? Error { get; set; }
 
         /// <summary>
         /// Gets or sets the error description.
@@ -39,7 +39,7 @@ namespace IdentityServer8.Models
         /// <value>
         /// The error description.
         /// </value>
-        public string ErrorDescription { get; set; }
+        public string? ErrorDescription { get; set; }
 
         /// <summary>
         /// The per-request identifier. This can be used to display to the end user and can be used in diagnostics.
@@ -62,6 +62,6 @@ namespace IdentityServer8.Models
         /// <summary>
         /// The client id making the request (if available).
         /// </summary>
-        public string ClientId { get; set; }
+        public string? ClientId { get; set; }
     }
 }

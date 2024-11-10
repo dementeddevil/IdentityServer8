@@ -55,12 +55,12 @@ namespace IdentityServer8
             return CookiePrefix + id;
         }
 
-        private string CookiePath => _context.HttpContext.GetIdentityServerBasePath().CleanUrlPath();
+        private string CookiePath => _context.HttpContext!.GetIdentityServerBasePath().CleanUrlPath();
 
         private IEnumerable<string> GetCookieNames()
         {
             var key = CookiePrefix;
-            foreach ((string name, var _) in _context.HttpContext.Request.Cookies)
+            foreach ((string name, var _) in _context.HttpContext!.Request.Cookies)
             {
                 if (name.StartsWith(key))
                 {
@@ -69,7 +69,7 @@ namespace IdentityServer8
             }
         }
 
-        private bool Secure => _context.HttpContext.Request.IsHttps;
+        private bool Secure => _context.HttpContext!.Request.IsHttps;
 
         public void Write(string id, Message<TModel> message)
         {
@@ -80,7 +80,7 @@ namespace IdentityServer8
             var name = GetCookieFullName(id);
             var data = Protect(message);
 
-            _context.HttpContext.Response.Cookies.Append(
+            _context.HttpContext!.Response.Cookies.Append(
                 name,
                 data,
                 new CookieOptions
@@ -104,7 +104,7 @@ namespace IdentityServer8
 
         private Message<TModel> ReadByCookieName(string name)
         {
-            var data = _context.HttpContext.Request.Cookies[name];
+            var data = _context.HttpContext!.Request.Cookies[name];
             if (data.IsPresent())
             {
                 try
@@ -128,7 +128,7 @@ namespace IdentityServer8
 
         private void ClearByCookieName(string name)
         {
-            _context.HttpContext.Response.Cookies.Append(
+            _context.HttpContext!.Response.Cookies.Append(
                 name,
                 ".",
                 new CookieOptions
