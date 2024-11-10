@@ -4,7 +4,6 @@
 
 using IdentityServer8.EntityFramework.DbContexts;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 using IdentityServer8.EntityFramework.Entities;
 using IdentityServer8.EntityFramework.Options;
 using Xunit;

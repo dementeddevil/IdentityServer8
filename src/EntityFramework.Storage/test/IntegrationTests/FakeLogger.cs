@@ -1,9 +1,8 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
 using Microsoft.Extensions.Logging;
-using System;
 
 namespace IdentityServer8.EntityFramework.IntegrationTests
 {
@@ -17,7 +16,7 @@ namespace IdentityServer8.EntityFramework.IntegrationTests
 
     public class FakeLogger : ILogger, IDisposable
     {
-        public IDisposable BeginScope<TState>(TState state)
+        public IDisposable? BeginScope<TState>(TState state) where TState : notnull
         {
             return this;
         }
@@ -31,7 +30,7 @@ namespace IdentityServer8.EntityFramework.IntegrationTests
             return false;
         }
 
-        public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
+        public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception, Func<TState, Exception?, string> formatter)
         {
         }
     }

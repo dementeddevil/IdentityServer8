@@ -1,10 +1,7 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
 namespace IdentityServer8.EntityFramework.IntegrationTests
@@ -15,8 +12,8 @@ namespace IdentityServer8.EntityFramework.IntegrationTests
     /// <typeparam name="T">DbContext of Type T</typeparam>
     public class DatabaseProviderFixture<T> : IDisposable where T : DbContext
     {
-        public object StoreOptions;
-        public List<DbContextOptions<T>> Options;
+        public object? StoreOptions;
+        public List<DbContextOptions<T>>? Options;
 
         public void Dispose()
         {
@@ -24,9 +21,9 @@ namespace IdentityServer8.EntityFramework.IntegrationTests
             {
                 foreach (var option in Options.ToList())
                 {
-                    using (var context = (T)Activator.CreateInstance(typeof(T), option, StoreOptions))
+                    using (var context = (T?)Activator.CreateInstance(typeof(T), option, StoreOptions))
                     {
-                        context.Database.EnsureDeleted();
+                        context!.Database.EnsureDeleted();
                     }
                 }
             }

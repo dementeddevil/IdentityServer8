@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using IdentityServer8.EntityFramework.Interfaces;
 using IdentityServer8.EntityFramework.Services;
+using System.Threading.Tasks;
 
 namespace IdentityServer8.EntityFramework.IntegrationTests.Services
 {
@@ -30,7 +31,7 @@ namespace IdentityServer8.EntityFramework.IntegrationTests.Services
         }
 
         [Theory, MemberData(nameof(TestDatabaseProviders))]
-        public void IsOriginAllowedAsync_WhenOriginIsAllowed_ExpectTrue(DbContextOptions<ConfigurationDbContext> options)
+        public async Task IsOriginAllowedAsync_WhenOriginIsAllowed_ExpectTrue(DbContextOptions<ConfigurationDbContext> options)
         {
             const string testCorsOrigin = "https://identityserver.io/";
 
@@ -48,7 +49,7 @@ namespace IdentityServer8.EntityFramework.IntegrationTests.Services
                     ClientName = "2",
                     AllowedCorsOrigins = new List<string> { "https://www.identityserver.com", testCorsOrigin }
                 }.ToEntity());
-                context.SaveChanges();
+                await context.SaveChangesAsync();
             }
 
             bool result;
@@ -62,14 +63,14 @@ namespace IdentityServer8.EntityFramework.IntegrationTests.Services
                 ctxAccessor.HttpContext = ctx;
 
                 var service = new CorsPolicyService(ctxAccessor, FakeLogger<CorsPolicyService>.Create());
-                result = service.IsOriginAllowedAsync(testCorsOrigin).Result;
+                result = await service.IsOriginAllowedAsync(testCorsOrigin);
             }
 
             Assert.True(result);
         }
 
         [Theory, MemberData(nameof(TestDatabaseProviders))]
-        public void IsOriginAllowedAsync_WhenOriginIsNotAllowed_ExpectFalse(DbContextOptions<ConfigurationDbContext> options)
+        public async Task IsOriginAllowedAsync_WhenOriginIsNotAllowed_ExpectFalse(DbContextOptions<ConfigurationDbContext> options)
         {
             using (var context = new ConfigurationDbContext(options, StoreOptions))
             {
@@ -79,7 +80,7 @@ namespace IdentityServer8.EntityFramework.IntegrationTests.Services
                     ClientName = Guid.NewGuid().ToString(),
                     AllowedCorsOrigins = new List<string> { "https://www.identityserver.com" }
                 }.ToEntity());
-                context.SaveChanges();
+                await context.SaveChangesAsync();
             }
 
             bool result;
@@ -93,7 +94,7 @@ namespace IdentityServer8.EntityFramework.IntegrationTests.Services
                 ctxAccessor.HttpContext = ctx;
 
                 var service = new CorsPolicyService(ctxAccessor, FakeLogger<CorsPolicyService>.Create());
-                result = service.IsOriginAllowedAsync("InvalidOrigin").Result;
+                result = await service.IsOriginAllowedAsync("InvalidOrigin");
             }
 
             Assert.False(result);

@@ -2,10 +2,6 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using IdentityModel;
 using IdentityServer8.EntityFramework.DbContexts;
 using IdentityServer8.EntityFramework.Mappers;
@@ -84,7 +80,7 @@ namespace IdentityServer8.EntityFramework.IntegrationTests.Stores
                 context.SaveChanges();
             }
 
-            ApiResource foundResource;
+            ApiResource? foundResource;
             using (var context = new ConfigurationDbContext(options, StoreOptions))
             {
                 var store = new ResourceStore(context, FakeLogger<ResourceStore>.Create());
@@ -114,7 +110,7 @@ namespace IdentityServer8.EntityFramework.IntegrationTests.Stores
                 context.SaveChanges();
             }
 
-            ApiResource foundResource;
+            ApiResource? foundResource;
             using (var context = new ConfigurationDbContext(options, StoreOptions))
             {
                 var store = new ResourceStore(context, FakeLogger<ResourceStore>.Create());

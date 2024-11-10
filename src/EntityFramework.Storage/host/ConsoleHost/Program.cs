@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using System;
 using IdentityServer8.EntityFramework.Storage;
 using Microsoft.EntityFrameworkCore;
 using IdentityServer8.EntityFramework;

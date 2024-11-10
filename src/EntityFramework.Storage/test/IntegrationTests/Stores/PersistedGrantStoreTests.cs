@@ -2,10 +2,6 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using FluentAssertions;
 using IdentityServer8.EntityFramework.DbContexts;
 using IdentityServer8.EntityFramework.Mappers;
@@ -14,7 +10,6 @@ using IdentityServer8.EntityFramework.Stores;
 using IdentityServer8.Models;
 using IdentityServer8.Stores;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualStudio.TestPlatform.ObjectModel.DataCollection;
 using Xunit;
 
 namespace IdentityServer8.EntityFramework.IntegrationTests.Stores
@@ -458,7 +453,7 @@ namespace IdentityServer8.EntityFramework.IntegrationTests.Stores
                 context.SaveChanges();
             }
 
-            var newDate = persistedGrant.Expiration.Value.AddHours(1);
+            var newDate = persistedGrant.Expiration!.Value.AddHours(1);
             using (var context = new PersistedGrantDbContext(options, StoreOptions))
             {
                 var store = new PersistedGrantStore(context, FakeLogger<PersistedGrantStore>.Create());

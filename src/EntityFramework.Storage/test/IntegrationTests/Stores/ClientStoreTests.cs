@@ -2,9 +2,6 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 using FluentAssertions;
 using IdentityServer8.EntityFramework.DbContexts;
 using IdentityServer8.EntityFramework.Mappers;
@@ -148,7 +145,7 @@ namespace IdentityServer8.EntityFramework.IntegrationTests.Stores
 
                 if (await Task.WhenAny(task, Task.Delay(timeout)) == task)
                 {
-                    var client = task.Result;
+                    var client = await task;
                     client.Should().BeEquivalentTo(testClient);
                 }
                 else
