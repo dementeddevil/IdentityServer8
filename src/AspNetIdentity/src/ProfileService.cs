@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -7,9 +7,7 @@ using IdentityServer8.Models;
 using IdentityServer8.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
-using System;
 using System.Security.Claims;
-using System.Threading.Tasks;
 
 namespace IdentityServer8.AspNetIdentity
 {
@@ -29,7 +27,7 @@ namespace IdentityServer8.AspNetIdentity
         /// <summary>
         /// The logger
         /// </summary>
-        protected readonly ILogger<ProfileService<TUser>> Logger;
+        protected readonly ILogger<ProfileService<TUser>>? Logger;
 
         /// <summary>
         /// The user manager.
@@ -175,7 +173,7 @@ namespace IdentityServer8.AspNetIdentity
         /// </summary>
         /// <param name="subjectId"></param>
         /// <returns></returns>
-        protected virtual async Task<TUser> FindUserAsync(string subjectId)
+        protected virtual async Task<TUser?> FindUserAsync(string subjectId)
         {
             var user = await UserManager.FindByIdAsync(subjectId);
             if (user == null)

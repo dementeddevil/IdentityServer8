@@ -6,10 +6,7 @@ using IdentityServer8.Models;
 using IdentityServer8.Validation;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
-using System.Threading.Tasks;
 using static IdentityModel.OidcConstants;
-using IdentityServer8.Services;
-using IdentityServer8.Events;
 
 namespace IdentityServer8.AspNetIdentity
 {

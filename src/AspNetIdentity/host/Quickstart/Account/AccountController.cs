@@ -3,7 +3,6 @@
 
 
 using IdentityModel;
-using IdentityServer8;
 using IdentityServer8.Events;
 using IdentityServer8.Extensions;
 using IdentityServer8.Models;
@@ -229,7 +228,7 @@ namespace IdentityServerHost.Quickstart.UI
 
                 if (!local)
                 {
-                    vm.ExternalProviders = new[] { new ExternalProvider { AuthenticationScheme = context.IdP } };
+                    vm.ExternalProviders = [new ExternalProvider { AuthenticationScheme = context.IdP }];
                 }
 
                 return vm;

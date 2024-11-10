@@ -10,14 +10,14 @@ namespace IdentityServerHost.Configuration
     public static class ClientsWeb
     {
         static string[] allowedScopes = 
-        {
+        [
             IdentityServerConstants.StandardScopes.OpenId,
             IdentityServerConstants.StandardScopes.Profile,
             IdentityServerConstants.StandardScopes.Email,
             "resource1.scope1", 
             "resource2.scope1",
             "transaction"
-        };
+        ];
         
         public static IEnumerable<Client> Get()
         {

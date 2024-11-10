@@ -37,7 +37,7 @@ namespace IdentityServerHost
                         throw new Exception(result.Errors.First().Description);
                     }
 
-                    result = userMgr.AddClaimsAsync(alice, new Claim[]{
+                    result = userMgr.AddClaimsAsync(alice, [
                         new Claim(JwtClaimTypes.Name, "Alice Smith"),
                         new Claim(JwtClaimTypes.GivenName, "Alice"),
                         new Claim(JwtClaimTypes.FamilyName, "Smith"),
@@ -45,7 +45,7 @@ namespace IdentityServerHost
                         new Claim(JwtClaimTypes.EmailVerified, "true", ClaimValueTypes.Boolean),
                         new Claim(JwtClaimTypes.WebSite, "http://alice.com"),
                         new Claim(JwtClaimTypes.Address, @"{ 'street_address': 'One Hacker Way', 'locality': 'Heidelberg', 'postal_code': 69118, 'country': 'Germany' }", IdentityServer8.IdentityServerConstants.ClaimValueTypes.Json)
-                    }).Result;
+                    ]).Result;
                     if (!result.Succeeded)
                     {
                         throw new Exception(result.Errors.First().Description);
@@ -70,7 +70,7 @@ namespace IdentityServerHost
                         throw new Exception(result.Errors.First().Description);
                     }
 
-                    result = userMgr.AddClaimsAsync(bob, new Claim[]{
+                    result = userMgr.AddClaimsAsync(bob, [
                         new Claim(JwtClaimTypes.Name, "Bob Smith"),
                         new Claim(JwtClaimTypes.GivenName, "Bob"),
                         new Claim(JwtClaimTypes.FamilyName, "Smith"),
@@ -79,7 +79,7 @@ namespace IdentityServerHost
                         new Claim(JwtClaimTypes.WebSite, "http://bob.com"),
                         new Claim(JwtClaimTypes.Address, @"{ 'street_address': 'One Hacker Way', 'locality': 'Heidelberg', 'postal_code': 69118, 'country': 'Germany' }", IdentityServer8.IdentityServerConstants.ClaimValueTypes.Json),
                         new Claim("location", "somewhere")
-                    }).Result;
+                    ]).Result;
                     if (!result.Succeeded)
                     {
                         throw new Exception(result.Errors.First().Description);

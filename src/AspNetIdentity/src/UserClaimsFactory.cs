@@ -1,10 +1,7 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using IdentityModel;
@@ -25,7 +22,7 @@ namespace IdentityServer8.AspNetIdentity
 
         public async Task<ClaimsPrincipal> CreateAsync(TUser user)
         {
-            var principal = await _inner.Instance.CreateAsync(user);
+            var principal = await _inner.Instance!.CreateAsync(user);
             var identity = principal.Identities.First();
 
             if (!identity.HasClaim(x => x.Type == JwtClaimTypes.Subject))
@@ -39,12 +36,12 @@ namespace IdentityServer8.AspNetIdentity
             if (usernameClaim != null)
             {
                 identity.RemoveClaim(usernameClaim);
-                identity.AddClaim(new Claim(JwtClaimTypes.PreferredUserName, username));
+                identity.AddClaim(new Claim(JwtClaimTypes.PreferredUserName, username!));
             }
 
             if (!identity.HasClaim(x=>x.Type == JwtClaimTypes.Name))
             {
-                identity.AddClaim(new Claim(JwtClaimTypes.Name, username));
+                identity.AddClaim(new Claim(JwtClaimTypes.Name, username!));
             }
 
             if (_userManager.SupportsUserEmail)
@@ -52,12 +49,12 @@ namespace IdentityServer8.AspNetIdentity
                 var email = await _userManager.GetEmailAsync(user);
                 if (!String.IsNullOrWhiteSpace(email))
                 {
-                    identity.AddClaims(new[]
-                    {
+                    identity.AddClaims(
+                    [
                         new Claim(JwtClaimTypes.Email, email),
                         new Claim(JwtClaimTypes.EmailVerified,
                             await _userManager.IsEmailConfirmedAsync(user) ? "true" : "false", ClaimValueTypes.Boolean)
-                    });
+                    ]);
                 }
             }
 
@@ -66,12 +63,12 @@ namespace IdentityServer8.AspNetIdentity
                 var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
                 if (!String.IsNullOrWhiteSpace(phoneNumber))
                 {
-                    identity.AddClaims(new[]
-                    {
+                    identity.AddClaims(
+                    [
                         new Claim(JwtClaimTypes.PhoneNumber, phoneNumber),
                         new Claim(JwtClaimTypes.PhoneNumberVerified,
                             await _userManager.IsPhoneNumberConfirmedAsync(user) ? "true" : "false", ClaimValueTypes.Boolean)
-                    });
+                    ]);
                 }
             }
 

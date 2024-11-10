@@ -1,14 +1,11 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
-
-
-using System;
 
 namespace IdentityServer8.AspNetIdentity
 {
     internal class Decorator<TService>
     {
-        public TService Instance { get; set; }
+        public TService? Instance { get; set; }
 
         public Decorator(TService instance)
         {
@@ -16,10 +13,10 @@ namespace IdentityServer8.AspNetIdentity
         }
     }
 
-    internal class Decorator<TService, TImpl> : Decorator<TService>
-        where TImpl : class, TService
+    internal class Decorator<TService, TImplementation> : Decorator<TService>
+        where TImplementation : class, TService
     {
-        public Decorator(TImpl instance) : base(instance)
+        public Decorator(TImplementation instance) : base(instance)
         {
         }
     }
@@ -32,7 +29,16 @@ namespace IdentityServer8.AspNetIdentity
 
         public void Dispose()
         {
-            (Instance as IDisposable)?.Dispose();
+            Dispose(true);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                (Instance as IDisposable)?.Dispose();
+                Instance = default;
+            }
         }
     }
 }

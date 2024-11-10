@@ -13,21 +13,19 @@ namespace IdentityServerHost.Configuration
     {
         // identity resources represent identity data about a user that can be requested via the scope parameter (OpenID Connect)
         public static readonly IEnumerable<IdentityResource> IdentityResources =
-            new[]
-            {
+            [
                 // some standard scopes from the OIDC spec
                 new IdentityResources.OpenId(),
                 new IdentityResources.Profile(),
                 new IdentityResources.Email(),
 
                 // custom identity resource with some consolidated claims
-                new IdentityResource("custom.profile", new[] { JwtClaimTypes.Name, JwtClaimTypes.Email, "location" })
-            };
+                new IdentityResource("custom.profile", [JwtClaimTypes.Name, JwtClaimTypes.Email, "location"])
+            ];
 
         // API scopes represent values that describe scope of access and can be requested by the scope parameter (OAuth)
         public static readonly IEnumerable<ApiScope> ApiScopes =
-            new[]
-            {
+            [
                 // local API scope
                 new ApiScope(LocalApi.ScopeName),
 
@@ -46,12 +44,11 @@ namespace IdentityServerHost.Configuration
                 {
                     Description = "Some Transaction"
                 }
-            };
+            ];
 
         // API resources are more formal representation of a resource with processing rules and their scopes (if any)
         public static readonly IEnumerable<ApiResource> ApiResources = 
-            new[]
-            {
+            [
                 new ApiResource("resource1", "Resource 1")
                 {
                     ApiSecrets = { new Secret("secret".Sha256()) },
@@ -76,6 +73,6 @@ namespace IdentityServerHost.Configuration
 
                     Scopes = { "resource2.scope1", "shared.scope" }
                 }
-            };
+            ];
     }
 }

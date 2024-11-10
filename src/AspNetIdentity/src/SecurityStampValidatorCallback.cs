@@ -1,10 +1,8 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
 using Microsoft.AspNetCore.Identity;
-using System.Threading.Tasks;
-using System.Linq;
 
 namespace IdentityServer8.AspNetIdentity
 {
@@ -21,8 +19,8 @@ namespace IdentityServer8.AspNetIdentity
         /// <returns></returns>
         public static Task UpdatePrincipal(SecurityStampRefreshingPrincipalContext context)
         {
-            var newClaimTypes = context.NewPrincipal.Claims.Select(x => x.Type).ToArray();
-            var currentClaimsToKeep = context.CurrentPrincipal.Claims.Where(x => !newClaimTypes.Contains(x.Type)).ToArray();
+            var newClaimTypes = context.NewPrincipal!.Claims.Select(x => x.Type).ToArray();
+            var currentClaimsToKeep = context.CurrentPrincipal!.Claims.Where(x => !newClaimTypes.Contains(x.Type)).ToArray();
 
             var id = context.NewPrincipal.Identities.First();
             id.AddClaims(currentClaimsToKeep);

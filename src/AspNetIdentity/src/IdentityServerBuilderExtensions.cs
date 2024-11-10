@@ -1,13 +1,10 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using System;
-using System.Linq;
 using IdentityModel;
 using IdentityServer8;
 using IdentityServer8.AspNetIdentity;
-using IdentityServer8.Configuration;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 
@@ -121,8 +118,8 @@ namespace Microsoft.Extensions.DependencyInjection
             }
             else
             {
-                var type = registration.ImplementationType;
-                var innerType = typeof(Decorator<,>).MakeGenericType(typeof(TService), registration.ImplementationType);
+                var type = registration.ImplementationType!;
+                var innerType = typeof(Decorator<,>).MakeGenericType(typeof(TService), type);
                 services.Add(new ServiceDescriptor(typeof(Decorator<TService>), innerType, ServiceLifetime.Transient));
                 services.Add(new ServiceDescriptor(type, type, registration.Lifetime));
             }
