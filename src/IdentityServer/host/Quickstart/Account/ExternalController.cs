@@ -83,19 +83,17 @@ public class ExternalController : Controller
 
         if (_logger.IsEnabled(LogLevel.Debug))
         {
-            var externalClaims = result.Principal.Claims.Select(c => $"{c.Type}: {c.Value}");
+            var externalClaims = result.Principal!.Claims.Select(c => $"{c.Type}: {c.Value}");
             _logger.LogDebug("External claims: {@claims}", externalClaims);
         }
 
         // lookup our user and external provider info
         var (user, provider, providerUserId, claims) = FindUserFromExternalProvider(result);
-        if (user == null)
-        {
-            // this might be where you might initiate a custom workflow for user registration
-            // in this sample we don't show how that would be done, as our sample implementation
-            // simply auto-provisions new external user
-            user = AutoProvisionUser(provider, providerUserId, claims);
-        }
+
+        // this might be where you might initiate a custom workflow for user registration
+        // in this sample we don't show how that would be done, as our sample implementation
+        // simply auto-provisions new external user
+        user ??= AutoProvisionUser(provider, providerUserId, claims);
 
         // this allows us to collect any additional claims or properties
         // for the specific protocols used and store them in the local auth cookie.
@@ -118,7 +116,7 @@ public class ExternalController : Controller
         await HttpContext!.SignOutAsync(IdentityServerConstants.ExternalCookieAuthenticationScheme);
 
         // retrieve return URL
-        var returnUrl = result.Properties.Items["returnUrl"] ?? "~/";
+        var returnUrl = result.Properties!.Items["returnUrl"] ?? "~/";
 
         // check if external login is in the context of an OIDC request
         var context = await _interaction.GetAuthorizationContextAsync(returnUrl);
@@ -137,9 +135,9 @@ public class ExternalController : Controller
         return Redirect(returnUrl);
     }
 
-    private (TestUser user, string provider, string providerUserId, IEnumerable<Claim> claims) FindUserFromExternalProvider(AuthenticateResult result)
+    private (TestUser? user, string provider, string providerUserId, IEnumerable<Claim> claims) FindUserFromExternalProvider(AuthenticateResult result)
     {
-        var externalUser = result.Principal;
+        var externalUser = result.Principal!;
 
         // try to determine the unique id of the external user (issued by the provider)
         // the most common claim type for that are the sub claim and the NameIdentifier
@@ -152,7 +150,7 @@ public class ExternalController : Controller
         var claims = externalUser.Claims.ToList();
         claims.Remove(userIdClaim);
 
-        var provider = result.Properties.Items["scheme"];
+        var provider = result.Properties!.Items["scheme"]!;
         var providerUserId = userIdClaim.Value;
 
         // find external user
@@ -173,14 +171,14 @@ public class ExternalController : Controller
     {
         // if the external system sent a session id claim, copy it over
         // so we can use it for single sign-out
-        var sid = externalResult.Principal.Claims.FirstOrDefault(x => x.Type == JwtClaimTypes.SessionId);
+        var sid = externalResult.Principal!.Claims.FirstOrDefault(x => x.Type == JwtClaimTypes.SessionId);
         if (sid != null)
         {
             localClaims.Add(new Claim(JwtClaimTypes.SessionId, sid.Value));
         }
 
         // if the external provider issued an id_token, we'll keep it for signout
-        var idToken = externalResult.Properties.GetTokenValue("id_token");
+        var idToken = externalResult.Properties!.GetTokenValue("id_token");
         if (idToken != null)
         {
             localSignInProps.StoreTokens(new[] { new AuthenticationToken { Name = "id_token", Value = idToken } });

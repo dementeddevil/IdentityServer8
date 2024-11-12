@@ -36,35 +36,17 @@ internal static class Factory
         IRefreshTokenService? refreshTokenService = null,
         IResourceValidator? resourceValidator = null)
     {
-        if (options == null)
-        {
-            options = TestIdentityServerOptions.Create();
-        }
+        options ??= TestIdentityServerOptions.Create();
 
-        if (resourceStore == null)
-        {
-            resourceStore = new InMemoryResourcesStore(TestScopes.GetIdentity(), TestScopes.GetApis(), TestScopes.GetScopes());
-        }
+        resourceStore ??= new InMemoryResourcesStore(TestScopes.GetIdentity(), TestScopes.GetApis(), TestScopes.GetScopes());
 
-        if (resourceOwnerValidator == null)
-        {
-            resourceOwnerValidator = new TestResourceOwnerPasswordValidator();
-        }
+        resourceOwnerValidator ??= new TestResourceOwnerPasswordValidator();
 
-        if (profile == null)
-        {
-            profile = new TestProfileService();
-        }
+        profile ??= new TestProfileService();
         
-        if (deviceCodeValidator == null)
-        {
-            deviceCodeValidator = new TestDeviceCodeValidator();
-        }
+        deviceCodeValidator ??= new TestDeviceCodeValidator();
 
-        if (customRequestValidator == null)
-        {
-            customRequestValidator = new DefaultCustomTokenRequestValidator();
-        }
+        customRequestValidator ??= new DefaultCustomTokenRequestValidator();
 
         ExtensionGrantValidator aggregateExtensionGrantValidator;
         if (extensionGrantValidators == null)
@@ -76,32 +58,17 @@ internal static class Factory
             aggregateExtensionGrantValidator = new ExtensionGrantValidator(extensionGrantValidators, TestLogger.Create<ExtensionGrantValidator>());
         }
 
-        if (authorizationCodeStore == null)
-        {
-            authorizationCodeStore = CreateAuthorizationCodeStore();
-        }
+        authorizationCodeStore ??= CreateAuthorizationCodeStore();
 
-        if (refreshTokenStore == null)
-        {
-            refreshTokenStore = CreateRefreshTokenStore();
-        }
+        refreshTokenStore ??= CreateRefreshTokenStore();
 
-        if (resourceValidator == null)
-        {
-            resourceValidator = CreateResourceValidator(resourceStore);
-        }
+        resourceValidator ??= CreateResourceValidator(resourceStore);
         
-        if (tokenValidator == null)
-        {
-            tokenValidator = CreateTokenValidator(refreshTokenStore: refreshTokenStore, profile: profile);
-        }
+        tokenValidator ??= CreateTokenValidator(refreshTokenStore: refreshTokenStore, profile: profile);
 
-        if (refreshTokenService == null)
-        {
-            refreshTokenService = CreateRefreshTokenService(
+        refreshTokenService ??= CreateRefreshTokenService(
                 refreshTokenStore,
                 profile);
-        }
 
         return new TokenRequestValidator(
             options,
@@ -152,20 +119,11 @@ internal static class Factory
         IResourceStore? resourceStore = null,
         IResourceValidator? resourceValidator = null)
     {
-        if (options == null)
-        {
-            options = TestIdentityServerOptions.Create();
-        }
+        options ??= TestIdentityServerOptions.Create();
         
-        if (resourceStore == null)
-        {
-            resourceStore = new InMemoryResourcesStore(TestScopes.GetIdentity(), TestScopes.GetApis(), TestScopes.GetScopes());
-        }
+        resourceStore ??= new InMemoryResourcesStore(TestScopes.GetIdentity(), TestScopes.GetApis(), TestScopes.GetScopes());
 
-        if (resourceValidator == null)
-        {
-            resourceValidator = CreateResourceValidator(resourceStore);
-        }
+        resourceValidator ??= CreateResourceValidator(resourceStore);
 
 
         return new DeviceAuthorizationRequestValidator(
@@ -185,45 +143,21 @@ internal static class Factory
         JwtRequestValidator? jwtRequestValidator = null,
         IJwtRequestUriHttpClient? jwtRequestUriHttpClient = null)
     {
-        if (options == null)
-        {
-            options = TestIdentityServerOptions.Create();
-        }
+        options ??= TestIdentityServerOptions.Create();
 
-        if (resourceStore == null)
-        {
-            resourceStore = new InMemoryResourcesStore(TestScopes.GetIdentity(), TestScopes.GetApis(), TestScopes.GetScopes());
-        }
+        resourceStore ??= new InMemoryResourcesStore(TestScopes.GetIdentity(), TestScopes.GetApis(), TestScopes.GetScopes());
 
-        if (clients == null)
-        {
-            clients = new InMemoryClientStore(TestClients.Get());
-        }
+        clients ??= new InMemoryClientStore(TestClients.Get());
 
-        if (customValidator == null)
-        {
-            customValidator = new DefaultCustomAuthorizeRequestValidator();
-        }
+        customValidator ??= new DefaultCustomAuthorizeRequestValidator();
 
-        if (uriValidator == null)
-        {
-            uriValidator = new StrictRedirectUriValidator();
-        }
+        uriValidator ??= new StrictRedirectUriValidator();
 
-        if (resourceValidator == null)
-        {
-            resourceValidator = CreateResourceValidator(resourceStore);
-        }
+        resourceValidator ??= CreateResourceValidator(resourceStore);
 
-        if (jwtRequestValidator == null)
-        {
-            jwtRequestValidator = new JwtRequestValidator("https://identityserver", new LoggerFactory().CreateLogger<JwtRequestValidator>());
-        }
+        jwtRequestValidator ??= new JwtRequestValidator("https://identityserver", new LoggerFactory().CreateLogger<JwtRequestValidator>());
 
-        if (jwtRequestUriHttpClient == null)
-        {
-            jwtRequestUriHttpClient = new DefaultJwtRequestUriHttpClient(new HttpClient(new NetworkHandler(new Exception("no jwt request uri response configured"))), options, new LoggerFactory());
-        }
+        jwtRequestUriHttpClient ??= new DefaultJwtRequestUriHttpClient(new HttpClient(new NetworkHandler(new Exception("no jwt request uri response configured"))), options, new LoggerFactory());
 
 
         var userSession = new MockUserSession();
@@ -247,27 +181,15 @@ internal static class Factory
         IdentityServerOptions? options = null,
         ISystemClock? clock = null)
     {
-        if (options == null)
-        {
-            options = TestIdentityServerOptions.Create();
-        }
+        options ??= TestIdentityServerOptions.Create();
 
-        if (profile == null)
-        {
-            profile = new TestProfileService();
-        }
+        profile ??= new TestProfileService();
 
-        if (store == null)
-        {
-            store = CreateReferenceTokenStore();
-        }
+        store ??= CreateReferenceTokenStore();
 
         clock = clock ?? new StubClock();
 
-        if (refreshTokenStore == null)
-        {
-            refreshTokenStore = CreateRefreshTokenStore();
-        }
+        refreshTokenStore ??= CreateRefreshTokenStore();
 
         var clients = CreateClientStore();
         var context = new MockHttpContextAccessor(options);
@@ -317,7 +239,7 @@ internal static class Factory
     {
         options = options ?? TestIdentityServerOptions.Create();
 
-        if (clients == null) clients = new InMemoryClientStore(TestClients.Get());
+        clients ??= new InMemoryClientStore(TestClients.Get());
 
         if (parser == null)
         {
