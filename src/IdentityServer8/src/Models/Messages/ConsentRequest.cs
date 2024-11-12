@@ -22,9 +22,9 @@ namespace IdentityServer8.Models
         /// <param name="subject">The subject.</param>
         public ConsentRequest(AuthorizationRequest request, string? subject)
         {
-            ClientId = request.Client.ClientId;
-            Nonce = request.Parameters[OidcConstants.AuthorizeRequest.Nonce];
-            ScopesRequested = request.Parameters[OidcConstants.AuthorizeRequest.Scope].ParseScopesString();
+            ClientId = request.Client!.ClientId;
+            Nonce = request.Parameters[OidcConstants.AuthorizeRequest.Nonce]!;
+            ScopesRequested = request.Parameters[OidcConstants.AuthorizeRequest.Scope]!.ParseScopesString()!;
             Subject = subject;
         }
 
@@ -35,9 +35,9 @@ namespace IdentityServer8.Models
         /// <param name="subject">The subject.</param>
         public ConsentRequest(NameValueCollection parameters, string? subject)
         {
-            ClientId = parameters[OidcConstants.AuthorizeRequest.ClientId];
-            Nonce = parameters[OidcConstants.AuthorizeRequest.Nonce];
-            ScopesRequested = parameters[OidcConstants.AuthorizeRequest.Scope].ParseScopesString();
+            ClientId = parameters[OidcConstants.AuthorizeRequest.ClientId]!;
+            Nonce = parameters[OidcConstants.AuthorizeRequest.Nonce]!;
+            ScopesRequested = parameters[OidcConstants.AuthorizeRequest.Scope]!.ParseScopesString()!;
             Subject = subject;
         }
 

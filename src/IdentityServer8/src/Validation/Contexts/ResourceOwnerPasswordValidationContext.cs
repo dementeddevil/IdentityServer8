@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -17,7 +17,7 @@ namespace IdentityServer8.Validation
         /// <value>
         /// The name of the user.
         /// </value>
-        public string UserName { get; set; }
+        public required string UserName { get; set; }
 
         /// <summary>
         /// Gets or sets the password.
@@ -25,7 +25,7 @@ namespace IdentityServer8.Validation
         /// <value>
         /// The password.
         /// </value>
-        public string Password { get; set; }
+        public required string Password { get; set; }
 
         /// <summary>
         /// Gets or sets the request.
@@ -33,7 +33,7 @@ namespace IdentityServer8.Validation
         /// <value>
         /// The request.
         /// </value>
-        public ValidatedTokenRequest Request { get; set; }
+        public required ValidatedTokenRequest Request { get; set; }
 
         /// <summary>
         /// Gets or sets the result.

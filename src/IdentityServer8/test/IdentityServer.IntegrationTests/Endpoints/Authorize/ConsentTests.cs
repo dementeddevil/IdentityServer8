@@ -114,11 +114,11 @@ namespace IdentityServer.IntegrationTests.Endpoints.Authorize
         }
 
         [Theory]
-        [InlineData((Type)null)]
+        [InlineData((Type?)null)]
         [InlineData(typeof(QueryStringAuthorizationParametersMessageStore))]
         [InlineData(typeof(DistributedCacheAuthorizationParametersMessageStore))]
         [Trait("Category", Category)]
-        public async Task consent_page_should_have_authorization_params(Type storeType)
+        public async Task consent_page_should_have_authorization_params(Type? storeType)
         {
             if (storeType != null)
             {
@@ -150,14 +150,14 @@ namespace IdentityServer.IntegrationTests.Endpoints.Authorize
             var response = await _mockPipeline.BrowserClient.GetAsync(url);
 
             _mockPipeline.ConsentRequest.Should().NotBeNull();
-            _mockPipeline.ConsentRequest.Client.ClientId.Should().Be("client2");
+            _mockPipeline.ConsentRequest!.Client!.ClientId.Should().Be("client2");
             _mockPipeline.ConsentRequest.DisplayMode.Should().Be("popup");
             _mockPipeline.ConsentRequest.UiLocales.Should().Be("ui_locale_value");
             _mockPipeline.ConsentRequest.Tenant.Should().Be("tenant_value");
             _mockPipeline.ConsentRequest.AcrValues.Should().BeEquivalentTo(new string[] { "acr_2", "acr_1" });
             _mockPipeline.ConsentRequest.Parameters.AllKeys.Should().Contain("custom_foo");
             _mockPipeline.ConsentRequest.Parameters["custom_foo"].Should().Be("foo_value");
-            _mockPipeline.ConsentRequest.ValidatedResources.RawScopeValues.Should().BeEquivalentTo(new string[] { "api2", "openid", "api1" });
+            _mockPipeline.ConsentRequest.ValidatedResources!.RawScopeValues.Should().BeEquivalentTo(new string[] { "api2", "openid", "api1" });
         }
 
         [Theory]
@@ -194,13 +194,13 @@ namespace IdentityServer.IntegrationTests.Endpoints.Authorize
             var response = await _mockPipeline.BrowserClient.GetAsync(url);
 
             response.StatusCode.Should().Be(HttpStatusCode.Redirect);
-            response.Headers.Location.ToString().Should().StartWith("https://client2/callback");
+            response.Headers.Location!.ToString().Should().StartWith("https://client2/callback");
 
             var authorization = new IdentityModel.Client.AuthorizeResponse(response.Headers.Location.ToString());
             authorization.IsError.Should().BeFalse();
             authorization.IdentityToken.Should().NotBeNull();
             authorization.State.Should().Be("123_state");
-            var scopes = authorization.Scope.Split(' ');
+            var scopes = authorization.Scope!.Split(' ');
             scopes.Should().BeEquivalentTo(new string[] { "api2", "openid" });
         }
 
@@ -226,19 +226,19 @@ namespace IdentityServer.IntegrationTests.Endpoints.Authorize
             var response = await _mockPipeline.BrowserClient.GetAsync(url);
 
             response.StatusCode.Should().Be(HttpStatusCode.Redirect);
-            response.Headers.Location.ToString().Should().StartWith("https://server/consent");
+            response.Headers.Location!.ToString().Should().StartWith("https://server/consent");
 
             response = await _mockPipeline.BrowserClient.GetAsync(response.Headers.Location.ToString());
 
             response.StatusCode.Should().Be(HttpStatusCode.Redirect);
-            response.Headers.Location.ToString().Should().StartWith("/connect/authorize/callback");
+            response.Headers.Location!.ToString().Should().StartWith("/connect/authorize/callback");
 
             var modifiedAuthorizeCallback = "https://server" + response.Headers.Location.ToString();
             modifiedAuthorizeCallback = modifiedAuthorizeCallback.Replace("api2", "api1%20api2");
 
             response = await _mockPipeline.BrowserClient.GetAsync(modifiedAuthorizeCallback);
             response.StatusCode.Should().Be(HttpStatusCode.Redirect);
-            response.Headers.Location.ToString().Should().StartWith("https://server/consent");
+            response.Headers.Location!.ToString().Should().StartWith("https://server/consent");
         }
 
         [Fact()]
@@ -262,7 +262,7 @@ namespace IdentityServer.IntegrationTests.Endpoints.Authorize
                 nonce: "123_nonce");
             var response = await _mockPipeline.BrowserClient.GetAsync(url);
             response.StatusCode.Should().Be(HttpStatusCode.Redirect);
-            response.Headers.Location.ToString().Should().StartWith("https://client2/callback");
+            response.Headers.Location!.ToString().Should().StartWith("https://client2/callback");
 
             var authorization = new IdentityModel.Client.AuthorizeResponse(response.Headers.Location.ToString());
             authorization.IsError.Should().BeTrue();

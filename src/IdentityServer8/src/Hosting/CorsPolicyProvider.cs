@@ -56,7 +56,7 @@ namespace IdentityServer8.Hosting
 
                     // manually resolving this from DI because this: 
                     // https://github.com/aspnet/CORS/issues/105
-                    var corsPolicyService = _httpContext.HttpContext.RequestServices.GetRequiredService<ICorsPolicyService>();
+                    var corsPolicyService = _httpContext.HttpContext!.RequestServices.GetRequiredService<ICorsPolicyService>();
 
                     if (await corsPolicyService.IsOriginAllowedAsync(origin))
                     {

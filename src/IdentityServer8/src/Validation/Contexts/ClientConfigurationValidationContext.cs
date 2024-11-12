@@ -33,7 +33,7 @@ namespace IdentityServer8.Validation
         /// <value>
         /// The error message.
         /// </value>
-        public string ErrorMessage { get; set; }
+        public string? ErrorMessage { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ClientConfigurationValidationContext"/> class.

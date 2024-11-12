@@ -1,4 +1,4 @@
-﻿namespace IdentityServer8.Validation
+namespace IdentityServer8.Validation
 {
     /// <summary>
     /// Context for custom authorize request validation.
@@ -8,6 +8,6 @@
         /// <summary>
         /// The result of custom validation. 
         /// </summary>
-        public AuthorizeRequestValidationResult Result { get; set; }
+        public required AuthorizeRequestValidationResult Result { get; set; }
     }
 }
