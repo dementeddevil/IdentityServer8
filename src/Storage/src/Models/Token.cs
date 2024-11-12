@@ -52,7 +52,7 @@ namespace Zen.IdentityServer.Models
         /// <value>
         /// The issuer.
         /// </value>
-        public required string Issuer { get; set; }
+        public string? Issuer { get; set; }
         
         /// <summary>
         /// Gets or sets the creation time.
