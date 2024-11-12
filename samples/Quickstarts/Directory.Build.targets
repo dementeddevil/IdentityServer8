@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <AspNetVersion>8.0.10</AspNetVersion>
-        <IdentityServerVersion>8.0.2</IdentityServerVersion>
+        <IdentityServerVersion>8.1.0</IdentityServerVersion>
     </PropertyGroup>
 
     <ItemGroup>
