@@ -4,18 +4,17 @@
 
 using Zen.IdentityServer.Models;
 
-namespace Zen.IdentityServer.Services
+namespace Zen.IdentityServer.Services;
+
+/// <summary>
+/// Logic for creating security tokens
+/// </summary>
+public interface ITokenCreationService
 {
     /// <summary>
-    /// Logic for creating security tokens
+    /// Creates a token.
     /// </summary>
-    public interface ITokenCreationService
-    {
-        /// <summary>
-        /// Creates a token.
-        /// </summary>
-        /// <param name="token">The token description.</param>
-        /// <returns>A protected and serialized security token</returns>
-        Task<string> CreateTokenAsync(Token token);
-    }
+    /// <param name="token">The token description.</param>
+    /// <returns>A protected and serialized security token</returns>
+    Task<string> CreateTokenAsync(Token token);
 }

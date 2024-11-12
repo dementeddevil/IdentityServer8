@@ -4,18 +4,17 @@
 
 using Zen.IdentityServer.Validation;
 
-namespace IdentityServer.IntegrationTests.Clients.Setup
-{
-    public class TestCustomTokenRequestValidator : ICustomTokenRequestValidator
-    {
-        public Task ValidateAsync(CustomTokenRequestValidationContext context)
-        {
-            context.Result.CustomResponse = new Dictionary<string, object>
-            {
-                {"custom", "custom" }
-            };
+namespace IdentityServer.IntegrationTests.Clients.Setup;
 
-            return Task.CompletedTask;
-        }
+public class TestCustomTokenRequestValidator : ICustomTokenRequestValidator
+{
+    public Task ValidateAsync(CustomTokenRequestValidationContext context)
+    {
+        context.Result.CustomResponse = new Dictionary<string, object>
+        {
+            {"custom", "custom" }
+        };
+
+        return Task.CompletedTask;
     }
 }

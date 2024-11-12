@@ -6,40 +6,39 @@ using IdentityModel;
 using Zen.IdentityServer.Extensions;
 using Zen.IdentityServer.Validation;
 
-namespace Zen.IdentityServer.Logging
+namespace Zen.IdentityServer.Logging;
+
+internal class DeviceAuthorizationRequestValidationLog
 {
-    internal class DeviceAuthorizationRequestValidationLog
+    public string ClientId { get; set; }
+    public string ClientName { get; set; }
+    public string Scopes { get; set; }
+
+    public Dictionary<string, string> Raw { get; set; }
+
+    private static readonly string[] SensitiveValuesFilter = {
+        OidcConstants.TokenRequest.ClientSecret,
+        OidcConstants.TokenRequest.ClientAssertion
+    };
+
+    public DeviceAuthorizationRequestValidationLog(ValidatedDeviceAuthorizationRequest request)
     {
-        public string ClientId { get; set; }
-        public string ClientName { get; set; }
-        public string Scopes { get; set; }
+        Raw = request.Raw.ToScrubbedDictionary(SensitiveValuesFilter);
 
-        public Dictionary<string, string> Raw { get; set; }
-
-        private static readonly string[] SensitiveValuesFilter = {
-            OidcConstants.TokenRequest.ClientSecret,
-            OidcConstants.TokenRequest.ClientAssertion
-        };
-
-        public DeviceAuthorizationRequestValidationLog(ValidatedDeviceAuthorizationRequest request)
+        if (request.Client != null)
         {
-            Raw = request.Raw.ToScrubbedDictionary(SensitiveValuesFilter);
-
-            if (request.Client != null)
-            {
-                ClientId = request.Client.ClientId;
-                ClientName = request.Client.ClientName;
-            }
-
-            if (request.RequestedScopes != null)
-            {
-                Scopes = request.RequestedScopes.ToSpaceSeparatedString();
-            }
+            ClientId = request.Client.ClientId;
+            ClientName = request.Client.ClientName;
         }
 
-        public override string ToString()
+        if (request.RequestedScopes != null)
         {
-            return LogSerializer.Serialize(this);
+            Scopes = request.RequestedScopes.ToSpaceSeparatedString();
         }
+    }
+
+    public override string ToString()
+    {
+        return LogSerializer.Serialize(this);
     }
 }

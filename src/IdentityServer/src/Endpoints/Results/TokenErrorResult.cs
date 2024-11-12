@@ -8,46 +8,45 @@ using Zen.IdentityServer.Extensions;
 using System.Text.Json.Serialization;
 using Zen.IdentityServer.ResponseHandling;
 
-namespace Zen.IdentityServer.Endpoints.Results
+namespace Zen.IdentityServer.Endpoints.Results;
+
+internal class TokenErrorResult : IEndpointResult
 {
-    internal class TokenErrorResult : IEndpointResult
+    public TokenErrorResponse Response { get; }
+
+    public TokenErrorResult(TokenErrorResponse error)
     {
-        public TokenErrorResponse Response { get; }
+        if (error.Error.IsMissing()) throw new ArgumentNullException(nameof(error.Error), "Error must be set");
 
-        public TokenErrorResult(TokenErrorResponse error)
-        {
-            if (error.Error.IsMissing()) throw new ArgumentNullException(nameof(error.Error), "Error must be set");
-
-            Response = error;
-        }
-
-        public async Task ExecuteAsync(HttpContext context)
-        {
-            context.Response.StatusCode = 400;
-            context.Response.SetNoCache();
-
-            var dto = new ResultDto
-            {
-                Error = Response.Error,
-                ErrorDescription = Response.ErrorDescription,
-                
-                Custom = Response.Custom
-            };
-
-            await context.Response.WriteJsonAsync(dto);
-        }
-
-        internal class ResultDto
-        {
-            [JsonPropertyName("error")]
-            public string Error { get; set; }
-
-            [JsonPropertyName("error_description")]
-            public string? ErrorDescription { get; set; }
-
-            [JsonExtensionData]
-            [JsonPropertyName("custom")]
-            public Dictionary<string, object> Custom { get; set; }
-        }    
+        Response = error;
     }
+
+    public async Task ExecuteAsync(HttpContext context)
+    {
+        context.Response.StatusCode = 400;
+        context.Response.SetNoCache();
+
+        var dto = new ResultDto
+        {
+            Error = Response.Error,
+            ErrorDescription = Response.ErrorDescription,
+            
+            Custom = Response.Custom
+        };
+
+        await context.Response.WriteJsonAsync(dto);
+    }
+
+    internal class ResultDto
+    {
+        [JsonPropertyName("error")]
+        public string Error { get; set; }
+
+        [JsonPropertyName("error_description")]
+        public string? ErrorDescription { get; set; }
+
+        [JsonExtensionData]
+        [JsonPropertyName("custom")]
+        public Dictionary<string, object> Custom { get; set; }
+    }    
 }

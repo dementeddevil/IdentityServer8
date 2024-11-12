@@ -4,18 +4,17 @@
 
 using Microsoft.AspNetCore.Http;
 
-namespace Zen.IdentityServer.Validation
+namespace Zen.IdentityServer.Validation;
+
+/// <summary>
+/// Validator for handling client authentication
+/// </summary>
+public interface IClientSecretValidator
 {
     /// <summary>
-    /// Validator for handling client authentication
+    /// Tries to authenticate a client based on the incoming request
     /// </summary>
-    public interface IClientSecretValidator
-    {
-        /// <summary>
-        /// Tries to authenticate a client based on the incoming request
-        /// </summary>
-        /// <param name="context">The context.</param>
-        /// <returns></returns>
-        Task<ClientSecretValidationResult> ValidateAsync(HttpContext context);
-    }
+    /// <param name="context">The context.</param>
+    /// <returns></returns>
+    Task<ClientSecretValidationResult> ValidateAsync(HttpContext context);
 }

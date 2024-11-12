@@ -4,23 +4,22 @@
 
 using System.Text.Json;
 
-namespace Zen.IdentityServer
-{
-    internal static class ObjectSerializer
-    {
-        private static readonly JsonSerializerOptions Options = new JsonSerializerOptions
-        {
-            DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
-        };
-        
-        public static string ToString(object o)
-        {
-            return JsonSerializer.Serialize(o, Options);
-        }
+namespace Zen.IdentityServer;
 
-        public static T FromString<T>(string value)
-        {
-            return JsonSerializer.Deserialize<T>(value, Options);
-        }
+internal static class ObjectSerializer
+{
+    private static readonly JsonSerializerOptions Options = new JsonSerializerOptions
+    {
+        DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
+    };
+    
+    public static string ToString(object o)
+    {
+        return JsonSerializer.Serialize(o, Options);
+    }
+
+    public static T FromString<T>(string value)
+    {
+        return JsonSerializer.Deserialize<T>(value, Options);
     }
 }

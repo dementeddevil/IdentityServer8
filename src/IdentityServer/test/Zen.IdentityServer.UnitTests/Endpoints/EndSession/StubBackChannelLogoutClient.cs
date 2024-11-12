@@ -5,16 +5,15 @@
 using Zen.IdentityServer.Models;
 using Zen.IdentityServer.Services;
 
-namespace IdentityServer.UnitTests.Endpoints.EndSession
-{
-    internal class StubBackChannelLogoutClient : IBackChannelLogoutService
-    {
-        public bool SendLogoutsWasCalled { get; set; }
+namespace IdentityServer.UnitTests.Endpoints.EndSession;
 
-        public Task SendLogoutNotificationsAsync(LogoutNotificationContext context)
-        {
-            SendLogoutsWasCalled = true;
-            return Task.CompletedTask;
-        }
+internal class StubBackChannelLogoutClient : IBackChannelLogoutService
+{
+    public bool SendLogoutsWasCalled { get; set; }
+
+    public Task SendLogoutNotificationsAsync(LogoutNotificationContext context)
+    {
+        SendLogoutsWasCalled = true;
+        return Task.CompletedTask;
     }
 }

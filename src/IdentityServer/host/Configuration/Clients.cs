@@ -4,18 +4,17 @@
 
 using Zen.IdentityServer.Models;
 
-namespace IdentityServerHost.Configuration
+namespace IdentityServerHost.Configuration;
+
+public static class Clients
 {
-    public static class Clients
+    public static IEnumerable<Client> Get()
     {
-        public static IEnumerable<Client> Get()
-        {
-            var clients = new List<Client>();
+        var clients = new List<Client>();
 
-            clients.AddRange(ClientsConsole.Get());
-            clients.AddRange(ClientsWeb.Get());
+        clients.AddRange(ClientsConsole.Get());
+        clients.AddRange(ClientsWeb.Get());
 
-            return clients;
-        }
+        return clients;
     }
 }

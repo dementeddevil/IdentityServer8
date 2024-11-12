@@ -7,37 +7,36 @@ using System.Diagnostics.CodeAnalysis;
 
 #pragma warning disable 1591
 
-namespace Zen.IdentityServer.Extensions
+namespace Zen.IdentityServer.Extensions;
+
+public static class IEnumerableExtensions
 {
-    public static class IEnumerableExtensions
+    [DebuggerStepThrough]
+    public static bool IsNullOrEmpty<T>([NotNullWhen(false)]this IEnumerable<T>? list)
     {
-        [DebuggerStepThrough]
-        public static bool IsNullOrEmpty<T>([NotNullWhen(false)]this IEnumerable<T>? list)
+        if (list == null)
         {
-            if (list == null)
+            return true;
+        }
+
+        if (!list.Any())
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static bool HasDuplicates<T, TProp>(this IEnumerable<T> list, Func<T, TProp> selector)
+    {
+        var d = new HashSet<TProp>();
+        foreach (var t in list)
+        {
+            if (!d.Add(selector(t)))
             {
                 return true;
             }
-
-            if (!list.Any())
-            {
-                return true;
-            }
-
-            return false;
         }
-
-        public static bool HasDuplicates<T, TProp>(this IEnumerable<T> list, Func<T, TProp> selector)
-        {
-            var d = new HashSet<TProp>();
-            foreach (var t in list)
-            {
-                if (!d.Add(selector(t)))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
+        return false;
     }
 }

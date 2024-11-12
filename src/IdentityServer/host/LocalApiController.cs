@@ -6,16 +6,15 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using static Zen.IdentityServer.IdentityServerConstants;
 
-namespace IdentityServerHost
+namespace IdentityServerHost;
+
+[Route("localApi")]
+[Authorize(LocalApi.PolicyName)]
+public class LocalApiController : ControllerBase
 {
-    [Route("localApi")]
-    [Authorize(LocalApi.PolicyName)]
-    public class LocalApiController : ControllerBase
+    public IActionResult Get()
     {
-        public IActionResult Get()
-        {
-            var claims = from c in User.Claims select new { c.Type, c.Value };
-            return new JsonResult(claims);
-        }
+        var claims = from c in User.Claims select new { c.Type, c.Value };
+        return new JsonResult(claims);
     }
 }

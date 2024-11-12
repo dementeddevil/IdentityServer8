@@ -4,18 +4,17 @@
 
 using Microsoft.AspNetCore.Http;
 
-namespace Zen.IdentityServer.Hosting
+namespace Zen.IdentityServer.Hosting;
+
+/// <summary>
+/// Endpoint result
+/// </summary>
+public interface IEndpointResult
 {
     /// <summary>
-    /// Endpoint result
+    /// Executes the result.
     /// </summary>
-    public interface IEndpointResult
-    {
-        /// <summary>
-        /// Executes the result.
-        /// </summary>
-        /// <param name="context">The HTTP context.</param>
-        /// <returns></returns>
-        Task ExecuteAsync(HttpContext context);
-    }
+    /// <param name="context">The HTTP context.</param>
+    /// <returns></returns>
+    Task ExecuteAsync(HttpContext context);
 }

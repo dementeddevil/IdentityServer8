@@ -5,15 +5,14 @@
 using Zen.IdentityServer.ResponseHandling;
 using Zen.IdentityServer.Validation;
 
-namespace IdentityServer.UnitTests.Common
-{
-    internal class StubAuthorizeResponseGenerator : IAuthorizeResponseGenerator
-    {
-        public AuthorizeResponse Response { get; set; } = new AuthorizeResponse();
+namespace IdentityServer.UnitTests.Common;
 
-        public Task<AuthorizeResponse> CreateResponseAsync(ValidatedAuthorizeRequest request)
-        {
-            return Task.FromResult(Response);
-        }
+internal class StubAuthorizeResponseGenerator : IAuthorizeResponseGenerator
+{
+    public AuthorizeResponse Response { get; set; } = new AuthorizeResponse();
+
+    public Task<AuthorizeResponse> CreateResponseAsync(ValidatedAuthorizeRequest request)
+    {
+        return Task.FromResult(Response);
     }
 }

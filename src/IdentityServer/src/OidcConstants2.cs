@@ -1,15 +1,14 @@
 ﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
-
 #pragma warning disable 1591
 
-namespace Zen.IdentityServer.Validation;
+namespace Zen.IdentityServer;
 
-public enum BearerTokenUsageType
+public static class OidcConstants2
 {
-    AuthorizationHeader = 0,
-    PostBody = 1,
-    QueryString = 2
+    public static class AuthorizeRequest
+    {
+        public const string DomainHint = "domain_hint";
+    }
 }

@@ -5,36 +5,35 @@
 using Zen.IdentityServer.Extensions;
 using Zen.IdentityServer.Models;
 
-namespace Zen.IdentityServer.Services
+namespace Zen.IdentityServer.Services;
+
+/// <summary>
+/// Extension for IUserSession.
+/// </summary>
+public static class IUserSessionExtensions
 {
     /// <summary>
-    /// Extension for IUserSession.
+    /// Creates a LogoutNotificationContext for the current user session.
     /// </summary>
-    public static class IUserSessionExtensions
+    /// <returns></returns>
+    public static async Task<LogoutNotificationContext?> GetLogoutNotificationContext(this IUserSession session)
     {
-        /// <summary>
-        /// Creates a LogoutNotificationContext for the current user session.
-        /// </summary>
-        /// <returns></returns>
-        public static async Task<LogoutNotificationContext?> GetLogoutNotificationContext(this IUserSession session)
+        var clientIds = await session.GetClientListAsync();
+
+        if (clientIds.Any())
         {
-            var clientIds = await session.GetClientListAsync();
+            var user = await session.GetUserAsync();
+            var sub = user.GetSubjectId();
+            var sid = await session.GetSessionIdAsync();
 
-            if (clientIds.Any())
+            return new LogoutNotificationContext
             {
-                var user = await session.GetUserAsync();
-                var sub = user.GetSubjectId();
-                var sid = await session.GetSessionIdAsync();
-
-                return new LogoutNotificationContext
-                {
-                    SubjectId = sub,
-                    SessionId = sid,
-                    ClientIds = clientIds
-                };
-            }
-
-            return null;
+                SubjectId = sub,
+                SessionId = sid,
+                ClientIds = clientIds
+            };
         }
+
+        return null;
     }
 }

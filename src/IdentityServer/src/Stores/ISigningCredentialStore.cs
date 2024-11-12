@@ -4,17 +4,16 @@
 
 using Microsoft.IdentityModel.Tokens;
 
-namespace Zen.IdentityServer.Stores
+namespace Zen.IdentityServer.Stores;
+
+/// <summary>
+/// Interface for a signing credential store
+/// </summary>
+public interface ISigningCredentialStore
 {
     /// <summary>
-    /// Interface for a signing credential store
+    /// Gets the signing credentials.
     /// </summary>
-    public interface ISigningCredentialStore
-    {
-        /// <summary>
-        /// Gets the signing credentials.
-        /// </summary>
-        /// <returns></returns>
-        Task<SigningCredentials> GetSigningCredentialsAsync();
-    }
+    /// <returns></returns>
+    Task<SigningCredentials> GetSigningCredentialsAsync();
 }
