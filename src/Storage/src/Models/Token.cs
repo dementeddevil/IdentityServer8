@@ -84,7 +84,7 @@ namespace Zen.IdentityServer.Models
         /// <value>
         /// The ID of the client.
         /// </value>
-        public required string ClientId { get; set; }
+        public string? ClientId { get; set; }
 
         /// <summary>
         /// Gets or sets the type of access token of the client
