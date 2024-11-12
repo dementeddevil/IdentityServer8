@@ -1,8 +1,8 @@
 <Project>
 
     <PropertyGroup>
-        <AspNetVersion>8.0.10</AspNetVersion>
-        <IdentityServerVersion>8.1.0</IdentityServerVersion>
+        <AspNetVersion>9.0.0</AspNetVersion>
+        <IdentityServerVersion>9.0.0</IdentityServerVersion>
     </PropertyGroup>
 
     <ItemGroup>
