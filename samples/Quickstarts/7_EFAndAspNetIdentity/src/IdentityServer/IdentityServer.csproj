@@ -6,12 +6,19 @@
   
   <ItemGroup>
     <PackageReference Include="Zen.IdentityServer.EntityFramework" />
+    <PackageReference Include="Zen.IdentityServer.AspNetIdentity" />
 
     <PackageReference Include="Serilog.AspNetCore" />
 
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" />
-      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
-      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" />
+      
+    <PackageReference Include="Microsoft.IdentityModel.JsonWebTokens" Version="8.2.0" />
+      
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.10" />
   </ItemGroup>
     
 </Project>

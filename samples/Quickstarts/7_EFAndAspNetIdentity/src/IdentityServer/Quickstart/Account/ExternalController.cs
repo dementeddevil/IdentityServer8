@@ -8,7 +8,7 @@ using Zen.IdentityServer;
 using Zen.IdentityServer.Events;
 using Zen.IdentityServer.Services;
 using Zen.IdentityServer.Stores;
-using IdentityServerAspNetIdentity.Models;
+using IdentityServerHost.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;

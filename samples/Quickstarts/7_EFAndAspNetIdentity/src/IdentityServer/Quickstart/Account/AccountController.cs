@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -8,7 +8,7 @@ using Zen.IdentityServer.Extensions;
 using Zen.IdentityServer.Models;
 using Zen.IdentityServer.Services;
 using Zen.IdentityServer.Stores;
-using IdentityServerAspNetIdentity.Models;
+using IdentityServerHost.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
