@@ -5,8 +5,8 @@
     <ExtensionsVersion>8.0.0</ExtensionsVersion>
     <EntityFrameworkVersion>8.0.10</EntityFrameworkVersion>
     
-    <Stable>false</Stable>
-    <BaseVersion>8.0.3</BaseVersion>
+    <Stable>true</Stable>
+    <BaseVersion>8.1.0</BaseVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Stable)' == 'true'">
