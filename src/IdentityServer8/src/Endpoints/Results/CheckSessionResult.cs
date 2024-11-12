@@ -22,9 +22,9 @@ namespace IdentityServer8.Endpoints.Results
         }
 
         private IdentityServerOptions _options;
-        private static volatile string FormattedHtml;
+        private static volatile string FormattedHtml = string.Empty;
         private static readonly object Lock = new object();
-        private static volatile string LastCheckSessionCookieName;
+        private static volatile string LastCheckSessionCookieName = string.Empty;
 
         private void Init(HttpContext context)
         {

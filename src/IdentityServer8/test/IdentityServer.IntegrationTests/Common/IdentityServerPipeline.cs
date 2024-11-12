@@ -413,7 +413,7 @@ namespace IdentityServer.IntegrationTests.Common
 
         public async Task<bool> HandleRequestAsync()
         {
-            if (HttpContext.Request.Path == IdentityServerPipeline.FederatedSignOutPath)
+            if (HttpContext!.Request.Path == IdentityServerPipeline.FederatedSignOutPath)
             {
                 return await OnFederatedSignout(HttpContext);
             }

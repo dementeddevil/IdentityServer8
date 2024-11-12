@@ -45,7 +45,7 @@ namespace IdentityServer8
         {
             if (claims == null) throw new ArgumentNullException(nameof(claims));
 
-            var issuer = ContextAccessor.HttpContext.GetIdentityServerIssuerUri();
+            var issuer = ContextAccessor.HttpContext!.GetIdentityServerIssuerUri();
 
             var token = new Token
             {

@@ -110,22 +110,22 @@ namespace IdentityServer8.Events
         /// <returns></returns>
         protected virtual async Task PrepareEventAsync(Event evt)
         {
-            evt.ActivityId = Context.HttpContext.TraceIdentifier;
+            evt.ActivityId = Context.HttpContext!.TraceIdentifier;
             evt.TimeStamp = Clock.UtcNow.UtcDateTime;
             evt.ProcessId = Process.GetCurrentProcess().Id;
 
-            if (Context.HttpContext.Connection.LocalIpAddress != null)
+            if (Context.HttpContext!.Connection.LocalIpAddress != null)
             {
-                evt.LocalIpAddress = Context.HttpContext.Connection.LocalIpAddress.ToString() + ":" + Context.HttpContext.Connection.LocalPort;
+                evt.LocalIpAddress = Context.HttpContext!.Connection.LocalIpAddress.ToString() + ":" + Context.HttpContext!.Connection.LocalPort;
             }
             else
             {
                 evt.LocalIpAddress = "unknown";
             }
 
-            if (Context.HttpContext.Connection.RemoteIpAddress != null)
+            if (Context.HttpContext!.Connection.RemoteIpAddress != null)
             {
-                evt.RemoteIpAddress = Context.HttpContext.Connection.RemoteIpAddress.ToString();
+                evt.RemoteIpAddress = Context.HttpContext!.Connection.RemoteIpAddress.ToString();
             }
             else
             {

@@ -1,8 +1,9 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
 using IdentityServer8.Extensions;
+using System.Diagnostics.CodeAnalysis;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -36,7 +37,7 @@ namespace IdentityServer8.Models
         /// </summary>
         /// <param name="input">The input.</param>
         /// <returns>A hash.</returns>
-        public static byte[] Sha256(this byte[] input)
+        public static byte[]? Sha256([NotNullIfNotNull(nameof(input))] this byte[] input)
         {
             if (input == null)
             {

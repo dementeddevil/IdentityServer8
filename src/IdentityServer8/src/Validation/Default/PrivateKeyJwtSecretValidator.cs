@@ -78,10 +78,10 @@ namespace IdentityServer8.Validation
             var validAudiences = new[]
             {
                 // issuer URI (tbd)
-                //_contextAccessor.HttpContext.GetIdentityServerIssuerUri(),
+                //_contextAccessor.HttpContext!.GetIdentityServerIssuerUri(),
                 
                 // token endpoint URL
-                string.Concat(_contextAccessor.HttpContext.GetIdentityServerIssuerUri().EnsureTrailingSlash(),
+                string.Concat(_contextAccessor.HttpContext!.GetIdentityServerIssuerUri().EnsureTrailingSlash(),
                     Constants.ProtocolRoutePaths.Token)
             };
             

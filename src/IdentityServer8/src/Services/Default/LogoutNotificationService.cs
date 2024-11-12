@@ -52,7 +52,7 @@ namespace IdentityServer8.Services
                             if (client.FrontChannelLogoutSessionRequired)
                             {
                                 url = url.AddQueryString(OidcConstants.EndSessionRequest.Sid, context.SessionId);
-                                url = url.AddQueryString(OidcConstants.EndSessionRequest.Issuer, _httpContextAccessor.HttpContext.GetIdentityServerIssuerUri());
+                                url = url.AddQueryString(OidcConstants.EndSessionRequest.Issuer, _httpContextAccessor.HttpContext!.GetIdentityServerIssuerUri());
                             }
                         }
                         else if (client.ProtocolType == IdentityServerConstants.ProtocolTypes.WsFederation)

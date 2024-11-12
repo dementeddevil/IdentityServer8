@@ -141,7 +141,7 @@ namespace IdentityServer8.Hosting
 
             if (identity.FindFirst(JwtClaimTypes.AuthenticationMethod) == null)
             {
-                if (identity.FindFirst(JwtClaimTypes.IdentityProvider).Value == IdentityServerConstants.LocalIdentityProvider)
+                if (identity.FindFirst(JwtClaimTypes.IdentityProvider)!.Value == IdentityServerConstants.LocalIdentityProvider)
                 {
                     _logger.LogDebug("Adding amr claim with value: {value}", OidcConstants.AuthenticationMethods.Password);
                     identity.AddClaim(new Claim(JwtClaimTypes.AuthenticationMethod, OidcConstants.AuthenticationMethods.Password));

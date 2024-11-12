@@ -103,12 +103,12 @@ namespace IdentityServer8.Services
             Logger = logger;
         }
 
-        // we need this helper (and can't call HttpContext.AuthenticateAsync) so we don't run
+        // we need this helper (and can't call HttpContext!.AuthenticateAsync) so we don't run
         // claims transformation when we get the principal. this also ensures that we don't
         // re-issue a cookie that includes the claims from claims transformation.
         //
         // also, by caching the _principal/_properties it allows someone to issue a new
-        // cookie (via HttpContext.SignInAsync) and we'll use those new values, rather than
+        // cookie (via HttpContext!.SignInAsync) and we'll use those new values, rather than
         // just reading the incoming cookie
         //
         // this design requires this to be in DI as scoped
@@ -120,7 +120,7 @@ namespace IdentityServer8.Services
         {
             if (Principal == null || Properties == null)
             {
-                var scheme = await HttpContext.GetCookieAuthenticationSchemeAsync();
+                var scheme = await HttpContext!.GetCookieAuthenticationSchemeAsync();
 
                 var handler = await Handlers.GetHandlerAsync(HttpContext, scheme);
                 if (handler == null)
@@ -215,13 +215,13 @@ namespace IdentityServer8.Services
         /// <returns></returns>
         public virtual Task RemoveSessionIdCookieAsync()
         {
-            if (HttpContext.Request.Cookies.ContainsKey(CheckSessionCookieName))
+            if (HttpContext!.Request.Cookies.ContainsKey(CheckSessionCookieName))
             {
                 // only remove it if we have it in the request
                 var options = CreateSessionIdCookieOptions();
                 options.Expires = Clock.UtcNow.UtcDateTime.AddYears(-1);
 
-                HttpContext.Response.Cookies.Append(CheckSessionCookieName, ".", options);
+                HttpContext!.Response.Cookies.Append(CheckSessionCookieName, ".", options);
             }
 
             return Task.CompletedTask;
@@ -232,8 +232,8 @@ namespace IdentityServer8.Services
         /// </summary>
         public virtual CookieOptions CreateSessionIdCookieOptions()
         {
-            var secure = HttpContext.Request.IsHttps;
-            var path = HttpContext.GetIdentityServerBasePath().CleanUrlPath();
+            var secure = HttpContext!.Request.IsHttps;
+            var path = HttpContext!.GetIdentityServerBasePath().CleanUrlPath();
 
             var options = new CookieOptions
             {
@@ -256,9 +256,9 @@ namespace IdentityServer8.Services
         {
             if (Options.Endpoints.EnableCheckSessionEndpoint)
             {
-                if (HttpContext.Request.Cookies[CheckSessionCookieName] != sid)
+                if (HttpContext!.Request.Cookies[CheckSessionCookieName] != sid)
                 {
-                    HttpContext.Response.Cookies.Append(
+                    HttpContext!.Response.Cookies.Append(
                         Options.Authentication.CheckSessionCookieName,
                         sid,
                         CreateSessionIdCookieOptions());
@@ -321,8 +321,8 @@ namespace IdentityServer8.Services
 
             if (Principal == null || Properties == null) throw new InvalidOperationException("User is not currently authenticated");
 
-            var scheme = await HttpContext.GetCookieAuthenticationSchemeAsync();
-            await HttpContext.SignInAsync(scheme, Principal, Properties);
+            var scheme = await HttpContext!.GetCookieAuthenticationSchemeAsync();
+            await HttpContext!.SignInAsync(scheme, Principal, Properties);
         }
     }
 }

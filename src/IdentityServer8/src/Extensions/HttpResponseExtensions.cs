@@ -81,7 +81,7 @@ namespace IdentityServer8.Extensions
             if (url.IsLocalUrl())
             {
                 if (url.StartsWith("~/")) url = url.Substring(1);
-                url = response.HttpContext.GetIdentityServerBaseUrl().EnsureTrailingSlash() + url.RemoveLeadingSlash();
+                url = response.HttpContext!.GetIdentityServerBaseUrl().EnsureTrailingSlash() + url.RemoveLeadingSlash();
             }
             response.Redirect(url);
         }

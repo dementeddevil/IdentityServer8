@@ -56,7 +56,7 @@ namespace IdentityServer8
 
             if (options.EmitStaticAudienceClaim)
             {
-                claims.Add(new Claim(JwtClaimTypes.Audience, string.Format(IdentityServerConstants.AccessTokenAudience, tools.ContextAccessor.HttpContext.GetIdentityServerIssuerUri().EnsureTrailingSlash())));
+                claims.Add(new Claim(JwtClaimTypes.Audience, string.Format(IdentityServerConstants.AccessTokenAudience, tools.ContextAccessor.HttpContext!.GetIdentityServerIssuerUri().EnsureTrailingSlash())));
             }
             
             if (!audiences.IsNullOrEmpty())

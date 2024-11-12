@@ -43,7 +43,7 @@ namespace IdentityServer8.Validation
                     return _audienceUri;
                 }
 
-                return _httpContextAccessor.HttpContext.GetIdentityServerIssuerUri();
+                return _httpContextAccessor.HttpContext!.GetIdentityServerIssuerUri();
             }
         }
 

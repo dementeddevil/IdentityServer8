@@ -153,7 +153,7 @@ namespace IdentityServer8.Services
                 request.IncludeAllIdentityClaims,
                 request.ValidatedRequest));
 
-            var issuer = ContextAccessor.HttpContext.GetIdentityServerIssuerUri();
+            var issuer = ContextAccessor.HttpContext!.GetIdentityServerIssuerUri();
 
             var token = new Token(OidcConstants.TokenTypes.IdentityToken)
             {
@@ -202,7 +202,7 @@ namespace IdentityServer8.Services
             claims.Add(new Claim(JwtClaimTypes.IssuedAt, Clock.UtcNow.ToUnixTimeSeconds().ToString(),
                 ClaimValueTypes.Integer64));
 
-            var issuer = ContextAccessor.HttpContext.GetIdentityServerIssuerUri();
+            var issuer = ContextAccessor.HttpContext!.GetIdentityServerIssuerUri();
             var token = new Token(OidcConstants.TokenTypes.AccessToken)
             {
                 CreationTime = Clock.UtcNow.UtcDateTime,
@@ -235,7 +235,7 @@ namespace IdentityServer8.Services
             {
                 if (Options.MutualTls.AlwaysEmitConfirmationClaim)
                 {
-                    var clientCertificate = await ContextAccessor.HttpContext.Connection.GetClientCertificateAsync();
+                    var clientCertificate = await ContextAccessor.HttpContext!.Connection.GetClientCertificateAsync();
                     if (clientCertificate != null)
                     {
                         token.Confirmation = clientCertificate.CreateThumbprintCnf();

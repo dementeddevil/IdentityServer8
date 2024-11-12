@@ -129,7 +129,7 @@ namespace IdentityServerHost.Quickstart.UI
                         DisplayName = user.Username
                     };
 
-                    await HttpContext.SignInAsync(isuser, props);
+                    await HttpContext!.SignInAsync(isuser, props);
 
                     if (context != null)
                     {
@@ -202,7 +202,7 @@ namespace IdentityServerHost.Quickstart.UI
             if (User?.Identity?.IsAuthenticated == true)
             {
                 // delete local authentication cookie
-                await HttpContext.SignOutAsync();
+                await HttpContext!.SignOutAsync();
 
                 // raise the logout event
                 await _events.RaiseAsync(new UserLogoutSuccessEvent(User.GetSubjectId(), User.GetDisplayName()));
@@ -342,7 +342,7 @@ namespace IdentityServerHost.Quickstart.UI
                 var idp = User.FindFirst(JwtClaimTypes.IdentityProvider)?.Value;
                 if (idp != null && idp != IdentityServer8.IdentityServerConstants.LocalIdentityProvider)
                 {
-                    var providerSupportsSignout = await HttpContext.GetSchemeSupportsSignOutAsync(idp);
+                    var providerSupportsSignout = await HttpContext!.GetSchemeSupportsSignOutAsync(idp);
                     if (providerSupportsSignout)
                     {
                         if (vm.LogoutId == null)

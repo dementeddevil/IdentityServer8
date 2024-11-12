@@ -58,7 +58,7 @@ namespace IdentityServer8.ResponseHandling
             Logger.LogDebug("Creating userinfo response");
 
             // extract scopes and turn into requested claim types
-            var scopes = validationResult.TokenValidationResult.Claims.Where(c => c.Type == JwtClaimTypes.Scope).Select(c => c.Value);
+            var scopes = validationResult.TokenValidationResult.Claims!.Where(c => c.Type == JwtClaimTypes.Scope).Select(c => c.Value);
 
             var validatedResources = await GetRequestedResourcesAsync(scopes);
             var requestedClaimTypes = await GetRequestedClaimTypesAsync(validatedResources);
@@ -68,10 +68,12 @@ namespace IdentityServer8.ResponseHandling
             // call profile service
             var context = new ProfileDataRequestContext(
                 validationResult.Subject,
-                validationResult.TokenValidationResult.Client,
+                validationResult.TokenValidationResult.Client!,
                 IdentityServerConstants.ProfileDataCallers.UserInfoEndpoint,
-                requestedClaimTypes);
-            context.RequestedResources = validatedResources;
+                requestedClaimTypes)
+            {
+                RequestedResources = validatedResources
+            };
 
             await Profile.GetProfileDataAsync(context);
             var profileClaims = context.IssuedClaims;

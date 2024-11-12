@@ -92,9 +92,9 @@ namespace IdentityServer.UnitTests.Services.Default
             await _subject.CreateSessionIdAsync(_user, _props);
 
             var cookieContainer = new CookieContainer();
-            var cookies = _mockHttpContext.HttpContext.Response.Headers.Where(x => x.Key.Equals("Set-Cookie", StringComparison.OrdinalIgnoreCase)).Select(x => x.Value);
+            var cookies = _mockHttpContext.HttpContext!.Response.Headers.Where(x => x.Key.Equals("Set-Cookie", StringComparison.OrdinalIgnoreCase)).Select(x => x.Value);
             cookieContainer.SetCookies(new Uri("http://server"), string.Join(",", cookies));
-            _mockHttpContext.HttpContext.Response.Headers.Clear();
+            _mockHttpContext.HttpContext!.Response.Headers.Clear();
 
             var cookie = cookieContainer.GetCookies(new Uri("http://server")).Cast<Cookie>().Where(x => x.Name == _options.Authentication.CheckSessionCookieName).FirstOrDefault();
             cookie.Value.Should().Be(_props.GetSessionId());
@@ -109,9 +109,9 @@ namespace IdentityServer.UnitTests.Services.Default
             await _subject.EnsureSessionIdCookieAsync();
 
             var cookieContainer = new CookieContainer();
-            var cookies = _mockHttpContext.HttpContext.Response.Headers.Where(x => x.Key.Equals("Set-Cookie", StringComparison.OrdinalIgnoreCase)).Select(x => x.Value);
+            var cookies = _mockHttpContext.HttpContext!.Response.Headers.Where(x => x.Key.Equals("Set-Cookie", StringComparison.OrdinalIgnoreCase)).Select(x => x.Value);
             cookieContainer.SetCookies(new Uri("http://server"), string.Join(",", cookies));
-            _mockHttpContext.HttpContext.Response.Headers.Clear();
+            _mockHttpContext.HttpContext!.Response.Headers.Clear();
 
             var cookie = cookieContainer.GetCookies(new Uri("http://server")).Cast<Cookie>().Where(x => x.Name == _options.Authentication.CheckSessionCookieName).FirstOrDefault();
             cookie.Value.Should().Be("999");
@@ -123,9 +123,9 @@ namespace IdentityServer.UnitTests.Services.Default
             await _subject.EnsureSessionIdCookieAsync();
 
             var cookieContainer = new CookieContainer();
-            var cookies = _mockHttpContext.HttpContext.Response.Headers.Where(x => x.Key.Equals("Set-Cookie", StringComparison.OrdinalIgnoreCase)).Select(x => x.Value);
+            var cookies = _mockHttpContext.HttpContext!.Response.Headers.Where(x => x.Key.Equals("Set-Cookie", StringComparison.OrdinalIgnoreCase)).Select(x => x.Value);
             cookieContainer.SetCookies(new Uri("http://server"), string.Join(",", cookies));
-            _mockHttpContext.HttpContext.Response.Headers.Clear();
+            _mockHttpContext.HttpContext!.Response.Headers.Clear();
 
             var cookie = cookieContainer.GetCookies(new Uri("http://server")).Cast<Cookie>().Where(x => x.Name == _options.Authentication.CheckSessionCookieName).FirstOrDefault();
             cookie.Should().BeNull();
@@ -140,16 +140,16 @@ namespace IdentityServer.UnitTests.Services.Default
             await _subject.EnsureSessionIdCookieAsync();
 
             var cookieContainer = new CookieContainer();
-            var cookies = _mockHttpContext.HttpContext.Response.Headers.Where(x => x.Key.Equals("Set-Cookie", StringComparison.OrdinalIgnoreCase)).Select(x => x.Value);
+            var cookies = _mockHttpContext.HttpContext!.Response.Headers.Where(x => x.Key.Equals("Set-Cookie", StringComparison.OrdinalIgnoreCase)).Select(x => x.Value);
             cookieContainer.SetCookies(new Uri("http://server"), string.Join(",", cookies));
-            _mockHttpContext.HttpContext.Response.Headers.Clear();
+            _mockHttpContext.HttpContext!.Response.Headers.Clear();
 
             string cookie = cookieContainer.GetCookieHeader(new Uri("http://server"));
-            _mockHttpContext.HttpContext.Request.Headers.Add("Cookie", cookie);
+            _mockHttpContext.HttpContext!.Request.Headers.Add("Cookie", cookie);
 
             await _subject.RemoveSessionIdCookieAsync();
 
-            cookies = _mockHttpContext.HttpContext.Response.Headers.Where(x => x.Key.Equals("Set-Cookie", StringComparison.OrdinalIgnoreCase)).Select(x => x.Value);
+            cookies = _mockHttpContext.HttpContext!.Response.Headers.Where(x => x.Key.Equals("Set-Cookie", StringComparison.OrdinalIgnoreCase)).Select(x => x.Value);
             cookieContainer.SetCookies(new Uri("http://server"), string.Join(",", cookies));
 
             var query = cookieContainer.GetCookies(new Uri("http://server")).Cast<Cookie>().Where(x => x.Name == _options.Authentication.CheckSessionCookieName);

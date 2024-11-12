@@ -31,8 +31,8 @@ namespace IdentityServer8.Infrastructure
 
         private string CacheKeyPrefix => "DistributedCacheStateDataFormatter";
 
-        private IDistributedCache Cache => _httpContext.HttpContext.RequestServices.GetRequiredService<IDistributedCache>();
-        private IDataProtector Protector => _httpContext.HttpContext.RequestServices.GetRequiredService<IDataProtectionProvider>().CreateProtector(CacheKeyPrefix, _name);
+        private IDistributedCache Cache => _httpContext.HttpContext!.RequestServices.GetRequiredService<IDistributedCache>();
+        private IDataProtector Protector => _httpContext.HttpContext!.RequestServices.GetRequiredService<IDataProtectionProvider>().CreateProtector(CacheKeyPrefix, _name);
 
         /// <summary>
         /// Protects the specified data.
