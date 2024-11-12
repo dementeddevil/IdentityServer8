@@ -12,14 +12,14 @@ Also read this first: `Being a good open source citizen <https://hackernoon.com/
 
 General feedback and discussions?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Please start a discussion on the `core repo issue tracker <https://github.com/IdentityServer/Zen.IdentityServer/issues>`_.
+Please start a discussion on the `core repo issue tracker <https://github.com/dementeddevil/Zen.IdentityServer/issues>`_.
 
 Bugs and feature requests?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 Please log a new issue in the appropriate GitHub repo:
 
-* `Core <https://github.com/IdentityServer/Zen.IdentityServer>`_
-* `AccessTokenValidation <https://github.com/IdentityServer/Zen.IdentityServer.AccessTokenValidation>`_
+* `Core <https://github.com/dementeddevil/Zen.IdentityServer>`_
+* `AccessTokenValidation <https://github.com/dementeddevil/Zen.IdentityServer.AccessTokenValidation>`_
 
 Contributing code and content
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

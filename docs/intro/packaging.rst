@@ -5,7 +5,7 @@ IdentityServer consists of a number of nuget packages.
 
 Zen.IdentityServer main repo
 ^^^^^^^^^^^^^^^
-`github <https://github.com/identityserver/Zen.IdentityServer>`_
+`github <https://github.com/dementeddevil/Zen.IdentityServer>`_
 
 Contains the core IdentityServer object model, services and middleware as well as the EntityFramework and ASP.NET Identity integration.
 
@@ -17,19 +17,19 @@ nugets:
 
 Quickstart UI
 ^^^^^^^^^^^^^
-`github <https://github.com/IdentityServer/Zen.IdentityServer.Quickstart.UI>`_
+`github <https://github.com/dementeddevil/Zen.IdentityServer.Quickstart.UI>`_
 
 Contains a simple starter UI including login, logout and consent pages.
 
 Access token validation handler
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-`nuget <https://www.nuget.org/packages/Zen.IdentityServer.AccessTokenValidation>`_ | `github <https://github.com/IdentityServer/Zen.IdentityServer.AccessTokenValidation>`_
+`nuget <https://www.nuget.org/packages/Zen.IdentityServer.AccessTokenValidation>`_ | `github <https://github.com/dementeddevil/Zen.IdentityServer.AccessTokenValidation>`_
 
 ASP.NET Core authentication handler for validating tokens in APIs. The handler allows supporting both JWT and reference tokens in the same API.
 
 Templates
 ^^^^^^^^^
-`nuget <https://www.nuget.org/packages/Zen.IdentityServer.Templates>`_ | `github <https://github.com/IdentityServer/Zen.IdentityServer.Templates>`_
+`nuget <https://www.nuget.org/packages/Zen.IdentityServer.Templates>`_ | `github <https://github.com/dementeddevil/Zen.IdentityServer.Templates>`_
 
 Contains templates for the dotnet CLI.
 

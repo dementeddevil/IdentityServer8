@@ -51,7 +51,7 @@ namespace Microsoft.Extensions.DependencyInjection
             builder.Services.ConfigureExternalCookie(options =>
             {
                 options.Cookie.IsEssential = true;
-                // https://github.com/IdentityServer/Zen.IdentityServer/issues/2595
+                // https://github.com/dementeddevil/Zen.IdentityServer/issues/2595
                 options.Cookie.SameSite = AspNetCore.Http.SameSiteMode.None;
             });
 

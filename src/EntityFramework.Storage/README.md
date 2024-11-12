@@ -4,4 +4,4 @@ Zen.IdentityServer.EntityFramework.Storage is a persistence layer for IdentitySe
 
 ## Issues
 
-For issues, use the [consolidated Zen.IdentityServer issue tracker](https://github.com/IdentityServer/Zen.IdentityServer/issues).
+For issues, use the [consolidated Zen.IdentityServer issue tracker](https://github.com/dementeddevil/Zen.IdentityServer/issues).

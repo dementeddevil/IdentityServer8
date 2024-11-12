@@ -4,4 +4,4 @@ Zen.IdentityServer.EntityFramework is a package that provides the configuration 
 
 ## Issues
 
-For issues, use the [consolidated Zen.IdentityServer issue tracker](https://github.com/IdentityServer/Zen.IdentityServer/issues).
+For issues, use the [consolidated Zen.IdentityServer issue tracker](https://github.com/dementeddevil/Zen.IdentityServer/issues).

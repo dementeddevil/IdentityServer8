@@ -9,9 +9,9 @@
 
     <PackageTags>OAuth2;OAuth 2.0;OpenID Connect;Security;Identity;IdentityServer</PackageTags>
     <PackageIcon>icon.jpg</PackageIcon>
-    <PackageProjectUrl>https://github.com/IdentityServer/Zen.IdentityServer</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/dementeddevil/Zen.IdentityServer</PackageProjectUrl>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <PackageReleaseNotes>https://github.com/IdentityServer/Zen.IdentityServer/releases</PackageReleaseNotes>
+    <PackageReleaseNotes>https://github.com/dementeddevil/Zen.IdentityServer/releases</PackageReleaseNotes>
 
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
