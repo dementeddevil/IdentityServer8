@@ -4,11 +4,11 @@
 
 using System.Linq;
 using FluentAssertions;
-using IdentityServer8.EntityFramework.Mappers;
+using Zen.IdentityServer.EntityFramework.Mappers;
 using Xunit;
-using ApiResource = IdentityServer8.Models.ApiResource;
+using ApiResource = Zen.IdentityServer.Models.ApiResource;
 
-namespace IdentityServer8.EntityFramework.UnitTests.Mappers
+namespace Zen.IdentityServer.EntityFramework.UnitTests.Mappers
 {
     public class ApiResourceMappersTests
     {
@@ -62,7 +62,7 @@ namespace IdentityServer8.EntityFramework.UnitTests.Mappers
         [Fact]
         public void missing_values_should_use_defaults()
         {
-            var entity = new IdentityServer8.EntityFramework.Entities.ApiResource
+            var entity = new Zen.IdentityServer.EntityFramework.Entities.ApiResource
             {
                 Secrets = new System.Collections.Generic.List<Entities.ApiResourceSecret>
                 {

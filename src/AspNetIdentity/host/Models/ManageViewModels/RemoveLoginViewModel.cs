@@ -1,4 +1,4 @@
-﻿namespace IdentityServer8.Models.ManageViewModels
+﻿namespace Zen.IdentityServer.Models.ManageViewModels
 {
     public class RemoveLoginViewModel
     {

@@ -4,9 +4,9 @@
 
 using System.Security.Claims;
 using IdentityModel;
-using IdentityServer8.Extensions;
+using Zen.IdentityServer.Extensions;
 
-namespace IdentityServer8
+namespace Zen.IdentityServer
 {
     /// <summary>
     /// Model properties of an IdentityServer user

@@ -1,16 +1,16 @@
 using FluentAssertions;
-using IdentityServer8.EntityFramework.DbContexts;
-using IdentityServer8.EntityFramework.Entities;
-using IdentityServer8.EntityFramework.Interfaces;
-using IdentityServer8.EntityFramework.Options;
-using IdentityServer8.EntityFramework.Stores;
-using IdentityServer8.Stores;
-using IdentityServer8.Test;
+using Zen.IdentityServer.EntityFramework.DbContexts;
+using Zen.IdentityServer.EntityFramework.Entities;
+using Zen.IdentityServer.EntityFramework.Interfaces;
+using Zen.IdentityServer.EntityFramework.Options;
+using Zen.IdentityServer.EntityFramework.Stores;
+using Zen.IdentityServer.Stores;
+using Zen.IdentityServer.Test;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
-namespace IdentityServer8.EntityFramework.IntegrationTests.TokenCleanup
+namespace Zen.IdentityServer.EntityFramework.IntegrationTests.TokenCleanup
 {
     public class TokenCleanupTests : IntegrationTest<TokenCleanupTests, PersistedGrantDbContext, OperationalStoreOptions>
     {

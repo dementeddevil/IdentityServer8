@@ -13,13 +13,13 @@ it is recommended you do them in order.
 * adding support for ASP.NET Identity
 
 Every quickstart has a reference solution - you can find the code in the 
-`samples <https://github.com/IdentityServer/IdentityServer8/tree/main/samples/Quickstarts>`_ folder.
+`samples <https://github.com/IdentityServer/Zen.IdentityServer/tree/main/samples/Quickstarts>`_ folder.
 
 Preparation
 ^^^^^^^^^^^
 The first thing you should do is install our templates::
 
-    dotnet new -i IdentityServer8.Templates
+    dotnet new -i Zen.IdentityServer.Templates
 
 They will be used as a starting point for the various tutorials.
 

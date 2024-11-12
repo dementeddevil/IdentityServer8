@@ -4,11 +4,11 @@
 
 using System.Linq;
 using FluentAssertions;
-using IdentityServer8.EntityFramework.Mappers;
-using IdentityServer8.Models;
+using Zen.IdentityServer.EntityFramework.Mappers;
+using Zen.IdentityServer.Models;
 using Xunit;
 
-namespace IdentityServer8.EntityFramework.UnitTests.Mappers
+namespace Zen.IdentityServer.EntityFramework.UnitTests.Mappers
 {
     public class ScopesMappersTests
     {

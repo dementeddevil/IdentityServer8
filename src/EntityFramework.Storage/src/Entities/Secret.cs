@@ -6,7 +6,7 @@
 
 using System;
 
-namespace IdentityServer8.EntityFramework.Entities
+namespace Zen.IdentityServer.EntityFramework.Entities
 {
     public abstract class Secret
     {

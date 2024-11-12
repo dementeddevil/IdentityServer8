@@ -15,7 +15,7 @@ namespace sample
     {
         public static void Main(string[] args)
         {
-            Console.Title = "IdentityServer8";
+            Console.Title = "Zen.IdentityServer";
 
             CreateWebHostBuilder(args).Build().Run();
         }

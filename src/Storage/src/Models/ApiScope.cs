@@ -3,9 +3,9 @@
 
 
 using System.Diagnostics;
-using IdentityServer8.Extensions;
+using Zen.IdentityServer.Extensions;
 
-namespace IdentityServer8.Models
+namespace Zen.IdentityServer.Models
 {
     /// <summary>
     /// Models access to an API scope

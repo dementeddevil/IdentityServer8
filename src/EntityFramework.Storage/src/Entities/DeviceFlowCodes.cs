@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace IdentityServer8.EntityFramework.Entities
+namespace Zen.IdentityServer.EntityFramework.Entities
 {
     /// <summary>
     /// Entity for device flow codes

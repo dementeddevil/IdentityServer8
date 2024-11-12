@@ -1,9 +1,9 @@
 using IdentityModel;
-using IdentityServer8;
-using IdentityServer8.Events;
-using IdentityServer8.Services;
-using IdentityServer8.Stores;
-using IdentityServer8.Test;
+using Zen.IdentityServer;
+using Zen.IdentityServer.Events;
+using Zen.IdentityServer.Services;
+using Zen.IdentityServer.Stores;
+using Zen.IdentityServer.Test;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;

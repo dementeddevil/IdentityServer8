@@ -4,7 +4,7 @@
 
 using System.Diagnostics;
 
-namespace IdentityServer8.Extensions
+namespace Zen.IdentityServer.Extensions
 {
     internal static class StringExtensions
     {

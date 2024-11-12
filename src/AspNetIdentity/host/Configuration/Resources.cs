@@ -3,9 +3,9 @@
 
 
 using IdentityModel;
-using IdentityServer8.Models;
+using Zen.IdentityServer.Models;
 using System.Collections.Generic;
-using static IdentityServer8.IdentityServerConstants;
+using static Zen.IdentityServer.IdentityServerConstants;
 
 namespace IdentityServerHost.Configuration
 {

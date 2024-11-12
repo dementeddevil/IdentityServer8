@@ -41,7 +41,7 @@ namespace sample
                     options => // configuring options is optional :)
                     {
                         options.DeleteRetiredKeys = true;
-                        options.KeyType = IdentityServer8.KeyManagement.KeyType.RSA;
+                        options.KeyType = Zen.IdentityServer.KeyManagement.KeyType.RSA;
 
                         // all of these values in here are changed for local testing
                         options.InitializationDuration = TimeSpan.FromSeconds(5);

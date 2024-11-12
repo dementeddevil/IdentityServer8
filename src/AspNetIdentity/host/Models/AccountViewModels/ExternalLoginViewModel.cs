@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace IdentityServer8.Models.AccountViewModels
+namespace Zen.IdentityServer.Models.AccountViewModels
 {
     public class ExternalLoginViewModel
     {

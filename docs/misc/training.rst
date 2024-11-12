@@ -1,8 +1,8 @@
 Training
 ========
-Here are some online, remote and classroom training options to learn more about ASP.NET Core identity & IdentityServer8.
+Here are some online, remote and classroom training options to learn more about ASP.NET Core identity & Zen.IdentityServer.
 
-Identity & Access Control for modern Applications (using ASP.NET Core 2 and IdentityServer8)
+Identity & Access Control for modern Applications (using ASP.NET Core 2 and Zen.IdentityServer)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 That's our own three day flagship course (including extensive hands-on labs) that we deliver as part of conferences, on-sites and remote.
 

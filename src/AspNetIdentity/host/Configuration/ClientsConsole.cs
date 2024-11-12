@@ -2,8 +2,8 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 using System.Collections.Generic;
-using IdentityServer8;
-using IdentityServer8.Models;
+using Zen.IdentityServer;
+using Zen.IdentityServer.Models;
 
 namespace IdentityServerHost.Configuration
 {

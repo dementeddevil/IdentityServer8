@@ -16,7 +16,7 @@ namespace IdentityServerHost
     {
         public static int Main(string[] args)
         {
-            Console.Title = "IdentityServer8.EntityFramework";
+            Console.Title = "Zen.IdentityServer.EntityFramework";
             Activity.DefaultIdFormat = ActivityIdFormat.W3C;
 
             Log.Logger = new LoggerConfiguration()

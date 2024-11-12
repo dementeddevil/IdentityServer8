@@ -3,7 +3,7 @@
 
 #pragma warning disable 1591
 
-namespace IdentityServer8
+namespace Zen.IdentityServer
 {
     internal static class IdentityServerConstants
     {

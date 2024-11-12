@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
-using IdentityServer8.EntityFramework.Storage;
+using Zen.IdentityServer.EntityFramework.Storage;
 using Microsoft.EntityFrameworkCore;
 
 namespace SqlServer

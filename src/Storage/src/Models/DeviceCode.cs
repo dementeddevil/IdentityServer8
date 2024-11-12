@@ -4,7 +4,7 @@
 
 using System.Security.Claims;
 
-namespace IdentityServer8.Models
+namespace Zen.IdentityServer.Models
 {
     /// <summary>
     /// Represents data needed for device flow.

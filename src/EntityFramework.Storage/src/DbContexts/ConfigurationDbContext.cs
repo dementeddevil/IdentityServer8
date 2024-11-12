@@ -3,19 +3,19 @@
 
 
 using System;
-using IdentityServer8.EntityFramework.Entities;
-using IdentityServer8.EntityFramework.Extensions;
-using IdentityServer8.EntityFramework.Interfaces;
-using IdentityServer8.EntityFramework.Options;
+using Zen.IdentityServer.EntityFramework.Entities;
+using Zen.IdentityServer.EntityFramework.Extensions;
+using Zen.IdentityServer.EntityFramework.Interfaces;
+using Zen.IdentityServer.EntityFramework.Options;
 using Microsoft.EntityFrameworkCore;
 
-namespace IdentityServer8.EntityFramework.DbContexts
+namespace Zen.IdentityServer.EntityFramework.DbContexts
 {
     /// <summary>
     /// DbContext for the IdentityServer configuration data.
     /// </summary>
     /// <seealso cref="Microsoft.EntityFrameworkCore.DbContext" />
-    /// <seealso cref="IdentityServer8.EntityFramework.Interfaces.IConfigurationDbContext" />
+    /// <seealso cref="Zen.IdentityServer.EntityFramework.Interfaces.IConfigurationDbContext" />
     public class ConfigurationDbContext : ConfigurationDbContext<ConfigurationDbContext>
     {
         /// <summary>
@@ -34,7 +34,7 @@ namespace IdentityServer8.EntityFramework.DbContexts
     /// DbContext for the IdentityServer configuration data.
     /// </summary>
     /// <seealso cref="Microsoft.EntityFrameworkCore.DbContext" />
-    /// <seealso cref="IdentityServer8.EntityFramework.Interfaces.IConfigurationDbContext" />
+    /// <seealso cref="Zen.IdentityServer.EntityFramework.Interfaces.IConfigurationDbContext" />
     public class ConfigurationDbContext<TContext> : DbContext, IConfigurationDbContext
         where TContext : DbContext, IConfigurationDbContext
     {

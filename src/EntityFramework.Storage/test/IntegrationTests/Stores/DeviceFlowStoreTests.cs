@@ -1,17 +1,17 @@
 using System.Security.Claims;
 using FluentAssertions;
 using IdentityModel;
-using IdentityServer8.EntityFramework.DbContexts;
-using IdentityServer8.EntityFramework.Entities;
-using IdentityServer8.EntityFramework.Options;
-using IdentityServer8.EntityFramework.Stores;
-using IdentityServer8.Models;
-using IdentityServer8.Stores.Serialization;
+using Zen.IdentityServer.EntityFramework.DbContexts;
+using Zen.IdentityServer.EntityFramework.Entities;
+using Zen.IdentityServer.EntityFramework.Options;
+using Zen.IdentityServer.EntityFramework.Stores;
+using Zen.IdentityServer.Models;
+using Zen.IdentityServer.Stores.Serialization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.InMemory.Infrastructure.Internal;
 using Xunit;
 
-namespace IdentityServer8.EntityFramework.IntegrationTests.Stores
+namespace Zen.IdentityServer.EntityFramework.IntegrationTests.Stores
 {
     public class DeviceFlowStoreTests : IntegrationTest<DeviceFlowStoreTests, PersistedGrantDbContext, OperationalStoreOptions>
     {

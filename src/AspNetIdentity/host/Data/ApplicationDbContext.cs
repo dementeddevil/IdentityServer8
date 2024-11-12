@@ -1,4 +1,4 @@
-﻿using IdentityServer8.Models;
+﻿using Zen.IdentityServer.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 

@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using IdentityServer8.EntityFramework.Storage;
+using Zen.IdentityServer.EntityFramework.Storage;
 using Microsoft.EntityFrameworkCore;
-using IdentityServer8.EntityFramework;
+using Zen.IdentityServer.EntityFramework;
 
 namespace ConsoleHost
 {
@@ -10,7 +10,7 @@ namespace ConsoleHost
     {
         static void Main(string[] args)
         {
-            var connectionString = "server=(localdb)\\mssqllocaldb;database=IdentityServer8.EntityFramework-4.0.0;trusted_connection=yes;";
+            var connectionString = "server=(localdb)\\mssqllocaldb;database=Zen.IdentityServer.EntityFramework-4.0.0;trusted_connection=yes;";
 
             var services = new ServiceCollection();
             services.AddLogging(b => b.AddConsole().SetMinimumLevel(LogLevel.Trace));

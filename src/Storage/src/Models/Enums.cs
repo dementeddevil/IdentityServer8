@@ -2,7 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-namespace IdentityServer8.Models
+namespace Zen.IdentityServer.Models
 {
     /// <summary>
     /// OpenID Connect subject types.

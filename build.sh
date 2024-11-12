@@ -10,7 +10,7 @@ pushd ./src/Storage
 ./build.sh "$@"
 popd
 
-pushd ./src/IdentityServer8
+pushd ./src/Zen.IdentityServer
 ./build.sh "$@"
 popd
 

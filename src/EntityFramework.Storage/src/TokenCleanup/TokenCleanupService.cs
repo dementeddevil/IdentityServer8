@@ -5,12 +5,12 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using IdentityServer8.EntityFramework.Interfaces;
-using IdentityServer8.EntityFramework.Options;
+using Zen.IdentityServer.EntityFramework.Interfaces;
+using Zen.IdentityServer.EntityFramework.Options;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace IdentityServer8.EntityFramework
+namespace Zen.IdentityServer.EntityFramework
 {
     /// <summary>
     /// Helper to cleanup stale persisted grants and device codes.

@@ -2,15 +2,15 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer8.EntityFramework.DbContexts;
-using IdentityServer8.EntityFramework.Interfaces;
-using IdentityServer8.EntityFramework.Services;
-using IdentityServer8.EntityFramework.Stores;
-using IdentityServer8.Stores;
+using Zen.IdentityServer.EntityFramework.DbContexts;
+using Zen.IdentityServer.EntityFramework.Interfaces;
+using Zen.IdentityServer.EntityFramework.Services;
+using Zen.IdentityServer.EntityFramework.Stores;
+using Zen.IdentityServer.Stores;
 using System;
-using IdentityServer8.EntityFramework.Options;
-using IdentityServer8.EntityFramework;
-using IdentityServer8.EntityFramework.Storage;
+using Zen.IdentityServer.EntityFramework.Options;
+using Zen.IdentityServer.EntityFramework;
+using Zen.IdentityServer.EntityFramework.Storage;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 

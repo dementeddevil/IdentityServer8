@@ -2,19 +2,19 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer8.Models;
-using IdentityServer8.Validation;
+using Zen.IdentityServer.Models;
+using Zen.IdentityServer.Validation;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using static IdentityModel.OidcConstants;
 
-namespace IdentityServer8.AspNetIdentity
+namespace Zen.IdentityServer.AspNetIdentity
 {
     /// <summary>
     /// IResourceOwnerPasswordValidator that integrates with ASP.NET Identity.
     /// </summary>
     /// <typeparam name="TUser">The type of the user.</typeparam>
-    /// <seealso cref="IdentityServer8.Validation.IResourceOwnerPasswordValidator" />
+    /// <seealso cref="Zen.IdentityServer.Validation.IResourceOwnerPasswordValidator" />
     public class ResourceOwnerPasswordValidator<TUser> : IResourceOwnerPasswordValidator
         where TUser : class
     {

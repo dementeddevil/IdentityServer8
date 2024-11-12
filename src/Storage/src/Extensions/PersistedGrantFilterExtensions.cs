@@ -2,9 +2,9 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer8.Stores;
+using Zen.IdentityServer.Stores;
 
-namespace IdentityServer8.Extensions
+namespace Zen.IdentityServer.Extensions
 {
     /// <summary>
     /// Extensions for PersistedGrantFilter.

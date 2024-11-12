@@ -5,7 +5,7 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <PackageReference Include="IdentityServer8.EntityFramework" />
+    <PackageReference Include="Zen.IdentityServer.EntityFramework" />
 
     <PackageReference Include="Serilog.AspNetCore" />
 

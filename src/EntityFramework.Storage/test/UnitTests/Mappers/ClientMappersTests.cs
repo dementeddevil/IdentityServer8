@@ -5,11 +5,11 @@
 using System;
 using System.Linq;
 using FluentAssertions;
-using IdentityServer8.EntityFramework.Mappers;
+using Zen.IdentityServer.EntityFramework.Mappers;
 using Xunit;
-using Client = IdentityServer8.Models.Client;
+using Client = Zen.IdentityServer.Models.Client;
 
-namespace IdentityServer8.EntityFramework.UnitTests.Mappers
+namespace Zen.IdentityServer.EntityFramework.UnitTests.Mappers
 {
     public class ClientMappersTests
     {
@@ -67,7 +67,7 @@ namespace IdentityServer8.EntityFramework.UnitTests.Mappers
         [Fact]
         public void duplicates_properties_in_db_map()
         {
-            var entity = new IdentityServer8.EntityFramework.Entities.Client
+            var entity = new Zen.IdentityServer.EntityFramework.Entities.Client
             {
                 Properties = new System.Collections.Generic.List<Entities.ClientProperty>()
                 {
@@ -83,7 +83,7 @@ namespace IdentityServer8.EntityFramework.UnitTests.Mappers
         [Fact]
         public void missing_values_should_use_defaults()
         {
-            var entity = new IdentityServer8.EntityFramework.Entities.Client
+            var entity = new Zen.IdentityServer.EntityFramework.Entities.Client
             {
                 ClientSecrets = new System.Collections.Generic.List<Entities.ClientSecret>
                 {

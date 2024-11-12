@@ -3,12 +3,12 @@ This is a fork of the original IdentityServer4 codebase that has been ported and
 
 The new [Duende IdentityServer](https://duendesoftware.com/products/identityserver) comes with a commercial license but is [free](https://blog.duendesoftware.com/posts/20220111_fair_trade/) for dev/testing/personal projects and companies or individuals making less than 1M USD gross annnual revenue. Please [get in touch with us](https://duendesoftware.com/contact) if you have any question.
 
-## About IdentityServer8
+## About Zen.IdentityServer
 [<img align="right" width="100px" src="https://dotnetfoundation.org/img/logo_big.svg" />](https://dotnetfoundation.org/projects?searchquery=IdentityServer&type=project)
 
 IdentityServer is a free, open source [OpenID Connect](http://openid.net/connect/) and [OAuth 2.0](https://tools.ietf.org/html/rfc6749) framework for ASP.NET Core.
-Founded and maintained by [Dominick Baier](https://twitter.com/leastprivilege) and [Brock Allen](https://twitter.com/brocklallen), IdentityServer8 incorporates all the protocol implementations and extensibility points needed to integrate token-based authentication, single-sign-on and API access control in your applications.
-IdentityServer8 is officially [certified](https://openid.net/certification/) by the [OpenID Foundation](https://openid.net) and thus spec-compliant and interoperable.
+Founded and maintained by [Dominick Baier](https://twitter.com/leastprivilege) and [Brock Allen](https://twitter.com/brocklallen), Zen.IdentityServer incorporates all the protocol implementations and extensibility points needed to integrate token-based authentication, single-sign-on and API access control in your applications.
+Zen.IdentityServer is officially [certified](https://openid.net/certification/) by the [OpenID Foundation](https://openid.net) and thus spec-compliant and interoperable.
 It is part of the [.NET Foundation](https://www.dotnetfoundation.org/), and operates under their [code of conduct](https://www.dotnetfoundation.org/code-of-conduct). It is licensed under [Apache 2](https://opensource.org/licenses/Apache-2.0) (an OSI approved license).
 
 For project documentation, please visit [readthedocs](https://identityserver4.readthedocs.io).
@@ -27,10 +27,10 @@ Active development happens on the main branch. This always contains the latest v
 For project documentation, please visit [readthedocs](https://identityserver4.readthedocs.io).
 
 ## Bug reports and feature requests
-Please use the [issue tracker](https://github.com/dementeddevil/IdentityServer8/issues) for that. We only support the latest version for free. For older versions, you can get a commercial support agreement with us.
+Please use the [issue tracker](https://github.com/dementeddevil/Zen.IdentityServer/issues) for that. We only support the latest version for free. For older versions, you can get a commercial support agreement with us.
 
 ## Commercial and Community Support
-If you need help with implementing IdentityServer8 or your security architecture in general, there are both free and commercial support options.
+If you need help with implementing Zen.IdentityServer or your security architecture in general, there are both free and commercial support options.
 See [here](https://identityserver4.readthedocs.io/en/latest/intro/support.html) for more details.
 
 ## Sponsorship
@@ -47,10 +47,10 @@ This will help us devote more time to answering questions and doing feature deve
 [ExtraNetUserManager](https://www.extranetusermanager.com/)  
 [Knab](https://www.knab.nl/)
 
-You can see a list of our current sponsors [here](https://github.com/dementeddevil/IdentityServer8/blob/main/SPONSORS.md) - and for companies we have some nice advertisement options as well.
+You can see a list of our current sponsors [here](https://github.com/dementeddevil/Zen.IdentityServer/blob/main/SPONSORS.md) - and for companies we have some nice advertisement options as well.
 
 ## Acknowledgements
-IdentityServer8 is built using the following great open source projects and free services:
+Zen.IdentityServer is built using the following great open source projects and free services:
 
 * [ASP.NET Core](https://github.com/dotnet/aspnetcore)
 * [Bullseye](https://github.com/adamralph/bullseye)
@@ -61,4 +61,4 @@ IdentityServer8 is built using the following great open source projects and free
 * [Fluent Assertions](http://www.fluentassertions.com/)
 * [GitReleaseManager](https://github.com/GitTools/GitReleaseManager)
 
-..and last but not least a big thanks to all our [contributors](https://github.com/dementeddevil/IdentityServer8/graphs/contributors)!
+..and last but not least a big thanks to all our [contributors](https://github.com/dementeddevil/Zen.IdentityServer/graphs/contributors)!

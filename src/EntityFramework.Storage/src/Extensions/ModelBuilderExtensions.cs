@@ -2,12 +2,12 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer8.EntityFramework.Entities;
-using IdentityServer8.EntityFramework.Options;
+using Zen.IdentityServer.EntityFramework.Entities;
+using Zen.IdentityServer.EntityFramework.Options;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace IdentityServer8.EntityFramework.Extensions
+namespace Zen.IdentityServer.EntityFramework.Extensions
 {
     /// <summary>
     /// Extension methods to define the database schema for the configuration and operational data stores.

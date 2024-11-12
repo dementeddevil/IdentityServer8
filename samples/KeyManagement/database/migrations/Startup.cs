@@ -1,4 +1,4 @@
-﻿using IdentityServer8.KeyManagement.EntityFramework;
+﻿using Zen.IdentityServer.KeyManagement.EntityFramework;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;

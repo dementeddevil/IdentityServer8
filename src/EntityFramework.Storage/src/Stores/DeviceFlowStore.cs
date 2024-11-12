@@ -6,20 +6,20 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using IdentityModel;
-using IdentityServer8.EntityFramework.Entities;
-using IdentityServer8.EntityFramework.Interfaces;
-using IdentityServer8.Models;
-using IdentityServer8.Stores;
-using IdentityServer8.Stores.Serialization;
+using Zen.IdentityServer.EntityFramework.Entities;
+using Zen.IdentityServer.EntityFramework.Interfaces;
+using Zen.IdentityServer.Models;
+using Zen.IdentityServer.Stores;
+using Zen.IdentityServer.Stores.Serialization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace IdentityServer8.EntityFramework.Stores
+namespace Zen.IdentityServer.EntityFramework.Stores
 {
     /// <summary>
     /// Implementation of IDeviceFlowStore thats uses EF.
     /// </summary>
-    /// <seealso cref="IdentityServer8.Stores.IDeviceFlowStore" />
+    /// <seealso cref="Zen.IdentityServer.Stores.IDeviceFlowStore" />
     public class DeviceFlowStore : IDeviceFlowStore
     {
         /// <summary>

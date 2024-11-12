@@ -4,19 +4,19 @@
 
 using System;
 using System.Threading.Tasks;
-using IdentityServer8.EntityFramework.Entities;
-using IdentityServer8.EntityFramework.Extensions;
-using IdentityServer8.EntityFramework.Interfaces;
-using IdentityServer8.EntityFramework.Options;
+using Zen.IdentityServer.EntityFramework.Entities;
+using Zen.IdentityServer.EntityFramework.Extensions;
+using Zen.IdentityServer.EntityFramework.Interfaces;
+using Zen.IdentityServer.EntityFramework.Options;
 using Microsoft.EntityFrameworkCore;
 
-namespace IdentityServer8.EntityFramework.DbContexts
+namespace Zen.IdentityServer.EntityFramework.DbContexts
 {
     /// <summary>
     /// DbContext for the IdentityServer operational data.
     /// </summary>
     /// <seealso cref="Microsoft.EntityFrameworkCore.DbContext" />
-    /// <seealso cref="IdentityServer8.EntityFramework.Interfaces.IPersistedGrantDbContext" />
+    /// <seealso cref="Zen.IdentityServer.EntityFramework.Interfaces.IPersistedGrantDbContext" />
     public class PersistedGrantDbContext : PersistedGrantDbContext<PersistedGrantDbContext>
     {
         /// <summary>
@@ -35,7 +35,7 @@ namespace IdentityServer8.EntityFramework.DbContexts
     /// DbContext for the IdentityServer operational data.
     /// </summary>
     /// <seealso cref="Microsoft.EntityFrameworkCore.DbContext" />
-    /// <seealso cref="IdentityServer8.EntityFramework.Interfaces.IPersistedGrantDbContext" />
+    /// <seealso cref="Zen.IdentityServer.EntityFramework.Interfaces.IPersistedGrantDbContext" />
     public class PersistedGrantDbContext<TContext> : DbContext, IPersistedGrantDbContext
         where TContext : DbContext, IPersistedGrantDbContext
     {

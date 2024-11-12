@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using IdentityModel;
 
-namespace IdentityServer8.AspNetIdentity
+namespace Zen.IdentityServer.AspNetIdentity
 {
     internal class UserClaimsFactory<TUser> : IUserClaimsPrincipalFactory<TUser>
         where TUser : class

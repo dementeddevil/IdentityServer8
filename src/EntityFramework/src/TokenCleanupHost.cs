@@ -2,8 +2,8 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer8.EntityFramework.Options;
-using IdentityServer8.EntityFramework;
+using Zen.IdentityServer.EntityFramework.Options;
+using Zen.IdentityServer.EntityFramework;
 using Microsoft.Extensions.Hosting;
 using System.Threading;
 using System.Threading.Tasks;

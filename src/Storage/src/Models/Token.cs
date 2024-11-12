@@ -5,7 +5,7 @@
 using System.Security.Claims;
 using IdentityModel;
 
-namespace IdentityServer8.Models
+namespace Zen.IdentityServer.Models
 {
     /// <summary>
     /// Models a token.

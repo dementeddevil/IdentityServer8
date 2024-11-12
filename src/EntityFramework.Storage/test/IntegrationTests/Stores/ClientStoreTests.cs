@@ -3,16 +3,16 @@
 
 
 using FluentAssertions;
-using IdentityServer8.EntityFramework.DbContexts;
-using IdentityServer8.EntityFramework.Mappers;
-using IdentityServer8.EntityFramework.Options;
-using IdentityServer8.EntityFramework.Stores;
-using IdentityServer8.Models;
+using Zen.IdentityServer.EntityFramework.DbContexts;
+using Zen.IdentityServer.EntityFramework.Mappers;
+using Zen.IdentityServer.EntityFramework.Options;
+using Zen.IdentityServer.EntityFramework.Stores;
+using Zen.IdentityServer.Models;
 using Microsoft.EntityFrameworkCore;
 using Xunit;
 using Xunit.Sdk;
 
-namespace IdentityServer8.EntityFramework.IntegrationTests.Stores
+namespace Zen.IdentityServer.EntityFramework.IntegrationTests.Stores
 {
     public class ClientStoreTests : IntegrationTest<ClientStoreTests, ConfigurationDbContext, ConfigurationStoreOptions>
     {

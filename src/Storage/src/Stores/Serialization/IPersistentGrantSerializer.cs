@@ -2,7 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-namespace IdentityServer8.Stores.Serialization
+namespace Zen.IdentityServer.Stores.Serialization
 {
     /// <summary>
     /// Interface for persisted grant serialization

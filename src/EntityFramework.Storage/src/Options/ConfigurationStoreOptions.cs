@@ -5,7 +5,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 
-namespace IdentityServer8.EntityFramework.Options
+namespace Zen.IdentityServer.EntityFramework.Options
 {
     /// <summary>
     /// Options for configuring the configuration context.

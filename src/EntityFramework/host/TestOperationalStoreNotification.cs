@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using IdentityServer8.EntityFramework;
-using IdentityServer8.EntityFramework.Entities;
+using Zen.IdentityServer.EntityFramework;
+using Zen.IdentityServer.EntityFramework.Entities;
 
 namespace IdentityServerHost
 {

@@ -5,7 +5,7 @@
 
 using System.Collections.Generic;
 
-namespace IdentityServer8.EntityFramework.Entities
+namespace Zen.IdentityServer.EntityFramework.Entities
 {
     public class ApiScope
     {

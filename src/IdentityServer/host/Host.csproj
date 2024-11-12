@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="compilerconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="compilerconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Certificate" Version="8.0.10" />
+    
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.3" />
+
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" />
+    <!--<PackageReference Include="Zen.IdentityServer.EntityFramework" />-->
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" PrivateAssets="All" />
+    <PackageReference Include="System.Security.Principal.Windows" />
+    
+    <ProjectReference Include="..\src\Zen.IdentityServer.csproj" />
+  </ItemGroup>
+</Project>

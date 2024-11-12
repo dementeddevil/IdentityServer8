@@ -2,13 +2,13 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer8.EntityFramework.DbContexts;
+using Zen.IdentityServer.EntityFramework.DbContexts;
 using Microsoft.EntityFrameworkCore;
-using IdentityServer8.EntityFramework.Entities;
-using IdentityServer8.EntityFramework.Options;
+using Zen.IdentityServer.EntityFramework.Entities;
+using Zen.IdentityServer.EntityFramework.Options;
 using Xunit;
 
-namespace IdentityServer8.EntityFramework.IntegrationTests.DbContexts
+namespace Zen.IdentityServer.EntityFramework.IntegrationTests.DbContexts
 {
     public class ClientDbContextTests : IntegrationTest<ClientDbContextTests, ConfigurationDbContext, ConfigurationStoreOptions>
     {

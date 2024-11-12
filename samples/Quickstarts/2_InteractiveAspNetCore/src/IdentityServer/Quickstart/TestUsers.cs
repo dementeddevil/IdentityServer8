@@ -3,11 +3,11 @@
 
 
 using IdentityModel;
-using IdentityServer8.Test;
+using Zen.IdentityServer.Test;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Text.Json;
-using IdentityServer8;
+using Zen.IdentityServer;
 
 namespace IdentityServerHost.Quickstart.UI
 {

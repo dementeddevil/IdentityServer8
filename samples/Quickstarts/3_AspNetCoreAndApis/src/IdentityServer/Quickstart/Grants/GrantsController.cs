@@ -2,15 +2,15 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer8.Services;
-using IdentityServer8.Stores;
+using Zen.IdentityServer.Services;
+using Zen.IdentityServer.Stores;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
-using IdentityServer8.Events;
-using IdentityServer8.Extensions;
+using Zen.IdentityServer.Events;
+using Zen.IdentityServer.Extensions;
 
 namespace IdentityServerHost.Quickstart.UI
 {

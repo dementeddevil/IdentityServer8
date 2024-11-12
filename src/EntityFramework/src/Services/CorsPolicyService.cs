@@ -4,20 +4,20 @@
 
 using System;
 using System.Threading.Tasks;
-using IdentityServer8.Services;
+using Zen.IdentityServer.Services;
 using System.Linq;
-using IdentityServer8.EntityFramework.Interfaces;
+using Zen.IdentityServer.EntityFramework.Interfaces;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 
-namespace IdentityServer8.EntityFramework.Services
+namespace Zen.IdentityServer.EntityFramework.Services
 {
     /// <summary>
     /// Implementation of ICorsPolicyService that consults the client configuration in the database for allowed CORS origins.
     /// </summary>
-    /// <seealso cref="IdentityServer8.Services.ICorsPolicyService" />
+    /// <seealso cref="Zen.IdentityServer.Services.ICorsPolicyService" />
     public class CorsPolicyService : ICorsPolicyService
     {
         private readonly IHttpContextAccessor _context;

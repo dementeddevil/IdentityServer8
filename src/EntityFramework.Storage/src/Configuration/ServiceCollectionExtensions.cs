@@ -2,14 +2,14 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer8.EntityFramework.DbContexts;
-using IdentityServer8.EntityFramework.Interfaces;
+using Zen.IdentityServer.EntityFramework.DbContexts;
+using Zen.IdentityServer.EntityFramework.Interfaces;
 using System;
-using IdentityServer8.EntityFramework.Options;
+using Zen.IdentityServer.EntityFramework.Options;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace IdentityServer8.EntityFramework.Storage
+namespace Zen.IdentityServer.EntityFramework.Storage
 {
     /// <summary>
     /// Extension methods to add EF database support to IdentityServer.

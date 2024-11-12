@@ -3,13 +3,13 @@
 
 
 using IdentityModel;
-using IdentityServer8;
-using IdentityServer8.Events;
-using IdentityServer8.Extensions;
-using IdentityServer8.Models;
-using IdentityServer8.Services;
-using IdentityServer8.Stores;
-using IdentityServer8.Test;
+using Zen.IdentityServer;
+using Zen.IdentityServer.Events;
+using Zen.IdentityServer.Extensions;
+using Zen.IdentityServer.Models;
+using Zen.IdentityServer.Services;
+using Zen.IdentityServer.Stores;
+using Zen.IdentityServer.Test;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -242,7 +242,7 @@ namespace IdentityServerHost.Quickstart.UI
             var context = await _interaction.GetAuthorizationContextAsync(returnUrl);
             if (context?.IdP != null && await _schemeProvider.GetSchemeAsync(context.IdP) != null)
             {
-                var local = context.IdP == IdentityServer8.IdentityServerConstants.LocalIdentityProvider;
+                var local = context.IdP == Zen.IdentityServer.IdentityServerConstants.LocalIdentityProvider;
 
                 // this is meant to short circuit the UI and only trigger the one external IdP
                 var vm = new LoginViewModel
@@ -344,7 +344,7 @@ namespace IdentityServerHost.Quickstart.UI
             if (User?.Identity.IsAuthenticated == true)
             {
                 var idp = User.FindFirst(JwtClaimTypes.IdentityProvider)?.Value;
-                if (idp != null && idp != IdentityServer8.IdentityServerConstants.LocalIdentityProvider)
+                if (idp != null && idp != Zen.IdentityServer.IdentityServerConstants.LocalIdentityProvider)
                 {
                     var providerSupportsSignout = await HttpContext.GetSchemeSupportsSignOutAsync(idp);
                     if (providerSupportsSignout)

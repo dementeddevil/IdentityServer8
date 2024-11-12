@@ -1,3 +1,3 @@
-git clean -xdf -e samples -e src/IdentityServer8/.vs
+git clean -xdf -e samples -e src/Zen.IdentityServer/.vs
 
 ./clean_cache.ps1

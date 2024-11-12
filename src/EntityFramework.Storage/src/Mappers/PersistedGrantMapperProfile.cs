@@ -4,7 +4,7 @@
 
 using AutoMapper;
 
-namespace IdentityServer8.EntityFramework.Mappers
+namespace Zen.IdentityServer.EntityFramework.Mappers
 {
     /// <summary>
     /// Defines entity/model mapping for persisted grants.

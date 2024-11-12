@@ -5,21 +5,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using IdentityServer8.EntityFramework.Interfaces;
-using IdentityServer8.EntityFramework.Mappers;
-using IdentityServer8.Models;
-using IdentityServer8.Stores;
+using Zen.IdentityServer.EntityFramework.Interfaces;
+using Zen.IdentityServer.EntityFramework.Mappers;
+using Zen.IdentityServer.Models;
+using Zen.IdentityServer.Stores;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using System;
-using IdentityServer8.Extensions;
+using Zen.IdentityServer.Extensions;
 
-namespace IdentityServer8.EntityFramework.Stores
+namespace Zen.IdentityServer.EntityFramework.Stores
 {
     /// <summary>
     /// Implementation of IPersistedGrantStore thats uses EF.
     /// </summary>
-    /// <seealso cref="IdentityServer8.Stores.IPersistedGrantStore" />
+    /// <seealso cref="Zen.IdentityServer.Stores.IPersistedGrantStore" />
     public class PersistedGrantStore : IPersistedGrantStore
     {
         /// <summary>

@@ -3,10 +3,10 @@
 
 
 using System;
-using IdentityServer8.EntityFramework.Entities;
+using Zen.IdentityServer.EntityFramework.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace IdentityServer8.EntityFramework.Interfaces
+namespace Zen.IdentityServer.EntityFramework.Interfaces
 {
     /// <summary>
     /// Abstraction for the configuration context.

@@ -3,7 +3,7 @@
 
 #pragma warning disable 1591
 
-namespace IdentityServer8.Models
+namespace Zen.IdentityServer.Models
 {
     public static class GrantType
     {

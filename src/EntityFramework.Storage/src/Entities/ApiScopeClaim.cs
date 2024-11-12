@@ -3,7 +3,7 @@
 
 #pragma warning disable 1591
 
-namespace IdentityServer8.EntityFramework.Entities
+namespace Zen.IdentityServer.EntityFramework.Entities
 {
     public class ApiScopeClaim : UserClaim
     {

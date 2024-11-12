@@ -4,11 +4,11 @@
 
 #pragma warning disable 1591
 
-using IdentityServer8.Models;
+using Zen.IdentityServer.Models;
 using System;
 using System.Collections.Generic;
 
-namespace IdentityServer8.EntityFramework.Entities
+namespace Zen.IdentityServer.EntityFramework.Entities
 {
     public class Client
     {

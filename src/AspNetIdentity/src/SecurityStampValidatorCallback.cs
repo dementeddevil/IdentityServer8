@@ -4,7 +4,7 @@
 
 using Microsoft.AspNetCore.Identity;
 
-namespace IdentityServer8.AspNetIdentity
+namespace Zen.IdentityServer.AspNetIdentity
 {
     /// <summary>
     /// Implements callback for SecurityStampValidator's OnRefreshingPrincipal event.

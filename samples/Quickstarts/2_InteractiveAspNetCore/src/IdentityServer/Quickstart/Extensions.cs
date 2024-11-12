@@ -1,5 +1,5 @@
 using System;
-using IdentityServer8.Models;
+using Zen.IdentityServer.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IdentityServerHost.Quickstart.UI

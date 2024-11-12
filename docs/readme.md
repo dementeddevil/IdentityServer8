@@ -1,4 +1,4 @@
-# IdentityServer8 documentation
+# Zen.IdentityServer documentation
 
 The folder contains the documentation for identityserver4.
 

@@ -101,7 +101,7 @@ namespace build
             foreach (var file in Directory.GetFiles(path, searchTerm, SearchOption.AllDirectories))
             {
                 Console.WriteLine($"  Signing {file}");
-                Run("dotnet", $"SignClient sign -c ../../signClient.json -i {file} -r sc-ids@dotnetfoundation.org -s \"{signClientSecret}\" -n 'IdentityServer8'", noEcho: true);
+                Run("dotnet", $"SignClient sign -c ../../signClient.json -i {file} -r sc-ids@dotnetfoundation.org -s \"{signClientSecret}\" -n 'Zen.IdentityServer'", noEcho: true);
             }
         }
     }

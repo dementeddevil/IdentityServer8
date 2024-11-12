@@ -7,7 +7,7 @@ using System.Diagnostics.CodeAnalysis;
 
 #pragma warning disable 1591
 
-namespace IdentityServer8.Extensions
+namespace Zen.IdentityServer.Extensions
 {
     internal static class IEnumerableExtensions
     {

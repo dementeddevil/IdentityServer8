@@ -3,7 +3,7 @@
 
 #pragma warning disable 1591
 
-namespace IdentityServer8.Stores.Serialization
+namespace Zen.IdentityServer.Stores.Serialization
 {
     public class ClaimsPrincipalLite
     {

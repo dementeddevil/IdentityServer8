@@ -4,7 +4,7 @@
 
 using AutoMapper;
 
-namespace IdentityServer8.EntityFramework.Mappers
+namespace Zen.IdentityServer.EntityFramework.Mappers
 {
     /// <summary>
     /// Extension methods to map to/from entity/model for clients.

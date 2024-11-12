@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Xunit;
 
-namespace IdentityServer8.EntityFramework.IntegrationTests
+namespace Zen.IdentityServer.EntityFramework.IntegrationTests
 {
     /// <summary>
     /// Base class for integration tests, responsible for initializing test database providers & an xUnit class fixture

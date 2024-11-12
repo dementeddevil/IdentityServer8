@@ -7,11 +7,11 @@
 
     <ItemGroup>
         <PackageReference Update="IdentityModel" Version="7.0.0" />
-        <PackageReference Update="IdentityServer8" Version="$(IdentityServerVersion)" />
-        <PackageReference Update="IdentityServer8.Storage" Version="$(IdentityServerVersion)" />
-        <PackageReference Update="IdentityServer8.EntityFramework.Storage" Version="$(IdentityServerVersion)" />
-        <PackageReference Update="IdentityServer8.EntityFramework" Version="$(IdentityServerVersion)" />
-        <PackageReference Update="IdentityServer8.AspNetIdentity" Version="$(IdentityServerVersion)" />
+        <PackageReference Update="Zen.IdentityServer" Version="$(IdentityServerVersion)" />
+        <PackageReference Update="Zen.IdentityServer.Storage" Version="$(IdentityServerVersion)" />
+        <PackageReference Update="Zen.IdentityServer.EntityFramework.Storage" Version="$(IdentityServerVersion)" />
+        <PackageReference Update="Zen.IdentityServer.EntityFramework" Version="$(IdentityServerVersion)" />
+        <PackageReference Update="Zen.IdentityServer.AspNetIdentity" Version="$(IdentityServerVersion)" />
 
         <PackageReference Update="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="$(AspNetVersion)" />
         <PackageReference Update="Microsoft.AspNetCore.Authentication.JwtBearer" Version="$(AspNetVersion)" />

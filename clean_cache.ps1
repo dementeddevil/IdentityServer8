@@ -6,4 +6,4 @@ Remove-Item $env:USERPROFILE\.nuget\packages\identityserver8.aspnetidentity\ -Re
 
 Remove-Item $env:USERPROFILE\.nuget\packages\identitymodel\ -Recurse -ErrorAction SilentlyContinue 
 Remove-Item $env:USERPROFILE\.nuget\packages\IdentityModel.AspNetCore.OAuth2Introspection\ -Recurse -ErrorAction SilentlyContinue 
-Remove-Item $env:USERPROFILE\.nuget\packages\IdentityServer8.AccessTokenValidation\ -Recurse -ErrorAction SilentlyContinue 
+Remove-Item $env:USERPROFILE\.nuget\packages\Zen.IdentityServer.AccessTokenValidation\ -Recurse -ErrorAction SilentlyContinue 

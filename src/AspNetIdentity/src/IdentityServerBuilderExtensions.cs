@@ -3,8 +3,8 @@
 
 
 using IdentityModel;
-using IdentityServer8;
-using IdentityServer8.AspNetIdentity;
+using Zen.IdentityServer;
+using Zen.IdentityServer.AspNetIdentity;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 
@@ -51,7 +51,7 @@ namespace Microsoft.Extensions.DependencyInjection
             builder.Services.ConfigureExternalCookie(options =>
             {
                 options.Cookie.IsEssential = true;
-                // https://github.com/IdentityServer/IdentityServer8/issues/2595
+                // https://github.com/IdentityServer/Zen.IdentityServer/issues/2595
                 options.Cookie.SameSite = AspNetCore.Http.SameSiteMode.None;
             });
 

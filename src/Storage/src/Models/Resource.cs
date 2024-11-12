@@ -4,7 +4,7 @@
 
 using System.Diagnostics;
 
-namespace IdentityServer8.Models
+namespace Zen.IdentityServer.Models
 {
     /// <summary>
     /// Models the common data of API and identity resources.

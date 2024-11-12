@@ -4,12 +4,12 @@
 
 using Newtonsoft.Json;
 
-namespace IdentityServer8.Stores.Serialization
+namespace Zen.IdentityServer.Stores.Serialization
 {
     /// <summary>
     /// JSON-based persisted grant serializer
     /// </summary>
-    /// <seealso cref="IdentityServer8.Stores.Serialization.IPersistentGrantSerializer" />
+    /// <seealso cref="Zen.IdentityServer.Stores.Serialization.IPersistentGrantSerializer" />
     public class PersistentGrantSerializer : IPersistentGrantSerializer
     {
         private static readonly JsonSerializerSettings _settings;
