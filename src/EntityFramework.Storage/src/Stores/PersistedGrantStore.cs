@@ -90,7 +90,7 @@ namespace Zen.IdentityServer.EntityFramework.Stores
             filter.Validate();
 
             var persistedGrants = await Filter(Context.PersistedGrants.AsQueryable(), filter).ToArrayAsync();
-            persistedGrants = Filter(persistedGrants.AsQueryable(), filter).ToArray();
+            //persistedGrants = Filter(persistedGrants.AsQueryable(), filter).ToArray();
             
             var model = persistedGrants.Select(x => x.ToModel());
 
