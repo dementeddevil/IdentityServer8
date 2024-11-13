@@ -1,7 +1,7 @@
 <Project>
 
   <PropertyGroup>
-    <AspNetVersion>8.0.10</AspNetVersion>    
+    <AspNetVersion>9.0.0</AspNetVersion>    
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,6 +12,6 @@
     <PackageReference Update="Microsoft.AspNetCore.Authentication.JwtBearer" Version="$(AspNetVersion)" />     
     <PackageReference Update="Microsoft.AspNetCore.Authentication.Certificate" Version="$(AspNetVersion)"/>
     
-    <PackageReference Update="System.IdentityModel.Tokens.Jwt" Version="8.1.2" />
+    <PackageReference Update="System.IdentityModel.Tokens.Jwt" Version="8.2.0" />
   </ItemGroup>
 </Project>
