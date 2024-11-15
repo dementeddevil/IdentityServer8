@@ -2,22 +2,22 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using Zen.IdentityServer.Hosting;
-using Zen.IdentityServer.Validation;
 using Microsoft.AspNetCore.Http;
-using Zen.IdentityServer.Extensions;
-using Zen.IdentityServer.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Zen.IdentityServer.Stores;
+using Zen.IdentityServer.Configuration;
+using Zen.IdentityServer.Extensions;
+using Zen.IdentityServer.Hosting;
 using Zen.IdentityServer.Models;
+using Zen.IdentityServer.Stores;
+using Zen.IdentityServer.Validation;
 
 namespace Zen.IdentityServer.Endpoints.Results;
 
 /// <summary>
-/// Result for login page
+/// Result for select account page
 /// </summary>
 /// <seealso cref="Zen.IdentityServer.Hosting.IEndpointResult" />
-public class LoginPageResult : IEndpointResult
+public class SelectAccountPageResult : IEndpointResult
 {
     private readonly ValidatedAuthorizeRequest _request;
 
@@ -26,15 +26,15 @@ public class LoginPageResult : IEndpointResult
     /// </summary>
     /// <param name="request">The request.</param>
     /// <exception cref="System.ArgumentNullException">request</exception>
-    public LoginPageResult(ValidatedAuthorizeRequest request)
+    public SelectAccountPageResult(ValidatedAuthorizeRequest request)
     {
         _request = request ?? throw new ArgumentNullException(nameof(request));
     }
 
-    internal LoginPageResult(
+    internal SelectAccountPageResult(
         ValidatedAuthorizeRequest request,
         IdentityServerOptions options,
-        IAuthorizationParametersMessageStore? authorizationParametersMessageStore = null) 
+        IAuthorizationParametersMessageStore? authorizationParametersMessageStore = null)
         : this(request)
     {
         _options = options;
@@ -71,15 +71,15 @@ public class LoginPageResult : IEndpointResult
             returnUrl = returnUrl.AddQueryString(_request.Raw.ToQueryString());
         }
 
-        var loginUrl = _options.UserInteraction.LoginUrl;
-        if (!loginUrl.IsLocalUrl())
+        var selectAccountUrl = _options.UserInteraction.SelectAccountUrl;
+        if (!selectAccountUrl.IsLocalUrl())
         {
             // this converts the relative redirect path to an absolute one if we're 
             // redirecting to a different server
             returnUrl = context.GetIdentityServerHost().EnsureTrailingSlash() + returnUrl.RemoveLeadingSlash();
         }
 
-        var url = loginUrl.AddQueryString(_options.UserInteraction.LoginReturnUrlParameter, returnUrl);
+        var url = selectAccountUrl.AddQueryString(_options.UserInteraction.SelectAccountReturnUrlParameter, returnUrl);
         context.Response.RedirectToAbsoluteUrl(url);
     }
 }

@@ -6,7 +6,7 @@
     <EntityFrameworkVersion>9.0.0</EntityFrameworkVersion>
     
     <Stable>true</Stable>
-    <BaseVersion>9.0.0</BaseVersion>
+    <BaseVersion>9.1.0</BaseVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Stable)' == 'true'">

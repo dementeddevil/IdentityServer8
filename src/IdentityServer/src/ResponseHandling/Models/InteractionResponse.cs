@@ -20,6 +20,14 @@ public class InteractionResponse
     public bool IsLogin { get; set; }
 
     /// <summary>
+    /// Gets or sets a value indicating whether the user must select an account.
+    /// </summary>
+    /// <value>
+    ///   <c>true</c> if this instance is select account; otherwise, <c>false</c>.
+    /// </value>
+    public bool IsSelectAccount { get; set; }
+
+    /// <summary>
     /// Gets or sets a value indicating whether the user must consent.
     /// </summary>
     /// <value>

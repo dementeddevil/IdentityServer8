@@ -117,8 +117,7 @@ public class AuthorizeInteractionResponseGenerator : IAuthorizeInteractionRespon
     /// <returns></returns>
     protected internal virtual async Task<InteractionResponse> ProcessLoginAsync(ValidatedAuthorizeRequest request)
     {
-        if (request.PromptModes.Contains(OidcConstants.PromptModes.Login) ||
-            request.PromptModes.Contains(OidcConstants.PromptModes.SelectAccount))
+        if (request.PromptModes.Contains(OidcConstants.PromptModes.Login))
         {
             Logger.LogInformation("Showing login: request contains prompt={0}", request.PromptModes.ToSpaceSeparatedString());
 
@@ -127,6 +126,17 @@ public class AuthorizeInteractionResponseGenerator : IAuthorizeInteractionRespon
             request.RemovePrompt();
             
             return new InteractionResponse { IsLogin = true };
+        }
+
+        if (request.PromptModes.Contains(OidcConstants.PromptModes.SelectAccount))
+        {
+            Logger.LogInformation("Showing select account: request contains prompt={0}", request.PromptModes.ToSpaceSeparatedString());
+
+            // remove prompt so when we redirect back in from login page
+            // we won't think we need to force a prompt again
+            request.RemovePrompt();
+
+            return new InteractionResponse { IsSelectAccount = true };
         }
 
         // unauthenticated user
@@ -257,7 +267,7 @@ public class AuthorizeInteractionResponseGenerator : IAuthorizeInteractionRespon
             // did user provide consent
             if (consent == null)
             {
-                // user was not yet shown conset screen
+                // user was not yet shown consent screen
                 response.IsConsent = true;
                 Logger.LogInformation("Showing consent: User has not yet consented");
             }

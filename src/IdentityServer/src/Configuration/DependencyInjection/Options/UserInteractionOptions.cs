@@ -28,6 +28,22 @@ public class UserInteractionOptions
     public string LoginReturnUrlParameter { get; set; } //= Constants.UIConstants.DefaultRoutePathParams.Login;
 
     /// <summary>
+    /// Gets or sets the select account URL. If a local URL, the value must start with a leading slash.
+    /// </summary>
+    /// <value>
+    /// The select account URL.
+    /// </value>
+    public string SelectAccountUrl { get; set; }
+
+    /// <summary>
+    /// Gets or sets the select account return URL parameter.
+    /// </summary>
+    /// <value>
+    /// The login return URL parameter.
+    /// </value>
+    public string SelectAccountReturnUrlParameter { get; set; } //= Constants.UIConstants.DefaultRoutePathParams.Login;
+
+    /// <summary>
     /// Gets or sets the logout URL. If a local URL, the value must start with a leading slash.
     /// </summary>
     /// <value>

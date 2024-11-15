@@ -89,6 +89,10 @@ internal abstract class AuthorizeEndpointBase : IEndpointHandler
         {
             return new LoginPageResult(request);
         }
+        if (interactionResult.IsSelectAccount)
+        {
+            return new SelectAccountPageResult(request);
+        }
         if (interactionResult.IsConsent)
         {
             return new ConsentPageResult(request);

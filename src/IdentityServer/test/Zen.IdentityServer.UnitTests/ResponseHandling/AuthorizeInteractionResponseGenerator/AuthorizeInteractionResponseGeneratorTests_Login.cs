@@ -234,7 +234,7 @@ public class AuthorizeInteractionResponseGeneratorTests_Login
     }
 
     [Fact]
-    public async Task prompt_select_account_should_sign_in()
+    public async Task prompt_select_account_should_select_account()
     {
         var request = new ValidatedAuthorizeRequest
         {
@@ -246,7 +246,7 @@ public class AuthorizeInteractionResponseGeneratorTests_Login
 
         var result = await _subject.ProcessLoginAsync(request);
 
-        result.IsLogin.Should().BeTrue();
+        result.IsSelectAccount.Should().BeTrue();
     }
 
     [Fact]
